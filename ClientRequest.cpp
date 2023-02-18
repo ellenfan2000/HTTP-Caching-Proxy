@@ -9,9 +9,11 @@ for(int i=0;i<firstLine.length();i++){
 	}else if(cnt==0){
 		this->request_method=sum;
 		sum="";
+		cnt+=1;
 	}else if(cnt==1){
 		this->request_url=sum;
 		sum="";
+		cnt+=1;
 	}else if(cnt==2){
 		this->http_version=sum;
 		sum="";

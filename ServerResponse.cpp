@@ -2,11 +2,11 @@
 #include <iostream>
 #include<sstream>
 #include<string>
-ServerResponse::parse(std::string response_parse){
+void ServerResponse::parse(std::string response_parse){
 std::stringstream ss;
 ss<<response_parse;
 std::string line;
-String sum="";
+std::string sum="";
 int cnt=0;
 while(std::getline(ss,line)){
 	if(line.length()>0){
@@ -24,9 +24,9 @@ while(std::getline(ss,line)){
 	}
 }	
 }
-ServerResponse::parseHead(std::string head){
+void ServerResponse::parseHead(std::string head){
 int flag=0;
-String sum="";
+std::string sum="";
 int cnt=0;
 for(int i=0;i<head.length();i++){
 	std::string sub=head.substr(i,1);
@@ -46,7 +46,7 @@ for(int i=0;i<head.length();i++){
 	}
 }
 }
-ServerResponse::parseMiddle(std::string middle){
+void ServerResponse::parseMiddle(std::string middle){
 	std::stringstream ss;
 	ss<<middle;
 	std::string line;
@@ -61,6 +61,9 @@ ServerResponse::parseMiddle(std::string middle){
 		}
 	}
 }
-ServerResponse::parseBody(std::string body){
+void ServerResponse::parseBody(std::string body){
 	this->response_body=body;
+}
+int main(){
+return 0;
 }

@@ -1,4 +1,5 @@
 #include <string>
+#include <map>
 class ServerResponse{
 	bool is_200_ok;
 	std::string http_version;

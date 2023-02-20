@@ -3,6 +3,7 @@
 #include <netdb.h>
 #include <string.h>
 #include <unistd.h> 
+#include "TCPServer.hpp"
 int server_init(std::string port){
    int status;
    struct addrinfo server_info;
@@ -11,7 +12,7 @@ int server_init(std::string port){
    server_info.ai_family = AF_UNSPEC;
    server_info.ai_socktype = SOCK_STREAM;
    server_info.ai_flags = AI_PASSIVE;
-   if ((status = getaddrinfo(NULL, port, &server_info, &server_info_list)) != 0) {
+   if ((status = getaddrinfo(NULL, port.c_str(), &server_info, &server_info_list)) != 0) {
     fprintf(stderr, "getaddrinfo error: %s\n", gai_strerror(status));
     exit(1);
    }
@@ -29,13 +30,11 @@ int server_init(std::string port){
    	 exit(1);
    }
    freeaddrinfo(server_info_list);
+   return server_fd;
 }
 int server_client_communicate(int sockfd){
 	struct sockaddr_storage their_addr;
 	socklen_t addr_size;
-	client_socket_fd=accept(sockfd, (struct sockaddr *)&their_addr, &addr_size);
+	int client_socket_fd=accept(sockfd, (struct sockaddr *)&their_addr, &addr_size);
 	return client_socket_fd;
-}
-int main(){
-	return 0;
 }

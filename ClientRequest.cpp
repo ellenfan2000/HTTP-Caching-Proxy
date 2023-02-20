@@ -37,6 +37,3 @@ void ClientRequest::parseHeader(std::string header){
 		this->port=host_info.substr(before_port+1,host_info.length()-this->host_name.length()-1);
 	}
 }
-int main(){
-	return 0;
-}

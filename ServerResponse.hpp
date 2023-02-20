@@ -1,11 +1,14 @@
 #include <string>
+#include <map>
+#ifndef ServerResponse_HPP
+#define ServerResponse_HPP
 class ServerResponse{
-	bool is_200_ok;
+	public:
+   	bool is_200_ok;
 	std::string http_version;
 	std::string response_body;
 	std::string status_info;
 	std::map<std::string,std::string> response_info;
-	public:
 		ServerResponse(std::string response){
 			parse(response);
 		}
@@ -14,3 +17,4 @@ class ServerResponse{
 	   void parseMiddle(std::string middle);
 	   void parseBody(std::string body);
 }; 
+#endif

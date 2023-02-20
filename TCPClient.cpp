@@ -2,6 +2,8 @@
 #include "netdb.h"
 #include <unistd.h>
 #include <iostream>
+#include <cstring>
+#include "TCPClient.hpp"
 int client_init(std::string host, std::string port){
 	int status;
   int socket_fd;
@@ -11,10 +13,10 @@ int client_init(std::string host, std::string port){
   host_addrinfo.ai_family   = AF_UNSPEC;
   host_addrinfo.ai_socktype = SOCK_STREAM;
 
-  status = getaddrinfo(host, port, &host_addrinfo, &host_addrinfo_list);
+  status = getaddrinfo(host.c_str(), port.c_str(), &host_addrinfo, &host_addrinfo_list);
   if (status != 0) {
-    cerr << "Error: cannot get address info for host" << endl;
-    cerr << "  (" << host << "," << port << ")" << endl;
+    std::cerr << "Error: cannot get address info for host" << std::endl;
+    std::cerr << "  (" << host << "," << port << ")" << std::endl;
     return -1;
   } //if
 
@@ -22,23 +24,20 @@ int client_init(std::string host, std::string port){
 		     host_addrinfo_list->ai_socktype, 
 		     host_addrinfo_list->ai_protocol);
   if (socket_fd == -1) {
-    cerr << "Error: cannot create socket" << endl;
-    cerr << "  (" << host << "," << port << ")" << endl;
+    std::cerr << "Error: cannot create socket" << std::endl;
+    std::cerr << "  (" << host << "," << port << ")" << std::endl;
     return -1;
   } //if
   
-  cout << "Connecting to " << host << " on port " << port << "..." << endl;
+  std::cout << "Connecting to " << host << " on port " << port << "..." << std::endl;
   
   status = connect(socket_fd, host_addrinfo_list->ai_addr, host_addrinfo_list->ai_addrlen);
   if (status == -1) {
-    cerr << "Error: cannot connect to socket" << endl;
-    cerr << "  (" << hostname << "," << port << ")" << endl;
+    std::cerr << "Error: cannot connect to socket" << std::endl;
+    std::cerr << "  (" << host << "," << port << ")" << std::endl;
     return -1;
   } //if
-  freeaddrinfo(host_info_list);
+  freeaddrinfo(host_addrinfo_list);
 
   return socket_fd;
-}
-int main(){
-	return 0;
 }

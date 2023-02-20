@@ -3,11 +3,12 @@
 #ifndef ClientRequest_hpp
 #define ClientRequest_hpp
 class ClientRequest{
-std::string request_method;
-std::string request_url;
-std::string http_version;
-std::string host_name;
-std::string port;
+public:
+  std::string request_method;
+  std::string request_url;
+  std::string http_version;
+  std::string host_name;
+  std::string port;
 public:
  ClientRequest(std::string request_info){
  	int request_line_end=request_info.find_first_of("\r\n");

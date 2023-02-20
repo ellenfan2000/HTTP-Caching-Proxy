@@ -64,3 +64,6 @@ void ServerResponse::parseMiddle(std::string middle){
 void ServerResponse::parseBody(std::string body){
 	this->response_body=body;
 }
+int main(){
+return 0;
+}

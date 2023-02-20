@@ -1,7 +1,10 @@
 #include <string>
 #include <map>
+<<<<<<< HEAD
 #ifndef ServerResponse_HPP
 #define ServerResponse_HPP
+=======
+>>>>>>> 5f031b076a8bc561f91aeece89a86f0c9d8472be
 class ServerResponse{
 	public:
    	bool is_200_ok;

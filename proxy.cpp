@@ -7,6 +7,7 @@
 #include "ClientRequest.hpp"
 #include "ServerResponse.hpp"
 #include <pthread.h>
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 void*request_process(void* fds);
 void post(int length,std::string request_info,ClientRequest* request,int server_fd, int client_fd);
 void get(int length,std::string request_info,ClientRequest* request,int server_fd, int client_fd);
@@ -28,6 +29,7 @@ void* request_process(void* fds){
 		char msg[2147483647];
 		int length=recv(client_fd,msg,sizeof(msg),0);
 		std::string request_info=std::string(msg,length);
+		 pthread_mutex_lock(&lock);
 		ClientRequest* request=new ClientRequest(request_info);
 		std::string method=request->request_method;
 		bool is_bad_request=(method!="GET")&&(method!="POST")&&(method!="CONNECT");
@@ -37,7 +39,12 @@ void* request_process(void* fds){
 		}
 	    if(method=="POST"){
 	    	post(length,request_info,request,server_fd,client_fd);
+		}else if(method=="GET"){
+			get(length,request_info,request,server_fd,client_fd);
+		}else if(method=="CONNECT"){
+			connect(length,request_info,request,server_fd,client_fd);
 		}
+		 pthread_mutex_unlock(&lock);
    return NULL;		
 }
 ServerResponse* forward(int length,std::string request_info,ClientRequest* request,int server_fd, int client_fd){

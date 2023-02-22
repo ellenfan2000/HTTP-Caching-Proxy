@@ -3,10 +3,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <cstring>
-<<<<<<< HEAD
 #include "TCPClient.hpp"
-=======
->>>>>>> 5f031b076a8bc561f91aeece89a86f0c9d8472be
 int client_init(std::string host, std::string port){
 	int status;
   int socket_fd;

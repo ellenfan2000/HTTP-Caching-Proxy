@@ -9,8 +9,11 @@ public:
   std::string port;
   std::string line_one; 
   int ID;
+  std::string IP;
 public:
- ClientRequest(std::string request_info){
+ ClientRequest(std::string request_info,int ID,std::string IP){
+ 	this->ID=ID;
+  this->IP=IP;
  	int request_line_end=request_info.find_first_of("\r\n");
  	std::string first_line=request_info.substr(0,request_line_end);
  	parseFirstLine(first_line);

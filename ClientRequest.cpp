@@ -3,7 +3,7 @@
 void ClientRequest::parseFirstLine(std::string firstLine){
  this->line_one=firstLine;
  int first_blank_position=firstLine.find_first_of(" ");
- String method=firstLine.substr(0,first_blank_position);
+ std::string method=firstLine.substr(0,first_blank_position);
  this->request_method=method;
 }
 void ClientRequest::parseHeader(std::string header){

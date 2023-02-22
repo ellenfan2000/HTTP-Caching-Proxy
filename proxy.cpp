@@ -7,6 +7,10 @@
 #include "ClientRequest.hpp"
 #include "ServerResponse.hpp"
 #include <pthread.h>
+#include <string.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sstream>
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 void*request_process(void* fds);
 void post(int length,std::string request_info,ClientRequest* request,int server_fd, int client_fd);
@@ -14,24 +18,42 @@ void get(int length,std::string request_info,ClientRequest* request,int server_f
 void connect(int length,std::string request_info,ClientRequest* request,int server_fd, int client_fd);
 void start(){
 	int socket_fd=server_init(std::string("12345"));
+	int req_id=0;
 	while(1){
-	   	 int client_fd=server_client_communicate(socket_fd);
+		 struct sockaddr_storage their_addr;
+	     socklen_t addr_size;
+	     int client_fd=accept(socket_fd, (struct sockaddr *)&their_addr, &addr_size);
+	     std::string client_IP=inet_ntoa(((struct sockaddr_in*)&their_addr)->sin_addr);
 	   	 pthread_t thread;
-	   	 int*fds=new int[2];
-	   	 fds[0]=socket_fd;
-	   	 fds[1]=client_fd; 
+	   	 std::stringstream ss1;
+         ss1 << client_fd;
+         std::string client_fd_str = ss1.str();
+         std::stringstream ss2;
+          ss2 << req_id;
+         std::string req_id_str = ss2.str();
+	   	 std::string*fds=new std::string[3];
+	   	 fds[0]=client_fd_str; 
+	   	 fds[1]=req_id_str;
+	   	 fds[2]=client_IP;
 	   	 pthread_create(&thread,NULL,&request_process,fds);
+	   	 
+	   	 req_id+=1;
 	}
 }
 void* request_process(void* fds){
-	    int client_fd=((int*)fds)[1];
-	    int server_fd=((int*)fds)[0];
+	    std::string client_fd_str=((std::string*)fds)[0];
+	    int client_fd=atoi(client_fd_str.c_str());
+	    std::string req_id_str=((std::string*)fds)[1];
+	    int req_id=atoi(req_id_str.c_str());
 		char msg[2147483647];
 		int length=recv(client_fd,msg,sizeof(msg),0);
 		std::string request_info=std::string(msg,length);
-		 pthread_mutex_lock(&lock);
-		ClientRequest* request=new ClientRequest(request_info);
+		 //pthread_mutex_lock(&lock);
+		ClientRequest* request=new ClientRequest(request_info,req_id,((std::string*)fds)[2]);
 		std::string method=request->request_method;
+        std::string host=request->host_name;
+        std::string port=request->port;
+        int server_fd=client_init(host,port);
 		bool is_bad_request=(method!="GET")&&(method!="POST")&&(method!="CONNECT");
 		if(is_bad_request){
 			std::cerr<<"Bad Request Type!!!"<<std::endl;
@@ -44,7 +66,7 @@ void* request_process(void* fds){
 		}else if(method=="CONNECT"){
 			connect(length,request_info,request,server_fd,client_fd);
 		}
-		 pthread_mutex_unlock(&lock);
+		 //pthread_mutex_unlock(&lock);
    return NULL;		
 }
 ServerResponse* forward(int length,std::string request_info,ClientRequest* request,int server_fd, int client_fd){

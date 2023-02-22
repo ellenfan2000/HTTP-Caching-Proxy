@@ -30,7 +30,7 @@ this->first_line=head;
 int first_space=head.find_first_of(" ");
 int end_line=head.find_first_of("\r\n");
 this->http_version=head.substr(0,first_space);
-std::string left=head.substr(first_space,endline-first_space);
+std::string left=head.substr(first_space,end_line-first_space);
 int pos=left.find_first_not_of(" ");
 this->status_info=left.substr(pos,left.length()-pos);
 this->is_200_ok=this->status_info.find("200 OK")!=std::string::npos;

@@ -32,9 +32,3 @@ int server_init(std::string port){
    freeaddrinfo(server_info_list);
    return server_fd;
 }
-int server_client_communicate(int sockfd){
-	struct sockaddr_storage their_addr;
-	socklen_t addr_size;
-	int client_socket_fd=accept(sockfd, (struct sockaddr *)&their_addr, &addr_size);
-	return client_socket_fd;
-}

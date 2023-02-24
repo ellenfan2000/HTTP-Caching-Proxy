@@ -12,7 +12,9 @@ private:
 	int capacity;
 	std::vector<std::string> used_list; //least recently used item -> most recently used item
 
-
+	/**
+	 * this method remove the least used item from the object
+	*/
 	void evict(){
 		std::string key = used_list[0];
 		cache_map.erase(key);
@@ -22,13 +24,22 @@ private:
 
 public:
     Cache(int m):capacity(m){}
+
+	/**
+	 * whether the key in in the cache
+	 * @param key the key of the map
+	 * @return true if in cache; false if not
+	*/
 	bool isInCache(std::string & key){
         return cache_map.find(key) != cache_map.end();
     }
 
 
-	bool validate(std::string & key);
-
+	/**
+	 * return the reponse stored in cache
+	 * @param key the key to get
+	 * @return NULL if not in cache; reponse stored in cache
+	*/
 	http::response<http::dynamic_body> * get(std::string & key){
 		if(!isInCache(key)){
 			return NULL;
@@ -44,10 +55,16 @@ public:
 				return &cache_map[key];
 			}
 		}
+		return NULL;
 	}
 
-	
-	int put(std::string & key, http::response<http::dynamic_body> response){
+	/**
+	 * insert a item into the cache
+	 * @param key 
+	 * @param reponse value
+	 * @return 1 if success, 0 if not
+	*/
+	int put(std::string key, http::response<http::dynamic_body> response){
 		//already in cache, do not store
 		if(isInCache(key)){
 			return 0;
@@ -58,14 +75,8 @@ public:
 			cache_map[key] = response;
 			capacity--;
 			used_list.push_back(key);
+			return 1;
 		}
+		return 0; 
 	}
-
-	// bool in_cache(std::string request);
-	//   bool validate(std::ofstream&LogStream,std::mutex lock,int server_fd, ClientRequest* request,ServerResponse* response);
-	//   bool can_cache(std::string response);
-	//   bool check_expire(std::ofstream&LogStream,pthread_mutex_t lock,int id,std::string info,ServerResponse* response);
-	//   std::vector<std::string> get_cache_control(ServerResponse* response);
-	//   ServerResponse* check_request_save(std::ofstream&LogStream,pthread_mutex_t lock,int server_fd,ClientRequest* request);
-	//   void check_response_save(std::ofstream&LogStream, pthread_mutex_t lock,int server_fd,ClientRequest* request, ServerResponse* response);
 }; 

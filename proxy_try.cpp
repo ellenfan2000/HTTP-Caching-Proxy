@@ -29,7 +29,6 @@ public:
     Proxy(std::string p):host(NULL), port(p.c_str()){}
 
     void run(){
-        // boost::asio::io_context io_context;
         tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), strtol(port, NULL, 0)));
         while (true){
             tcp::socket * socket = new tcp::socket(io_context);
@@ -41,7 +40,6 @@ public:
     }
     
     tcp::socket * connectToServer_socket (const char * host, const char * port){
-
         // These objects perform our I/O
         tcp::resolver resolver(io_context);
 
@@ -96,17 +94,6 @@ public:
     }
 
     void post(http::request<http::dynamic_body> * request, tcp::socket * socket){
-        // Send the HTTP request to requested server HTTP not HTTPS
-        // beast::tcp_stream * stream = connectToServer(std::string(request->at("HOST")).c_str(), "80");
-        // http::write(*stream, *request);
-
-        // //recieve the HTTP response from the server
-        // boost::beast::flat_buffer buffer2;
-        // http::response<http::dynamic_body> response;
-        // boost::beast::http::read(*stream, buffer2, response);
-
-        // // Send the response to the client
-        // http::write(*socket, response);
         std::string port;
         std::string host;
         isHTTPS(std::string(request->at("HOST")), &host, &port);
@@ -148,55 +135,29 @@ public:
         isHTTPS(std::string(request->at("HOST")), &host, &port);
         tcp::socket * socket_server = connectToServer_socket(host.c_str(), port.c_str());
 
-        http::write(*socket_server, *request);
-
+        int status;
         std::string message = "HTTP/1.1 200 OK\r\n\r\n";
-        net::write(*socket, net::buffer(message));
-
-        // net::io_context io_context;
-        // tcp::resolver resolver(io_context);
-        // auto endpoints = resolver.resolve(host, port);
-
-        // boost::asio::io_context my_context;
-        // boost::asio::ssl::context ctx(boost::asio::ssl::context::sslv23);
-
-        // net::ssl::stream<tcp::socket> sockssl(my_context, ctx);
-        // net::connect(sockssl.lowest_layer(),endpoints);
-        // // ctx.set_default_verify_paths();
-        
-        // http::write(sockssl.next_layer(),*request);
-        // beast::flat_buffer buffer;
-        // http::response<http::dynamic_body> response;
-
-
-        // http::read(sockssl, buffer, response);
-        // std::cout << "reponse status is "<<response.result_int()<<std::endl;
-        // if(response.result_int() == 200){
-        //     std::cout << "reponse header is " << response.base()<<std::endl;
-        // }
-
-
-
-        // beast::flat_buffer buffer;
-        // http::response<http::dynamic_body> response;
-
-        // http::read(*socket_server, buffer, response);
-        // std::cout << "reponse status is "<<response.result_int()<<std::endl;
-        // if(response.result_int() == 200){
-        //     std::cout << "reponse header is " << response.base()<<std::endl;
-        // }
-
+        status = net::write(*socket, net::buffer(message));
+        std::cout<<"byte send " << status<<std::endl;
 
         int num = 0;
         std::cout<<"hostname is " <<host <<" portnumber is " <<port <<std::endl;
         while(true){
             beast::flat_buffer buffer;
-            http::response<http::dynamic_body> response;
-            http::request<http::dynamic_body> request2;
-            std::cout<<num<<std::endl;
-            socket_server->async_wait(tcp::socket::wait_read, boost::bind(wait_handler, boost::asio::placeholders::error,socket, socket_server,1));
-            socket->async_wait(tcp::socket::wait_read,boost::bind(wait_handler, boost::asio::placeholders::error,socket, socket_server,-1));
-            if(!socket->is_open() || !socket_server->is_open()){
+            int server_byte = socket_server->available();
+            int clinet_byte = socket->available();
+            // std::cout<<"server ready is " <<server_byte <<" client ready is " <<clinet_byte  <<std::endl;
+            if(server_byte > 0){
+                std::vector<char> bu1(server_byte);
+                net::read(*socket_server, net::buffer(bu1));
+                net::write(*socket, net::buffer(bu1));
+            }
+            if(clinet_byte > 0){
+                std::vector<char> bu2(clinet_byte);
+                net::read(*socket, net::buffer(bu2));
+                net::write(*socket_server, net::buffer(bu2));
+            }
+            if(!socket_server->is_open()||!socket->is_open()){
                 break;
             }
             num++;
@@ -204,20 +165,58 @@ public:
         socket_server->close();
     }
 
-    static void wait_handler(const boost::system::error_code & ec, tcp::socket * socketClient, tcp::socket * socketServer, int flag){
-        beast::flat_buffer buffer;
-        http::response<http::dynamic_body> response;
-        http::request<http::dynamic_body> request;
-        std::cout<<"?" <<std::endl;
-        if(flag == 1){
-            beast::http::read(*socketServer, buffer, response);
-            http::write(*socketClient, response);
-        }
-        else{
-            beast::http::read(*socketClient, buffer, request);
-            http::write(*socketServer, request);
-        }
-    }
+    // void connectHandler(const boost::system::error_code & ec){
+
+    // }
+
+
+    // void readHandler(const boost::system::error_code & ec, std::size_t bytes_transferred, tcp::socket * socket, std::vector<char> * data){
+    //     if (!ec)
+    //     {
+    //         std::cout << "Received " << bytes_transferred << " bytes\n";
+    //         std::cout<<"byte transferred " << bytes_transferred <<std::endl;
+
+    //         net::async_write(*socket, net::buffer(*data), boost::bind(&Proxy::writeHandler, this, net::placeholders::error,  net::placeholders::bytes_transferred));
+    //         // std::cout<<"byte send " << byte <<std::endl;
+
+    //         // process the received data here
+    //     }
+    //     else
+    //     {
+    //         std::cout << "Error: " << ec.message() << "\n";
+    //     }
+    // }
+
+    // void writeHandler(const boost::system::error_code & ec, std::size_t bytes_transferred){
+    //     if (!ec)
+    //     {
+    //         std::cout << "Sended " << bytes_transferred << " bytes\n";
+
+    //         // process the received data here
+    //     }
+    //     else
+    //     {
+    //         std::cout << "Error: " << ec.message() << "\n";
+    //     }
+
+    // }
+    // void wait_handler(const boost::system::error_code & ec, tcp::socket * socketClient, tcp::socket * socketServer, int flag){
+    //     if (!ec){
+    //         beast::flat_buffer buffer;
+    //         std::cout<<"?" <<std::endl;
+    //         if(flag == 1){
+    //             net::read(*socketServer, buffer);
+    //             net::write(*socketClient, buffer);
+    //         }
+    //         else{
+    //             net::read(*socketClient, buffer);
+    //             net::write(*socketServer, buffer);
+    //         }
+    //     }
+    //     else{
+    //         std::cout << "Error: " << ec.message() << "\n";
+    //     }
+    // }
 };
 
 int main(){

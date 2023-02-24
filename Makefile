@@ -11,4 +11,4 @@ testClient: textClient.cpp
 	g++ -o $@ $< -l pthread
 
 proxy: proxy_try.cpp Cache_try.hpp SocketUtils.hpp
-	g++ -o $@ $< -l pthread
+	g++ -o $@ $< -Werror -l pthread

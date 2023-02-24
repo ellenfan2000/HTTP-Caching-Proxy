@@ -98,9 +98,9 @@ public:
             connect(&request,socket);
         }else{
             // if request is not a valid type, quit
+            //should response 502
             delete socket;
             std::cerr<<"Bad Request Type!!!"<<std::endl;
-			exit(1);
         }
         socket->close();
         delete socket;

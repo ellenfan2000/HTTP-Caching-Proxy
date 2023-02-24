@@ -15,66 +15,76 @@ namespace http = beast::http;
 namespace net = boost::asio;            
 using tcp = boost::asio::ip::tcp;      
 
-beast::tcp_stream * connectToServer(const char * host, const char * port){
-    net::io_context ioc;
-
-    // These objects perform our I/O
-    tcp::resolver resolver(ioc);
-    beast::tcp_stream * stream = new beast::tcp_stream(ioc);
-    tcp::resolver::query query(host,port);
-
-    // Look up the domain name
-    auto const results = resolver.resolve(query);
-
-    // Make the connection on the IP address we get from a lookup
-    (*stream).connect(results);
+bool canCache(http::response<http::dynamic_body> & response){
+	
+}
+bool checkExpire(){
+    
+}
 
 
-    return stream;
-};
-
-tcp::socket * connectToServer_socket (const char * host, const char * port){
-    // net::io_context ioc;
-
-    // // These objects perform our I/O
-    // tcp::resolver resolver(ioc);
-    // beast::tcp_stream * stream = new beast::tcp_stream(ioc);
-    // tcp::resolver::query query(host,port);
-
-    // // Look up the domain name
-    // auto const results = resolver.resolve(query);
-
-    // // Make the connection on the IP address we get from a lookup
-    // (*stream).connect(results);
 
 
-    net::io_context io_context;
+// beast::tcp_stream * connectToServer(const char * host, const char * port){
+//     net::io_context ioc;
 
-    // These objects perform our I/O
-    tcp::resolver resolver(io_context);
+//     // These objects perform our I/O
+//     tcp::resolver resolver(ioc);
+//     beast::tcp_stream * stream = new beast::tcp_stream(ioc);
+//     tcp::resolver::query query(host,port);
 
-    tcp::socket * socket = new tcp::socket(io_context);
-    // beast::tcp_stream * stream = new beast::tcp_stream(io_context);
-    tcp::resolver::query query(host,port);
+//     // Look up the domain name
+//     auto const results = resolver.resolve(query);
 
-    // Look up the domain name
-    auto const results = resolver.resolve(query);
-
-    // Make the connection on the IP address we get from a lookup
-    net::connect(*socket, results);
-    // (*socket).connect(results);
+//     // Make the connection on the IP address we get from a lookup
+//     (*stream).connect(results);
 
 
-    return socket;
-};
+//     return stream;
+// };
 
- // if (socket_server->available() > 0){
-            //     std::cout << "num is" << num <<std::endl;
-            //     beast::http::read(*socket_server, buffer2, response);
-            //     http::write(*socket, response);
-            // }
-            // if (socket->available() > 0){
-            //     std::cout << "num is" << num <<std::endl;
-            //     beast::http::read(*socket, buffer2, request2);
-            //     http::write(*socket_server, request2);
-            // }
+// tcp::socket * connectToServer_socket (const char * host, const char * port){
+//     // net::io_context ioc;
+
+//     // // These objects perform our I/O
+//     // tcp::resolver resolver(ioc);
+//     // beast::tcp_stream * stream = new beast::tcp_stream(ioc);
+//     // tcp::resolver::query query(host,port);
+
+//     // // Look up the domain name
+//     // auto const results = resolver.resolve(query);
+
+//     // // Make the connection on the IP address we get from a lookup
+//     // (*stream).connect(results);
+
+
+//     net::io_context io_context;
+
+//     // These objects perform our I/O
+//     tcp::resolver resolver(io_context);
+
+//     tcp::socket * socket = new tcp::socket(io_context);
+//     // beast::tcp_stream * stream = new beast::tcp_stream(io_context);
+//     tcp::resolver::query query(host,port);
+
+//     // Look up the domain name
+//     auto const results = resolver.resolve(query);
+
+//     // Make the connection on the IP address we get from a lookup
+//     net::connect(*socket, results);
+//     // (*socket).connect(results);
+
+
+//     return socket;
+// };
+
+//  // if (socket_server->available() > 0){
+//             //     std::cout << "num is" << num <<std::endl;
+//             //     beast::http::read(*socket_server, buffer2, response);
+//             //     http::write(*socket, response);
+//             // }
+//             // if (socket->available() > 0){
+//             //     std::cout << "num is" << num <<std::endl;
+//             //     beast::http::read(*socket, buffer2, request2);
+//             //     http::write(*socket_server, request2);
+//             // }

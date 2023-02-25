@@ -91,27 +91,34 @@ public:
         if(ec){
             std::cerr<< ec.message()<<std::endl;
         }
-        
+
+        std::string port;
+        std::string host;
+        isHTTPS(std::string(request.at("HOST")), &host, &port);
+        tcp::socket * socket_server = connectToServer_socket(host.c_str(), port.c_str());
+
         http::verb method = request.method();
         std::cout << "Received HTTP request: " << request << std::endl;
         if (method ==http::verb::get){
-            get(&request, socket);
+            GET(&request, socket, socket_server);
 		}
         else if(method == http::verb::post){
-            post(&request, socket);
+            POST(&request, socket,socket_server);
 
         }else if(method == http::verb::connect){
-            connect(&request,socket);
+            CONNECT(&request,socket,socket_server);
         }else{
             // if request is not a valid type, quit
             //should response 502
-            delete socket;
+            // delete socket;
             std::cerr<<"Bad Request Type!!!"<<std::endl;
             return;
             // exit(1);
         }
         socket->close();
+        socket_server->close();
         delete socket;
+        delete socket_server;
     }
 
     /**
@@ -137,12 +144,9 @@ public:
      * read reponse from server and send it to client
      * @param request request get from client
      * @param socket connection to client
+     * @param socket_server connection to server
     */
-    void post(http::request<http::dynamic_body> * request, tcp::socket * socket){
-        std::string port;
-        std::string host;
-        isHTTPS(std::string(request->at("HOST")), &host, &port);
-        tcp::socket * socket_server = connectToServer_socket(host.c_str(), port.c_str());
+    void POST(http::request<http::dynamic_body> * request, tcp::socket * socket, tcp::socket * socket_server){
         http::write(*socket_server, *request,ec);
         if(ec){
             std::cerr<< ec.message()<<std::endl;
@@ -156,7 +160,7 @@ public:
         if(ec){
             std::cerr<< ec.message()<<std::endl;
         }
-        // std::cout << "reponse header is " << response.base()<<std::endl;
+        std::cout << "reponse header is " << response.base()<<std::endl;
         // // std::cout << "reponse method is " << response.at()<<std::endl;
         // std::cout << "reponse status is "<<response.result_int()<<std::endl;
 
@@ -165,60 +169,6 @@ public:
         if(ec){
             std::cerr<< ec.message()<<std::endl;
         }
-        socket_server->close();
-    }
-
-    /**
-     * process GET method, if cached...
-     * read reponse from server and send it to client
-     * @param request request get from client
-     * @param socket connection to client
-    */
-    void get(http::request<http::dynamic_body> * request, tcp::socket * socket){
-        std::string key;
-        key = std::string((*request)[http::field::host]) + std::string(request->target());
-        // std::cout<<"Cache Control"<<(*request)[http::field::cache_control]<<std::endl;
-        // if (request->find(http::field::cache_control) == request->end() ){
-        //     std::cout<<"cache Control empty"<<std::endl;
-        // }
-        if(cache.isInCache(key)){
-            //get response from cache
-            http::response<http::dynamic_body> * response = cache.get(key);
-
-            // Send response to the client
-            http::write(*socket, *response);
-        }else{
-            //connect to server
-            std::string port;
-            std::string host;
-            isHTTPS(std::string(request->at("HOST")), &host, &port);
-            tcp::socket * socket_server = connectToServer_socket(host.c_str(), port.c_str());
-            http::write(*socket_server, *request,ec);
-            if(ec){
-                std::cerr<< ec.message()<<std::endl;
-            }
-
-            //recieve the HTTP response from the server
-            boost::beast::flat_buffer buffer;
-            http::response<http::dynamic_body> response;
-            
-            boost::beast::http::read(*socket_server, buffer, response,ec);
-            if(ec){
-                std::cerr<< ec.message()<<std::endl;
-            }
-
-            if(canCache(request, &response)){
-
-            }else{
-
-            }
-            // Send the response to the client
-            http::write(*socket, response,ec);
-            if(ec){
-                std::cerr<< ec.message()<<std::endl;
-            }
-            socket_server->close();
-        }
     }
 
     /**
@@ -226,15 +176,9 @@ public:
      * send data in buffer between them
      * @param request request get from client
      * @param socket connection to client
+     * @param socket_server connection to server
     */
-    void connect(http::request<http::dynamic_body> * request, tcp::socket * socket){
-        std::string port;
-        std::string host;
-
-        //get server host and port
-        isHTTPS(std::string(request->at("HOST")), &host, &port);
-        tcp::socket * socket_server = connectToServer_socket(host.c_str(), port.c_str());
-
+    void CONNECT(http::request<http::dynamic_body> * request, tcp::socket * socket, tcp::socket * socket_server){
         //send success to client, build the tunnel
         int status;
         std::string message = "HTTP/1.1 200 OK\r\n\r\n";
@@ -272,23 +216,226 @@ public:
             }
             num++;
         }
-        socket_server->close();
+        // socket_server->close();
     }
+
+    /**
+     * process GET method, if cached...
+     * read reponse from server and send it to client
+     * @param request request get from client
+     * @param socket connection to client
+     * @param socket_server connection to server
+    */
+    void GET(http::request<http::dynamic_body> * request, tcp::socket * socket, tcp::socket * socket_server){
+        // POST(request, socket, socket_server);
+
+        std::string key;
+        key = std::string((*request)[http::field::host]) + std::string(request->target());
+        
+        if(cache.isInCache(key)){
+            //get response from cache
+            http::response<http::dynamic_body> * response = cache.get(key);
+            //no cache control, check fresh
+            if(needValidation(response)){
+                http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response);
+                if(vali_response.result_int() ==200){
+                    cache.update(key, vali_response);
+                    http::write(*socket, vali_response);
+                }else if(vali_response.result_int() == 304){
+                    //modify reponse in cache, replace some values in header
+
+
+                    //still need implementation
+                    http::write(*socket, *response);
+                }
+            }else{
+                // Send response to the client
+                http::write(*socket, *response);
+            }
+        }else{
+            //connect to server
+            http::write(*socket_server, *request, ec);
+            if(ec){
+                std::cerr<< ec.message()<<std::endl;
+            }
+
+            //recieve the HTTP response from the server
+            boost::beast::flat_buffer buffer;
+            http::response<http::dynamic_body> response;
+            
+            boost::beast::http::read(*socket_server, buffer, response,ec);
+            if(ec){
+                std::cerr<< ec.message()<<std::endl;
+            }
+            
+            //store in cache
+            if(cacheCanStore(request, &response)){
+                cache.put(key, response);
+            }
+            // Send the response to the client
+            http::write(*socket, response,ec);
+            if(ec){
+                std::cerr<< ec.message()<<std::endl;
+            }
+        }
+    }
+
+
+    /**
+     * check is the response get from a cache need to be validate
+     * yes: 1. the response has "no-cache", "must-revalidate" in cache-control
+     *      2. the response is not fresh
+     * otherise, no
+     * @param response the response stored in cache
+     * @return true is need validate; false if not
+    */
+    bool needValidation(http::response<http::dynamic_body> * response){
+        if(response->find(http::field::cache_control) == response->end()){
+            if(isFresh(response)){
+                return false;
+            }else{
+                return true;
+            }
+        }else{
+            std::string str((*response)[http::field::cache_control]);
+            std::map<std::string, long> fields = parseFields(str);
+            
+            //if no-store or must-revalidate, need validation
+            if(fields.find("no-store") != fields.end() || fields.find("must-revalidate") != fields.end()){
+                return true;
+            }else{
+                if(isFresh(response)){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        } 
+    }
+
+    http::request<http::dynamic_body> makeConditionalRequest(http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response){
+        http::request<http::dynamic_body> new_request = *request;
+        //what is the two fields does not exist??
+
+
+        new_request.set(http::field::if_none_match,(*response)[http::field::etag]);
+        new_request.set(http::field::if_modified_since, (*response)[http::field::last_modified]);
+        return new_request;
+    }
+
+     /**
+     * do one validation. send conditional request to server
+     * @param socket the socket connection to server
+     * @param request the request send from client
+     * @param response response saved in cache
+     * @return the response got from the server, 200 if updated, 304 if not
+    */
+    http::response<http::dynamic_body> doValidation(tcp::socket * socket_server, http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response){
+        http::request<http::dynamic_body> Crequest = makeConditionalRequest(request, response);
+        http::write(*socket_server, Crequest, ec);
+        if(ec){
+            std::cerr<< ec.message()<<std::endl;
+        }
+        //recieve the HTTP response from the server
+        boost::beast::flat_buffer buffer;
+        http::response<http::dynamic_body> new_response;
+        
+        boost::beast::http::read(*socket_server, buffer, new_response,ec);
+        if(ec){
+            std::cerr<< ec.message()<<std::endl;
+        }
+        return new_response;
+    }
+
+    /**
+     * indicate whether the reponse can be stored in the cache
+     * @param request
+     * @param response
+     * @return yes if can cache; no if not
+    */
+    bool cacheCanStore(http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response){
+        //response is not cacheable 200 ok
+        if(response->result_int() != 200){
+            return false;
+        }
+        //the Authorization header field (see Section 4.2 of [RFC7235]) does not appear in the request, if the cache is shared,
+        // unless the response explicitly allows it (see Section 3.2), and
+
+        //no cache control field
+        if(response->find(http::field::cache_control) == response->end()){
+            return true;
+        }else{
+            std::string str((*response)[http::field::cache_control]);
+            std::map<std::string, long> fields = parseFields(str);
+            //the "no-store" cache directive does not appear in request or response header fields
+            if(fields.find("no-store") != fields.end()){
+                return false;
+            }else{
+                //the "private" response directive (see Section 5.2.2.6) does not
+                //appear in the response, if the cache is shared, and
+                if(fields.find("private") != fields.end()){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+
+    /**
+     * check whether the reponse in cache is still fresh
+     * @param response the response stored in cache
+     * @return true if still fresh; false if not
+    */
+    bool isFresh(http::response<http::dynamic_body> * response){
+        time_t now;
+        time(&now);
+        time_t gmt_now = mktime(gmtime(&now));
+
+        
+        return false;
+    }
+
+
 };
 
 int main(){
-    std::string host = "12345";
-    Proxy p(host, 1000);
-    p.run();
-    return 0;
+    // std::string host = "12345";
+    // Proxy p(host, 1000);
+    // p.run();
+
+    // std::string a = "no-store, no-cache, max-age=1000, must-revalidate, proxy-revalidate";
+    // std::map<std::string, long> b = parseFields(a);
+    // for (auto it = b.begin(); it != b.end(); ++it) {
+    //     std::cout << it->first << " => " << it->second << '\n';
+    // }
+    // std::vector<std::string> b = split(a, ',');
+    // for(int i = 0 ; i < b.size();  i++){
+    //     std::cout<<b[i] <<" is"<<std::endl;
+    // }
 
     // std::string d1 = "Tue, 01 Feb 2022 12:30:45 GMT";
-    // std::string d2 = "Tue, 05 Mar 2022 12:30:45 GMT";
-    // ptime p1 = getDatetime(d1);
-    // ptime p2 = getDatetime(d2);
+    // std::string d2 = "Tue, 01 Feb 2022 12:30:45 UTC";
+    // pt::ptime p1 = getDatetime(d1);
+    // pt::ptime p2 = getDatetime(d2);
     // std::cout << "Date: " << to_simple_string(p1) << std::endl;
     // std::cout << "Date: " << to_simple_string(p2) << std::endl;
-    // return 0;
 
-    
+
+    std::string d1 = "Tue, 01 Feb 2022 12:30:45 GMT";
+    std::string d2 = "Tue, 01 Feb 2022 12:30:45 UTC";
+    std::time_t p1 = parseDatetime(d1);
+    time_t now;
+    time(&now);
+    std::cout << "Parsed time: now is " << asctime(gmtime(&now));
+    std::cout << "Parsed time: " << ctime(&p1);
+    // std::time_t p2 = getDatetime(d2);
+    // std::cout << "Date: " << to_simple_string(p1) << std::endl;
+    // std::cout << "Date: " << to_simple_string(p2) << std::endl;
+
+
+
+    return 0;
 }

@@ -10,6 +10,8 @@
 #include <string>
 #include <thread>
 #include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/date_time.hpp>
+#include <ctime>          // std::tm
 
 #include <sstream>
 #include <locale>
@@ -19,54 +21,68 @@ namespace http = beast::http;
 namespace net = boost::asio;            
 using tcp = boost::asio::ip::tcp;      
 namespace pt = boost::posix_time;
-using namespace boost::posix_time;
+namespace dt = boost::date_time;
 
-bool storeCanCache(http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response){
-    //response is not cacheable
-    if(response->result_int() != 200){
-        return false;
-    }
-    //the "no-store" cache directive does not appear in request or response header fields
-
-
-    //the Authorization header field (see Section 4.2 of [RFC7235]) does not appear in the request, if the cache is shared,
-    // unless the response explicitly allows it (see Section 3.2), and
-
-    //the response either:
-    //contains an Expires header field (see Section 5.3), or
-    
-    //no cache control field
-    if(response->find(http::field::cache_control) == response->end()){
-        return false;
-    }
-    //contains a max-age response directive (see Section 5.2.2.8), or
-
-    //contains a s-maxage response directive (see Section 5.2.2.9) and the cache is shared, or
-
-    //contains a Cache Control Extension (see Section 5.2.3) that allows it to be cached, or
-
-    //has a status code that is defined as cacheable by default (see Section 4.2.2), or
-
-    //contains a public response directive (see Section 5.2.2.5).
-	return false;
-}
-bool checkExpire(){
-    return false;
-    
-}
-ptime getDatetime(std::string date_str){
-    std::locale loc(std::cout.getloc(), new boost::posix_time::time_input_facet("%a, %d %b %Y %H:%M:%S %Z"));
-    std::istringstream ss(date_str);
-    ss.imbue(loc);
-    ptime date_time;
-    ss >> date_time;
+time_t parseDatetime(std::string date_str){
+    // std::locale loc(std::cout.getloc(), new boost::posix_time::time_input_facet("%a, %d %b %Y %H:%M:%S %Z"));
+    // std::istringstream ss(date_str);
+    // ss.imbue(loc);
+    // pt::ptime date_time;
+    // ss >> date_time;
 
     // Print the datetime object
     // std::cout << "Date: " << to_simple_string(date_time) << std::endl;
-    return date_time;
+
+    std::string format_str = "%a, %d %b %Y %H:%M:%S %Z";
+
+    tm tm;
+    if (strptime(date_str.c_str(), format_str.c_str(), &tm) == nullptr) {
+        std::cerr << "Failed to parse HTTP-date string" << std::endl;
+    }
+    time_t time = mktime(&tm);
+    // time_t now;
+    // time(&now);
+    // std::tm * gmt = gmtime(&time);
+
+    // Print the parsed time
+    std::cout << "Parsed time: " << std::asctime(&tm);
+    // std::cout << "Parsed time: " << asctime(gmtime(&now));
+
+    return time;
 }
 
+std::vector<std::string> split(std::string str_, char delimiter){
+    std::string str = "";
+    for(int i = 0; i < str_.size(); i++){
+        if(str_[i]!=' '){
+            str+=str_[i];
+        }
+    }
 
+    std::vector<std::string> result;
+    size_t start = 0, end = 0;
+    while ((end = str.find(delimiter, start)) != std::string::npos) {
+        result.push_back(str.substr(start, end - start));
+        start = end + 1;
+    }
+    result.push_back(str.substr(start));
+    return result;
+}
+
+std::map<std::string, long> parseFields(std::string & str){
+    std::map<std::string, long> result;
+    std::vector<std::string> fields = split(str, ',');
+    int end;
+    for(int i  = 0; i < fields.size(); i++){
+        end = 0;
+        if((end= fields[i].find('=', 0)) != std::string::npos){
+            result[fields[i].substr(0, end)] = std::stol(fields[i].substr(end+1),NULL,10);
+        }else{
+            result[fields[i]] = -1;
+        }
+    }
+    return result;
+}
 // beast::tcp_stream * connectToServer(const char * host, const char * port){
 //     net::io_context ioc;
 

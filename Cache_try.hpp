@@ -34,9 +34,18 @@ public:
         return cache_map.find(key) != cache_map.end();
     }
 
-
 	/**
-	 * return the reponse stored in cache
+	 * update one key in cache
+	*/
+	int update(std::string & key, http::response<http::dynamic_body> response){
+		if(isInCache(key)){
+			cache_map[key] = response;
+			return 1;
+		} 
+		return 0;
+	}
+	/**
+	 * return the reponse stored in cache, update the LRU list
 	 * @param key the key to get
 	 * @return NULL if not in cache; reponse stored in cache
 	*/

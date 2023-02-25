@@ -20,7 +20,6 @@ namespace beast = boost::beast;
 namespace http = beast::http;           
 namespace net = boost::asio;            
 using tcp = boost::asio::ip::tcp;      
-// using namespace boost::posix_time;
 
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
@@ -54,7 +53,7 @@ public:
      * @param port host port
      * @return tcp socket of the connection
     */
-    tcp::socket * connectToServer_socket (const char * host, const char * port){
+    tcp::socket * connectToServer(const char * host, const char * port){
         // These objects perform our I/O
         tcp::resolver resolver(io_context);
 
@@ -94,8 +93,12 @@ public:
 
         std::string port;
         std::string host;
+        if(request.find(http::field::host) == request.end()){
+            std::cerr<<"Bad request, does not have host info"<<std::endl;
+            return;
+        }
         isHTTPS(std::string(request.at("HOST")), &host, &port);
-        tcp::socket * socket_server = connectToServer_socket(host.c_str(), port.c_str());
+        tcp::socket * socket_server = connectToServer(host.c_str(), port.c_str());
 
         http::verb method = request.method();
         std::cout << "Received HTTP request: " << request << std::endl;
@@ -235,6 +238,7 @@ public:
         if(cache.isInCache(key)){
             //get response from cache
             http::response<http::dynamic_body> * response = cache.get(key);
+            // http::response<http::dynamic_body> * response = cache.get(key);
             //no cache control, check fresh
             if(needValidation(response)){
                 http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response);
@@ -244,7 +248,6 @@ public:
                 }else if(vali_response.result_int() == 304){
                     //modify reponse in cache, replace some values in header
 
-
                     //still need implementation
                     http::write(*socket, *response);
                 }
@@ -252,6 +255,7 @@ public:
                 // Send response to the client
                 http::write(*socket, *response);
             }
+            std::cout<<"Cached response is: "<<response->base()<<std::endl;
         }else{
             //connect to server
             http::write(*socket_server, *request, ec);
@@ -277,7 +281,9 @@ public:
             if(ec){
                 std::cerr<< ec.message()<<std::endl;
             }
+            std::cout<<"response is: "<<response.base()<<std::endl;
         }
+        
     }
 
 
@@ -393,18 +399,39 @@ public:
         time_t now;
         time(&now);
         time_t gmt_now = mktime(gmtime(&now));
-
-        
-        return false;
+        if(response->find(http::field::cache_control) != response->end()){
+            std::string str((*response)[http::field::cache_control]);
+            std::map<std::string, long> fields = parseFields(str);  
+            time_t date_value = parseDatetime((*response)[http::field::date]);
+            if(fields.find("max-age") != fields.end()){
+                double age = difftime(now, date_value);
+                if(age > fields["max-age"]){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        }else{
+            if(response->find(http::field::expires)== response->end()){
+                return true;
+            }else{
+                time_t expire = parseDatetime((*response)[http::field::expires]);
+                if (expire > now){
+                    return true;
+                }else{
+                    return false;
+                }
+            } 
+        }
+        return true;
     }
-
 
 };
 
 int main(){
-    // std::string host = "12345";
-    // Proxy p(host, 1000);
-    // p.run();
+    std::string host = "12345";
+    Proxy p(host, 1000);
+    p.run();
 
     // std::string a = "no-store, no-cache, max-age=1000, must-revalidate, proxy-revalidate";
     // std::map<std::string, long> b = parseFields(a);
@@ -424,13 +451,17 @@ int main(){
     // std::cout << "Date: " << to_simple_string(p2) << std::endl;
 
 
-    std::string d1 = "Tue, 01 Feb 2022 12:30:45 GMT";
-    std::string d2 = "Tue, 01 Feb 2022 12:30:45 UTC";
-    std::time_t p1 = parseDatetime(d1);
-    time_t now;
-    time(&now);
-    std::cout << "Parsed time: now is " << asctime(gmtime(&now));
-    std::cout << "Parsed time: " << ctime(&p1);
+    // std::string d1 = "Tue, 01 Feb 2022 12:30:45 GMT";
+    // std::string d2 = "Tue, 01 Feb 2022 12:30:46 GMT";
+    // std::time_t p1 = parseDatetime(d1);
+    // std::time_t p2 = parseDatetime(d2);
+    // time_t now;
+    // time(&now);
+    // std::cout << "Parsed time: now is " << asctime(gmtime(&now));
+    // std::cout << "Parsed time: " << ctime(&p1);
+    // bool a = (p1 < now );
+    // bool b = (p2 < p1);
+    // std::cout << "Date: " << a << b <<std::endl;
     // std::time_t p2 = getDatetime(d2);
     // std::cout << "Date: " << to_simple_string(p1) << std::endl;
     // std::cout << "Date: " << to_simple_string(p2) << std::endl;

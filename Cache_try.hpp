@@ -39,6 +39,7 @@ public:
 	*/
 	int update(std::string & key, http::response<http::dynamic_body> response){
 		if(isInCache(key)){
+			// cache_map[key] = std::pair<http::response<http::dynamic_body>, time_t>(response, t);
 			cache_map[key] = response;
 			return 1;
 		} 
@@ -66,7 +67,7 @@ public:
 		}
 		return NULL;
 	}
-
+	
 	/**
 	 * insert a item into the cache
 	 * @param key 
@@ -81,9 +82,11 @@ public:
 		if(capacity == 0){
 			evict();
 		}else{
+			// cache_map[key] = std::pair<http::response<http::dynamic_body>, time_t>(response, t);
 			cache_map[key] = response;
 			capacity--;
 			used_list.push_back(key);
+			std::cout<<"Your cache is being modified!" << std::endl;
 			return 1;
 		}
 		return 0; 

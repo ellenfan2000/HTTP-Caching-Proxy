@@ -268,6 +268,7 @@ public:
                 LogStream<<ID << ": in cache, requires validation"<<std::endl;
                 http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response);
                 if(vali_response.result_int() ==200){
+		   LogStream<<id<< ": in cache, valid"<<std::endl;
                     cache.update(key, vali_response);
                     http::write(*socket, vali_response);
                 }else if(vali_response.result_int() == 304){
@@ -436,8 +437,9 @@ public:
         time_t gmt_now = mktime(gmtime(&now));
         if(response->find(http::field::cache_control) != response->end()){
             std::string str((*response)[http::field::cache_control]);
-            std::map<std::string, long> fields = parseFields(str);  
-            time_t date_value = parseDatetime((*response)[http::field::date]);
+            std::map<std::string, long> fields = parseFields(str);
+	     std::string date_str((*response)[http::field::date]);
+            time_t date_value = parseDatetime(date_str);
             if(fields.find("max-age") != fields.end()){
                 double age = difftime(now, date_value);
                 if(age > fields["max-age"]){
@@ -452,10 +454,11 @@ public:
                 }
             }
         }else{
+	    std::string expire_str((*response)[http::field::expires]);
             if(response->find(http::field::expires)== response->end()){
                 return true;
             }else{
-                time_t expire = parseDatetime((*response)[http::field::expires]);
+                time_t expire = parseDatetime(expire_str);
                 if (expire > now){
                     return true;
                 }else{

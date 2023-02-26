@@ -21,8 +21,6 @@ namespace http = beast::http;
 namespace net = boost::asio;            
 using tcp = boost::asio::ip::tcp;      
 
-pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
-
 class Proxy{
 private:
     const char * host;
@@ -30,8 +28,12 @@ private:
     boost::asio::io_context io_context;
     boost::system::error_code ec;
     Cache cache;
+    int id = 0; 
+    std::ofstream LogStream;
+    pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+
 public:
-    Proxy(std::string p, int c):host(NULL), port(p.c_str()), cache(Cache(c)){}
+    Proxy(std::string p, int c):host(NULL), port(p.c_str()), cache(Cache(c)), LogStream(std::ofstream("proxy.log")){}
 
     void run(){
         tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), strtol(port, NULL, 0)));
@@ -42,8 +44,9 @@ public:
             if(ec){
                 std::cerr<< ec.message()<<std::endl;
             }
-            std::thread t(&Proxy::requestProcess, this, socket);
+            std::thread t(&Proxy::requestProcess, this, socket, id);
             t.detach();
+            id++;
         }
     }
     
@@ -53,6 +56,8 @@ public:
      * @param port host port
      * @return tcp socket of the connection
     */
+
+
     tcp::socket * connectToServer(const char * host, const char * port){
         // These objects perform our I/O
         tcp::resolver resolver(io_context);
@@ -82,7 +87,7 @@ public:
      * CONNECT
      * @param socket client connection
     */
-    void requestProcess(tcp::socket * socket){
+    void requestProcess(tcp::socket * socket, int id){
         //read request from client
         beast::flat_buffer buffer;
         http::request<http::dynamic_body> request;
@@ -90,26 +95,42 @@ public:
         if(ec){
             std::cerr<< ec.message()<<std::endl;
         }
+        net::ip::tcp::endpoint client_ip = socket->remote_endpoint();
 
-        std::string port;
-        std::string host;
+        time_t now;
+        time(&now);
+
         if(request.find(http::field::host) == request.end()){
             std::cerr<<"Bad request, does not have host info"<<std::endl;
+
+            pthread_mutex_lock(&lock);
+            LogStream<<id<<": \""<<request<<"\" from " <<client_ip.address()\
+            <<" @ "<<ctime(&now);
+            pthread_mutex_unlock(&lock);
             return;
+        }else{
+            pthread_mutex_lock(&lock);
+            LogStream<<id<<": \""<<request.method()<<" "<<request.target()\
+            <<" "<<request.version()<<"\" from " <<client_ip.address()\
+            <<" @ "<<ctime(&now)<<std::endl;
+            pthread_mutex_unlock(&lock);
         }
+        
+        std::string port;
+        std::string host;
         isHTTPS(std::string(request.at("HOST")), &host, &port);
         tcp::socket * socket_server = connectToServer(host.c_str(), port.c_str());
 
         http::verb method = request.method();
         std::cout << "Received HTTP request: " << request << std::endl;
         if (method ==http::verb::get){
-            GET(&request, socket, socket_server);
+            GET(&request,id,  socket, socket_server);
 		}
         else if(method == http::verb::post){
-            POST(&request, socket,socket_server);
+            POST(&request,id,  socket,socket_server);
 
         }else if(method == http::verb::connect){
-            CONNECT(&request,socket,socket_server);
+            CONNECT(&request,id, socket,socket_server);
         }else{
             // if request is not a valid type, quit
             //should response 502
@@ -149,7 +170,7 @@ public:
      * @param socket connection to client
      * @param socket_server connection to server
     */
-    void POST(http::request<http::dynamic_body> * request, tcp::socket * socket, tcp::socket * socket_server){
+    void POST(http::request<http::dynamic_body> * request,int id,  tcp::socket * socket, tcp::socket * socket_server){
         http::write(*socket_server, *request,ec);
         if(ec){
             std::cerr<< ec.message()<<std::endl;
@@ -181,7 +202,7 @@ public:
      * @param socket connection to client
      * @param socket_server connection to server
     */
-    void CONNECT(http::request<http::dynamic_body> * request, tcp::socket * socket, tcp::socket * socket_server){
+    void CONNECT(http::request<http::dynamic_body> * request,int id, tcp::socket * socket, tcp::socket * socket_server){
         //send success to client, build the tunnel
         int status;
         std::string message = "HTTP/1.1 200 OK\r\n\r\n";
@@ -229,7 +250,7 @@ public:
      * @param socket connection to client
      * @param socket_server connection to server
     */
-    void GET(http::request<http::dynamic_body> * request, tcp::socket * socket, tcp::socket * socket_server){
+    void GET(http::request<http::dynamic_body> * request,int id, tcp::socket * socket, tcp::socket * socket_server){
         // POST(request, socket, socket_server);
 
         std::string key;
@@ -241,6 +262,7 @@ public:
             // http::response<http::dynamic_body> * response = cache.get(key);
             //no cache control, check fresh
             if(needValidation(response)){
+                LogStream<<id << ": in cache, requires validation"<<std::endl;
                 http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response);
                 if(vali_response.result_int() ==200){
                     cache.update(key, vali_response);
@@ -252,11 +274,15 @@ public:
                     http::write(*socket, *response);
                 }
             }else{
+                LogStream<<id<< ": in cache, valid"<<std::endl;
                 // Send response to the client
                 http::write(*socket, *response);
             }
             std::cout<<"Cached response is: "<<response->base()<<std::endl;
         }else{
+            LogStream<<id<<": not in cache"<<std::endl;
+            LogStream<<id<<": Requesting \""<<request->method()<<" "<<request->target()\
+            <<" "<<request->version()<<"\" from " << request->at("host")<<std::endl;
             //connect to server
             http::write(*socket_server, *request, ec);
             if(ec){
@@ -271,6 +297,9 @@ public:
             if(ec){
                 std::cerr<< ec.message()<<std::endl;
             }
+            LogStream<<id<<": Received \"" \
+            << response.version() << " " << response.result_int() <<" "<< response.reason() \
+            <<"\" from "<< request->at("host")<<std::endl;
             
             //store in cache
             if(cacheCanStore(request, &response)){

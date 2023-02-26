@@ -24,14 +24,14 @@ namespace pt = boost::posix_time;
 namespace dt = boost::date_time;
 
 time_t parseDatetime(std::string date_str){
-    // std::locale loc(std::cout.getloc(), new boost::posix_time::time_input_facet("%a, %d %b %Y %H:%M:%S %Z"));
-    // std::istringstream ss(date_str);
-    // ss.imbue(loc);
-    // pt::ptime date_time;
-    // ss >> date_time;
+    std::locale loc(std::cout.getloc(), new boost::posix_time::time_input_facet("%a, %d %b %Y %H:%M:%S %Z"));
+    std::istringstream ss(date_str);
+    ss.imbue(loc);
+    pt::ptime date_time;
+    ss >> date_time;
 
-    // Print the datetime object
-    // std::cout << "Date: " << to_simple_string(date_time) << std::endl;
+   // Print the datetime object
+    std::cout << "Date: " << to_simple_string(date_time) << std::endl;
 
     std::string format_str = "%a, %d %b %Y %H:%M:%S %Z";
 
@@ -77,6 +77,18 @@ std::map<std::string, long> parseFields(std::string & str){
         }
     }
     return result;
+}
+
+http::response<http::dynamic_body> make400Response(http::request<http::dynamic_body> * request){
+    http::response<http::dynamic_body> response;
+    response.result(boost::beast::http::status::bad_request);
+    response.version(request->version());
+    // response.keep_alive(request->keep_alive());
+    response.set(boost::beast::http::field::server, "My Server");
+    response.set(boost::beast::http::field::content_type, "text/plain");
+    // response.body() = "Bad Request";
+    response.prepare_payload();
+    return response;
 }
 
 //  // if (socket_server->available() > 0){

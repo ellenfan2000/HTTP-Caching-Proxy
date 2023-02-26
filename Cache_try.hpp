@@ -86,7 +86,6 @@ public:
 			cache_map[key] = response;
 			capacity--;
 			used_list.push_back(key);
-			std::cout<<"Your cache is being modified!" << std::endl;
 			return 1;
 		}
 		return 0; 

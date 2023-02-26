@@ -1,437 +1,182 @@
-0: "CONNECT www.reddit.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:10 2023
-
-1: "CONNECT styles.redditmedia.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:11 2023
-
-4: "CONNECT i.redd.it:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:11 2023
-
-8: "CONNECT w3-reporting.reddit.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:11 2023
-
-9: "CONNECT mozilla.cloudflare-dns.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:12 2023
-
-11: "CONNECT www.googletagmanager.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:12 2023
-
-12: "CONNECT gql.reddit.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:12 2023
-
-14: "CONNECT id.rlcdn.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:12 2023
-
-15: "CONNECT alb.reddit.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:12 2023
-
-16: "CONNECT sb.scorecardresearch.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:12 2023
-
-17: "CONNECT gateway.reddit.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:12 2023
-
-18: "CONNECT accounts.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:13 2023
-
-2: "CONNECT www.redditstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:13 2023
-
+0: "CONNECT mozilla.cloudflare-dns.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:04:46 2023
+1: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 11" from 174.99.158.118 @ Sun Feb 26 04:04:48 2023
+1: not in cache
+1: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 11" from www.httpwatch.com
+1: Received "11 200 OK" from www.httpwatch.com
+1: not cacheable because "no-store"
+2: "GET http://httpbin.org/forms/post 11" from 174.99.158.118 @ Sun Feb 26 04:04:54 2023
+2: not in cache
+2: Requesting "GET http://httpbin.org/forms/post 11" from httpbin.org
+2: Received "11 200 OK" from httpbin.org
+3: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Sun Feb 26 04:04:56 2023
+3: not in cache
+3: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from feedburner.google.com
+3: Received "11 200 OK" from feedburner.google.com
+3: cached, expires atSun Feb 26 09:04:56 2023
+4: "GET http://grandastoundingmajesticmagic.neverssl.com/online/ 11" from 174.99.158.118 @ Sun Feb 26 04:04:58 2023
+4: not in cache
+4: Requesting "GET http://grandastoundingmajesticmagic.neverssl.com/online/ 11" from grandastoundingmajesticmagic.neverssl.com
+4: Received "11 200 OK" from grandastoundingmajesticmagic.neverssl.com
+5: "CONNECT incoming.telemetry.mozilla.org:443 11" from 174.99.158.118 @ Sun Feb 26 04:04:58 2023
+6: "GET http://shininglushbrightlight.neverssl.com/online/ 11" from 174.99.158.118 @ Sun Feb 26 04:05:04 2023
+6: not in cache
+6: Requesting "GET http://shininglushbrightlight.neverssl.com/online/ 11" from shininglushbrightlight.neverssl.com
+6: Received "11 200 OK" from shininglushbrightlight.neverssl.com
+7: "GET http://grandastoundingmajesticmagic.neverssl.com/online/ 11" from 174.99.158.118 @ Sun Feb 26 04:05:06 2023
+7: in cache, valid
+8: "GET http://httpbin.org/forms/post 11" from 174.99.158.118 @ Sun Feb 26 04:05:08 2023
+8: in cache, valid
+9: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 11" from 174.99.158.118 @ Sun Feb 26 04:05:10 2023
+9: not in cache
+9: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 11" from www.httpwatch.com
+10: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Sun Feb 26 04:05:11 2023
+10: in cache, but expired at Sun Feb 26 09:04:56 2023
+10: in cache, requires validation
+9: Received "11 200 OK" from www.httpwatch.com
+9: not cacheable because "no-store"
+11: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Sun Feb 26 04:05:15 2023
+11: in cache, but expired at Sun Feb 26 09:04:56 2023
+11: in cache, requires validation
+12: "GET http://httpbin.org/forms/post 11" from 174.99.158.118 @ Sun Feb 26 04:05:17 2023
+12: in cache, valid
+13: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Sun Feb 26 04:05:19 2023
+13: in cache, but expired at Sun Feb 26 09:04:56 2023
+13: in cache, requires validation
+14: "GET http://grandastoundingmajesticmagic.neverssl.com/online/ 11" from 174.99.158.118 @ Sun Feb 26 04:05:20 2023
+14: in cache, valid
+15: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 11" from 174.99.158.118 @ Sun Feb 26 04:05:22 2023
+15: not in cache
+15: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 11" from www.httpwatch.com
+16: "CONNECT googleads.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:24 2023
+17: "CONNECT www.dallasnews.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+18: "CONNECT analytics.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+20: "CONNECT htlbid.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+22: "CONNECT courier-js.dallasnews.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+24: "CONNECT www.googletagmanager.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+25: "CONNECT dmn.dallasnews.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+26: "CONNECT csm.va.us.criteo.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+28: "CONNECT cdn.confiant-integrations.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+27: "CONNECT js.matheranalytics.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+29: "CONNECT courier-api.dallasnews.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:25 2023
+30: "POST http://ocsp.digicert.com/ 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+31: "CONNECT cdn.p-n.io:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+32: "CONNECT bcdata.dallasnews.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+35: "CONNECT unpkg.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+34: "CONNECT ak.sail-horizon.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+37: "CONNECT www.i.matheranalytics.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+38: "CONNECT app.matheranalytics.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+39: "CONNECT stats.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+40: "CONNECT pixel.sitescout.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+41: "CONNECT api.sail-personalize.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+43: "CONNECT mab.chartbeat.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+44: "CONNECT cdn.resonate.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+45: "CONNECT ds.reson8.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+46: "CONNECT ams-pageview-public.s3.amazonaws.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:26 2023
+49: "CONNECT c.amazon-adsystem.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+51: "CONNECT www.google-analytics.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+54: "CONNECT ads.undertone.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+56: "CONNECT ut.rd.linksynergy.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+58: "CONNECT connect.facebook.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+52: "CONNECT static.ads-twitter.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+53: "CONNECT p1.parsely.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+55: "CONNECT amplify.outbrain.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+57: "CONNECT tags.rd.linksynergy.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+59: "CONNECT insight.adsrvr.org:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+62: "CONNECT trc.taboola.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+60: "CONNECT sb.scorecardresearch.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+61: "CONNECT p1.parsely.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+63: "CONNECT cds.taboola.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+65: "CONNECT securepubads.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+64: "CONNECT securepubads.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+66: "CONNECT fastlane.rubiconproject.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+67: "CONNECT adservice.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+72: "CONNECT hbopenbid.pubmatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+73: "CONNECT bidder.criteo.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+69: "CONNECT ib.adnxs.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+70: "CONNECT c2shb.pubgw.yahoo.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+68: "CONNECT a.teads.tv:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+74: "CONNECT ampcid.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+15: Received "11 200 OK" from www.httpwatch.com
+15: not cacheable because "no-store"
+75: "CONNECT aax-dtb-cf.amazon-adsystem.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+77: "CONNECT 4f903980c717646804bba735f7ae2130.safeframe.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:27 2023
+78: "CONNECT t.co:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:28 2023
+71: "CONNECT c2shb.pubgw.yahoo.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:28 2023
+79: "CONNECT prod.us-east-1.cxm-bcn.publisher-services.amazon.dev:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:28 2023
+80: "CONNECT ssp-sync.criteo.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:28 2023
+81: "CONNECT match.adsrvr.org:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:28 2023
+82: "CONNECT s.amazon-adsystem.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:28 2023
+83: "CONNECT www.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:28 2023
+84: "CONNECT 9876505.fls.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:28 2023
+91: "CONNECT analytics.twitter.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+87: "CONNECT idsync.rlcdn.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+88: "CONNECT tr.outbrain.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+86: "CONNECT usermatch.krxd.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+92: "CONNECT cdn.taboola.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+90: "CONNECT evt.undertone.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+89: "CONNECT tr.outbrain.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+93: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+95: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+97: "CONNECT fonts.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+98: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+96: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+94: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+99: "CONNECT pixel.keywee.co:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+101: "CONNECT pips.taboola.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:29 2023
+102: "CONNECT tpc.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:30 2023
+103: "CONNECT fonts.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:30 2023
+104: "CONNECT www.facebook.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:30 2023
+105: "CONNECT beacon.krxd.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:30 2023
+106: "CONNECT trc-events.taboola.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:30 2023
+107: "CONNECT tpc.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:30 2023
 23: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-24: " HTTP/1.1
+" from 174.99.158.118 @ Sun Feb 26 04:05:30 2023
+19: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-25: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-26: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-28: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-32: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-34: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
+" from 174.99.158.118 @ Sun Feb 26 04:05:30 2023
 33: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-35: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-36: "CONNECT emoji.redditmedia.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-
-37: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-7: "CONNECT styles.redditmedia.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:14 2023
-
-19: "CONNECT www.redditstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:15 2023
-
-38: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:15 2023
-39: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:15 2023
-40: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:15 2023
+" from 174.99.158.118 @ Sun Feb 26 04:05:31 2023
+108: "CONNECT static.chartbeat.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:31 2023
+110: "CONNECT pagead2.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:31 2023
+109: "CONNECT gum.criteo.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:31 2023
 42: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:15 2023
-43: " HTTP/1.1
+" from 174.99.158.118 @ Sun Feb 26 04:05:31 2023
+36: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:16 2023
-44: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:16 2023
-46: "CONNECT preview.redd.it:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:16 2023
-
-6: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:16 2023
-3: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:16 2023
-5: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:16 2023
-48: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:17 2023
+" from 174.99.158.118 @ Sun Feb 26 04:05:31 2023
+111: "CONNECT api.rlcdn.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:31 2023
+112: "CONNECT image8.pubmatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
+113: "CONNECT pagead2.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
+114: "CONNECT dnacdn.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
+115: "CONNECT ping.chartbeat.net:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
+117: "CONNECT gem.gbc.criteo.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
+116: "CONNECT ag.gbc.criteo.com:443 11" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
 50: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:17 2023
-51: " HTTP/1.1
+" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
+48: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:17 2023
-13: " HTTP/1.1
+" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
+47: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:17 2023
-10: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:17 2023
-52: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:19 2023
-53: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:19 2023
-54: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:19 2023
-56: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:19 2023
-20: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:19 2023
-21: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:19 2023
-22: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:19 2023
-57: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:19 2023
-61: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:20 2023
-62: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:20 2023
-63: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:20 2023
-64: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:20 2023
-65: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:20 2023
-67: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:22 2023
-68: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:22 2023
-69: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:22 2023
-70: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-71: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-72: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-73: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-74: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
+" from 174.99.158.118 @ Sun Feb 26 04:05:32 2023
 76: " HTTP/1.1
 
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-77: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-78: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-79: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-80: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:27 2023
-81: "CONNECT incoming.telemetry.mozilla.org:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:35 2023
-
-82: "CONNECT contile-images.services.mozilla.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:35 2023
-
-83: "CONNECT img-getpocket.cdn.mozilla.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:35 2023
-
-84: "POST http://ocsp.digicert.com/ 11" from 174.99.158.118 @ Sun Feb 26 02:11:35 2023
-
-85: "CONNECT www.youtube.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:37 2023
-
-86: "CONNECT i.ytimg.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:37 2023
-
-89: "CONNECT incoming.telemetry.mozilla.org:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:37 2023
-
-90: "CONNECT safebrowsing.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:38 2023
-
-92: "POST http://ocsp.digicert.com/ 11" from 174.99.158.118 @ Sun Feb 26 02:11:38 2023
-
-94: "CONNECT googleads.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:38 2023
-
-91: "CONNECT www.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:38 2023
-
-95: "CONNECT www.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:38 2023
-
-96: "CONNECT yt3.ggpht.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:38 2023
-
-97: "CONNECT safebrowsing.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:38 2023
-
-98: "CONNECT static.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:39 2023
-
-99: "CONNECT jnn-pa.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:39 2023
-
-100: "CONNECT rr3---sn-hjoj-jaul.googlevideo.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:39 2023
-
-103: "CONNECT rr2---sn-hjoj-jaul.googlevideo.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:40 2023
-
-104: "CONNECT rr3---sn-hjoj-jaul.googlevideo.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:40 2023
-
-105: "CONNECT rr2---sn-hjoj-jaul.googlevideo.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:40 2023
-
-107: "CONNECT encrypted-tbn1.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:40 2023
-
-108: "CONNECT encrypted-tbn0.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:40 2023
-
-109: "CONNECT encrypted-tbn3.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:40 2023
-
-106: "CONNECT pagead2.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:40 2023
-
-110: "CONNECT googleads4.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:41 2023
-
-111: "CONNECT ade.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:41 2023
-
-88: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:43 2023
-87: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:43 2023
-93: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:44 2023
-112: "CONNECT www.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:45 2023
-
-113: "CONNECT www.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:45 2023
-
-114: "CONNECT www.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:46 2023
-
-102: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:46 2023
-115: "POST http://ocsp.pki.goog/gts1c3 11" from 174.99.158.118 @ Sun Feb 26 02:11:46 2023
-
-117: "CONNECT adservice.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:48 2023
-
-116: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-119: "CONNECT ssl.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-
-120: "CONNECT ssl.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-
-122: "CONNECT ssl.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-
-123: "CONNECT ssl.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-
-121: "CONNECT ssl.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-
-124: "CONNECT ssl.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-
-125: "CONNECT id.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-
-126: "CONNECT safebrowsing.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:53 2023
-
-129: "CONNECT safebrowsing.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:54 2023
-
-131: "CONNECT play.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:54 2023
-
-130: "CONNECT play.google.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:55 2023
-
-133: "CONNECT ad.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:56 2023
-
-132: "CONNECT tpc.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:56 2023
-
-134: "CONNECT encrypted-vtbn0.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:57 2023
-
-118: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:58 2023
-135: "CONNECT www.tennis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:11:59 2023
-
-128: " HTTP/1.1
-
-" from 174.99.158.118 @ Sun Feb 26 02:11:59 2023
-136: "CONNECT fonts.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:00 2023
-
-137: "CONNECT www.lightboxcdn.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:00 2023
-
-138: "CONNECT consent.trustarc.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:00 2023
-
-139: "CONNECT securepubads.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:00 2023
-
-140: "POST http://ocsp.digicert.com/ 11" from 174.99.158.118 @ Sun Feb 26 02:12:01 2023
-
-141: "CONNECT cdn.jwplayer.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:01 2023
-
-142: "CONNECT fonts.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:01 2023
-
-143: "CONNECT consent.trustarc.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:01 2023
-
-144: "CONNECT securepubads.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:01 2023
-
-145: "CONNECT cdn.jwplayer.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-147: "CONNECT api.lightboxcdn.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-146: "CONNECT content.jwplatform.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-148: "CONNECT connect.facebook.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-149: "CONNECT www.google-analytics.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-150: "CONNECT static.hotjar.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-152: "CONNECT ssl.p.jwpcdn.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-153: "CONNECT ssl.p.jwpcdn.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-151: "CONNECT ssl.p.jwpcdn.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-154: "CONNECT content.jwplatform.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:02 2023
-
-155: "CONNECT 1f74ac0720d2c956bfd77f16cb69bf65.safeframe.googlesyndication.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:03 2023
-
-156: "CONNECT entitlements.jwplayer.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:03 2023
-
-157: "CONNECT imasdk.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:03 2023
-
-158: "CONNECT stats.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:03 2023
-
-159: "CONNECT script.hotjar.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:03 2023
-
-160: "CONNECT connect.facebook.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:03 2023
-
-161: "CONNECT prd.jwpltx.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-162: "CONNECT prd.jwpltx.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-163: "CONNECT www.googletagservices.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-166: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-165: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-164: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-167: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-168: "CONNECT cdn.ampproject.org:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-169: "CONNECT assets-jpcust.jwpsrv.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-170: "CONNECT prd.jwpltx.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-171: "POST http://ocsp.pki.goog/gts1c3 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-173: "POST http://ocsp.pki.goog/gts1c3 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-175: "POST http://ocsp.pki.goog/gts1c3 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-174: "POST http://ocsp.pki.goog/gts1c3 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-172: "POST http://ocsp.pki.goog/gts1c3 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-176: "CONNECT pubads.g.doubleclick.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:04 2023
-
-177: "CONNECT s0.2mdn.net:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:05 2023
-
-178: "CONNECT assets-jpcust.jwpsrv.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:05 2023
-
-180: "CONNECT csi.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:05 2023
-
-179: "CONNECT csi.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:06 2023
-
-181: "CONNECT csi.gstatic.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:06 2023
-
-182: "CONNECT redirector.gvt1.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:06 2023
-
-183: "CONNECT r2---sn-hjoj-jaul.gvt1.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:06 2023
-
-184: "CONNECT storage.googleapis.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:07 2023
-
-185: "POST http://ocsp.pki.goog/gts1c3 11" from 174.99.158.118 @ Sun Feb 26 02:12:08 2023
-
-186: "CONNECT videos-fms.jwpsrv.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:12:20 2023
-
-187: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 11" from 174.99.158.118 @ Sun Feb 26 02:13:17 2023
-
-188: not in cache
-188: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 11" from www.httpwatch.com
-188: Received "11 200 OK" from www.httpwatch.com
-187: not cacheable because "no-store"
-188: "GET http://httpbin.org/forms/post 11" from 174.99.158.118 @ Sun Feb 26 02:13:26 2023
-
-189: not in cache
-189: Requesting "GET http://httpbin.org/forms/post 11" from httpbin.org
-189: Received "11 200 OK" from httpbin.org
-189: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Sun Feb 26 02:13:32 2023
-
-190: not in cache
-190: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from feedburner.google.com
-190: Received "11 304 Not Modified" from feedburner.google.com
-190: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Sun Feb 26 02:13:47 2023
-
-191: not in cache
-191: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from feedburner.google.com
-191: Received "11 200 OK" from feedburner.google.com
-191: "CONNECT contile.services.mozilla.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:13:52 2023
-
-192: "CONNECT spocs.getpocket.com:443 11" from 174.99.158.118 @ Sun Feb 26 02:13:52 2023
-
-193: "POST http://r3.o.lencr.org/ 11" from 174.99.158.118 @ Sun Feb 26 02:13:53 2023
-
-194: "POST http://ocsp.sca1b.amazontrust.com/ 11" from 174.99.158.118 @ Sun Feb 26 02:13:53 2023
-
-195: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Sun Feb 26 02:14:11 2023
-
-195: in cache, valid
-196: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Sun Feb 26 02:14:16 2023
-
-196: in cache, valid
-197: "GET http://httpbin.org/forms/post 11" from 174.99.158.118 @ Sun Feb 26 02:14:21 2023
-
-197: in cache, valid
+" from 174.99.158.118 @ Sun Feb 26 04:05:33 2023
+85: " HTTP/1.1
+
+" from 174.99.158.118 @ Sun Feb 26 04:05:34 2023
+100: " HTTP/1.1
+
+" from 174.99.158.118 @ Sun Feb 26 04:05:34 2023
+119: "GET http://mypublicnotices.com/dallasmorningnews/PublicNotice.asp 11" from 174.99.158.118 @ Sun Feb 26 04:05:35 2023
+119: not in cache
+119: Requesting "GET http://mypublicnotices.com/dallasmorningnews/PublicNotice.asp 11" from mypublicnotices.com
+119: Received "11 404 Not Found" from mypublicnotices.com
+120: "GET http://mypublicnotices.com/favicon.ico 11" from 174.99.158.118 @ Sun Feb 26 04:05:37 2023
+120: not in cache
+120: Requesting "GET http://mypublicnotices.com/favicon.ico 11" from mypublicnotices.com
+120: Received "11 404 Not Found" from mypublicnotices.com

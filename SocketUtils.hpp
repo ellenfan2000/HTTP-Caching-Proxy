@@ -31,7 +31,7 @@ time_t parseDatetime(std::string date_str){
     ss >> date_time;
 
    // Print the datetime object
-    std::cout << "Date: " << to_simple_string(date_time) << std::endl;
+    // std::cout << "Date: " << to_simple_string(date_time) << std::endl;
 
     std::string format_str = "%a, %d %b %Y %H:%M:%S %Z";
 
@@ -42,7 +42,7 @@ time_t parseDatetime(std::string date_str){
     time_t time = mktime(&tm);
 
     // Print the parsed time
-    std::cout << "Parsed time: " << std::asctime(&tm);
+    // std::cout << "Parsed time: " << std::asctime(&tm);
     return time;
 }
 
@@ -101,3 +101,73 @@ http::response<http::dynamic_body> make400Response(http::request<http::dynamic_b
 //             //     beast::http::read(*socket, buffer2, request2);
 //             //     http::write(*socket_server, request2);
 //             // }
+
+// pthread_mutex_lock(&lock);
+// LogStream << ID << ": cached, but requires re-validation"<<std::endl;
+// pthread_mutex_unlock(&lock);
+
+ // bool isFresh(http::response<http::dynamic_body> * response, int ID){
+    //     time_t now;
+    //     time(&now);
+    //     time_t gmt_now = mktime(gmtime(&now));
+    //     //has cache control: max-age field
+    //     if(response->find(http::field::cache_control) != response->end()){
+    //         std::string str((*response)[http::field::cache_control]);
+    //         std::map<std::string, long> fields = parseFields(str);
+	//         std::string date_str((*response)[http::field::date]);
+    //         time_t date_value = parseDatetime(date_str);
+    //         if(fields.find("max-age") != fields.end()){
+    //             double age = difftime(now, date_value);
+    //             if(age > fields["max-age"]){
+    //                 time_t expire = date_value + fields["max-age"];
+    //                 pthread_mutex_lock(&lock);
+    //                 LogStream<<ID<<": in cache, but expired at "<<ctime(&expire);
+    //                 pthread_mutex_unlock(&lock);
+    //                 return false;
+    //             }else{
+    //                 return true;
+    //             }
+    //         }
+    //     }else{
+    //         if(response->find(http::field::expires)== response->end()){
+    //             return true;
+    //         }else{
+    //             std::string expire_str((*response)[http::field::expires]);
+    //             time_t expire = parseDatetime(expire_str);
+    //             if (expire > now){
+    //                 return true;
+    //             }else{
+    //                 pthread_mutex_lock(&lock);
+    //                 LogStream<<ID<<": in cache, but expired at "<<ctime(&expire);
+    //                 pthread_mutex_unlock(&lock);
+    //                 return false;
+    //             }
+    //         } 
+    //     }
+    //     return true;
+    // }
+
+    // bool needValidationWhenAccess(http::response<http::dynamic_body> * response, int ID){
+    //     if(response->find(http::field::cache_control) == response->end()){
+    //         if(isFresh(response, ID)){
+    //             return false;
+    //         }else{
+    //             return true;
+    //         }
+    //     }else{
+    //         if()
+    //         std::string str((*response)[http::field::cache_control]);
+    //         std::map<std::string, long> fields = parseFields(str);
+            
+    //         //if no-cache or must-revalidate, need validation
+    //         if(fields.find("no-cache") != fields.end() || fields.find("must-revalidate") != fields.end()){
+    //             return true;
+    //         }else{
+    //             if(isFresh(response, ID)){
+    //                 return false;
+    //             }else{
+    //                 return true;
+    //             }
+    //         }
+    //     } 
+    // }

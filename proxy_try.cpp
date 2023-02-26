@@ -265,6 +265,7 @@ public:
                 LogStream<<id << ": in cache, requires validation"<<std::endl;
                 http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response);
                 if(vali_response.result_int() ==200){
+		   LogStream<<id<< ": in cache, valid"<<std::endl;
                     cache.update(key, vali_response);
                     http::write(*socket, vali_response);
                 }else if(vali_response.result_int() == 304){

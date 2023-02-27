@@ -1,10 +1,125 @@
-https://run.mocky.io/v3/2672eac7-8261-4e68-b5af-3e43e5beabc2 (Expires included)
-https://run.mocky.io/v3/47e15ba6-02a3-489f-b11a-0cedde17c4e7(no-store)
-https://run.mocky.io/v3/11de9b3b-0b8b-4953-a124-d87577b147ec(max-age and Expires both include but have conflict)
-https://run.mocky.io/v3/eb752290-5cb0-4ea3-adba-a5934f58ec0c(no-cache)
-https://run.mocky.io/v3/ade860be-db90-43eb-9fd1-8406d68437d9(must-revalidate, last-modify)
-wget www.google.com(chunked message)
- curl 127.0.0.1:12345 -H 'Host:' (400 bad request)
- https://run.mocky.io/v3/abc6fa11-39e1-46a7-876f-2735da28139f (502 bad gateway)
- 打开哔哩哔哩视频，同时打开8个视频同时播放，间隔随机刷新某个视频（mutiple concurrent requests)
- 谷歌，火狐同时设置代理并先后打开同一界面（正确性存疑）
+Test cases 1: normal website https://www.baidu.com
+The way to test, start the proxy, open the browser(we use firefox) who use proxy, and type www.baidu.com in the website naviagtion input field, and then visit the website, after the website is fully shown, stop the proxy. 
+The content of our proxy.log file in logs:
+0: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:19 2023
+1: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:20 2023
+3: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:34 2023
+2: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:34 2023
+4: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+4: not in cache
+4: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+4: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+4: cached, but requires re-validation
+4: cached, expires at Mon Feb 27 07:20:46 2023
+5: "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+7: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+6: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+8: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+5: not in cache
+5: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
+5: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+5: cached, but requires re-validation
+5: cached, expires at Mon Feb 27 11:49:15 2023
+11: "CONNECT spocs.getpocket.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+12: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+13: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+15: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+16: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+17: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+18: Responding "HTTP/1.1 400"Bad Request
+18: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+19: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+20: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+21: Responding "HTTP/1.1 400"Bad Request
+21: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+24: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+22: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+23: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+25: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+26: Responding "HTTP/1.1 400"Bad Request
+26: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+27: Responding "HTTP/1.1 400"Bad Request
+27: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+28: Responding "HTTP/1.1 400"Bad Request
+28: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+29: Responding "HTTP/1.1 400"Bad Request
+29: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+30: Responding "HTTP/1.1 400"Bad Request
+30: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+32: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+31: Responding "HTTP/1.1 400"Bad Request
+31: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+33: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+34: Responding "HTTP/1.1 400"Bad Request
+34: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+35: Responding "HTTP/1.1 400"Bad Request
+35: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+36: Responding "HTTP/1.1 400"Bad Request
+36: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+37: Responding "HTTP/1.1 400"Bad Request
+37: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+38: Responding "HTTP/1.1 400"Bad Request
+38: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+39: Responding "HTTP/1.1 400"Bad Request
+39: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+40: Responding "HTTP/1.1 400"Bad Request
+40: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:36 2023
+41: Responding "HTTP/1.1 400"Bad Request
+41: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:36 2023
+42: Responding "HTTP/1.1 400"Bad Request
+42: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:36 2023
+43: Responding "HTTP/1.1 400"Bad Request
+43: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:36 2023
+44: Responding "HTTP/1.1 400"Bad Request
+44: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:36 2023
+45: Responding "HTTP/1.1 400"Bad Request
+45: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:36 2023
+9: Responding "HTTP/1.1 400"Bad Request
+9: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+10: Responding "HTTP/1.1 400"Bad Request
+10: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+14: Responding "HTTP/1.1 400"Bad Request
+14: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:35 2023
+46: Responding "HTTP/1.1 400"Bad Request
+46: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:41 2023
+47: Responding "HTTP/1.1 400"Bad Request
+47: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:41 2023
+48: Responding "HTTP/1.1 400"Bad Request
+48: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:41 2023
+49: Responding "HTTP/1.1 400"Bad Request
+49: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:41 2023
+50: Responding "HTTP/1.1 400"Bad Request
+50: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:41 2023
+51: Responding "HTTP/1.1 400"Bad Request
+51: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:41 2023
+52: "CONNECT www.google.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:42 2023
+53: "CONNECT www.baidu.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:43 2023
+65: "CONNECT hectorstatic.baidu.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+68: "CONNECT sp2.baidu.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+66: "CONNECT sp1.baidu.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+67: "CONNECT sp1.baidu.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+70: "CONNECT passport.baidu.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:46 2023
+71: "CONNECT sp3.baidu.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:46:46 2023
+60: Responding "HTTP/1.1 400"Bad Request
+54: Responding "HTTP/1.1 400"Bad Request
+60: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+54: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+64: Responding "HTTP/1.1 400"Bad Request
+55: Responding "HTTP/1.1 400"Bad Request
+56: Responding "HTTP/1.1 400"Bad Request
+55: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+56: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+64: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+62: Responding "HTTP/1.1 400"Bad Request
+58: Responding "HTTP/1.1 400"Bad Request
+58: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+57: Responding "HTTP/1.1 400"Bad Request
+59: Responding "HTTP/1.1 400"Bad Request
+61: Responding "HTTP/1.1 400"Bad Request
+59: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+61: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+57: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+62: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+69: Responding "HTTP/1.1 400"Bad Request
+69: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
+63: Responding "HTTP/1.1 400"Bad Request

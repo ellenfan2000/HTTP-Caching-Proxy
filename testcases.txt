@@ -123,3 +123,12 @@ The content of our proxy.log file in logs:
 69: Responding "HTTP/1.1 400"Bad Request
 69: Invalid Request from 10.194.23.155 @ Mon Feb 27 20:46:45 2023
 63: Responding "HTTP/1.1 400"Bad Request
+Test cases 2: http://httpbin.org/forms/post
+Way to test: start the proxy, , and visit the website(the browser should be keep open)
+Content of our proxy.log:
+0: "CONNECT www.google.com:443 HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:50:54 2023
+1: "GET http://httpbin.org/forms/post HTTP/1.1" from 10.194.23.155 @ Mon Feb 27 20:50:57 2023
+1: not in cache
+1: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+1: Received "HTTP/1.1 200 OK" from httpbin.org
+1: cached, does not expire

@@ -14,7 +14,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
-#include <thread> 
+#include <thread>
 
 namespace beast = boost::beast;         
 namespace http = beast::http;           
@@ -33,7 +33,7 @@ private:
     pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 public:
-    Proxy(std::string p, int c):host(NULL), port(p.c_str()), cache(Cache(c)), LogStream(std::ofstream("../logs/proxy.log")){}
+    Proxy(std::string p, int c):host(NULL), port(p.c_str()), cache(Cache(c)), LogStream(std::ofstream("proxy.log")){}
 
     void run(){
         tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), strtol(port, NULL, 0)));
@@ -396,12 +396,10 @@ public:
         if(response->find(http::field::cache_control) != response->end()){
             std::string str((*response)[http::field::cache_control]);
             std::map<std::string, long> fields = parseFields(str);
-             pthread_mutex_lock(&lock);
+
 	        std::string date_str((*response)[http::field::date]);
             time_t date_value = parseDatetime(date_str);
-            std::cout<<"Hello Date str:"<<date_str<<std::endl;
-            std::cout<<"Hello date value"<<asctime(std::localtime(&date_value))<<std::endl;
-            pthread_mutex_unlock(&lock);
+
             if(fields.find("max-age") != fields.end()){
                 *expire = date_value + fields["max-age"];
                 return 1;
@@ -418,9 +416,7 @@ public:
             }else{
                 std::string expire_str((*response)[http::field::expires]);
                 //what is the str is just 0 or -1;
-                std::cout<<expire_str<<std::endl;
                 *expire = parseDatetime(expire_str);
-                std::cout<<ctime(expire)<<std::endl;
                 return 1;
              }
         }

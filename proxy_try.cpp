@@ -26,7 +26,6 @@ private:
     const char * host;
     const char * port;
     boost::asio::io_context io_context;
-    boost::system::error_code ec;
     Cache cache;
     int id = 0; //request id
     std::ofstream LogStream;
@@ -36,6 +35,7 @@ public:
     Proxy(std::string p, int c):host(NULL), port(p.c_str()), cache(Cache(c)), LogStream(std::ofstream("proxy.log")){}
 
     void run(){
+        boost::system::error_code ec;
         tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), strtol(port, NULL, 0)));
         while (true){
             //accept client connection
@@ -60,6 +60,7 @@ public:
      * @return tcp socket of the connection
     */
     tcp::socket * connectToServer(const char * host, const char * port){
+        boost::system::error_code ec;
         // These objects perform our I/O
         tcp::resolver resolver(io_context);
 
@@ -68,15 +69,9 @@ public:
         tcp::resolver::query query(host,port);
 
         // Look up the domain name
-        auto const results = resolver.resolve(query,ec);
-        if(ec){
-            std::cerr<< "Look up the domain name error: "<<ec.message()<<std::endl;
-        }
+        auto const results = resolver.resolve(query);
         // Make the connection on the IP address we get from a lookup
-        net::connect(*socket, results, ec);
-        if(ec){
-            std::cerr<< "Connect sever error: "<< ec.message()<<std::endl;
-        }
+        net::connect(*socket, results);
         // (*socket).connect(results);
     return socket;
 };
@@ -89,50 +84,39 @@ public:
      * @param socket client connection
     */
     void requestProcess(tcp::socket * socket, int ID){
+        boost::system::error_code ec;
+        net::ip::tcp::endpoint client_ip = socket->remote_endpoint();
+        time_t now;
+        time(&now);
+        time_t gmt_now = mktime(gmtime(&now));
         //read request from client
         beast::flat_buffer buffer;
         http::request<http::dynamic_body> request;
         http::read(*socket, buffer, request, ec);
-        if(ec.value() != 0){
+        if(ec.value() != 0 || request.find(http::field::host) == request.end()){
+            //read invalid request
             std::cerr<< "Read Request error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
-            http::write(*socket, make400Response(&request),ec);
-
+            http::write(*socket, make400Response(&request, ID),ec);
             if(ec.value() != 0){
                 std::cerr<< "Send 400 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
             }
-            socket->close();
-            delete socket;
-            return;
-        }
 
-        net::ip::tcp::endpoint client_ip = socket->remote_endpoint();
-        time_t now;
-        time(&now);
-
-        time_t gmt_now = mktime(gmtime(&now));
-        //has host info
-        if(request.find(http::field::host) == request.end()){
-            http::write(*socket, make400Response(&request),ec);
-            if(ec.value() != 0){
-                std::cerr<< "Send 400 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
-            }
-            // std::cerr<<"Bad request, does not have host info"<<std::endl;
             pthread_mutex_lock(&lock);
-            LogStream<<ID<<": Invalid Request from " <<client_ip.address()\
+            LogStream<<ID<<": Invalid Request from " << client_ip.address()\
             <<" @ "<<ctime(&gmt_now);
             pthread_mutex_unlock(&lock);
 
             socket->close();
             delete socket;
             return;
-        }else{
-            pthread_mutex_lock(&lock);
-            LogStream<<ID<<": \""<<request.method()<<" "<<request.target()\
-            <<" "<<request.version()<<"\" from " <<client_ip.address()\
-            <<" @ "<<ctime(&gmt_now);
-            pthread_mutex_unlock(&lock);
         }
-        
+
+        pthread_mutex_lock(&lock);
+        LogStream<<ID<<": \""<<request.method()<<" "<<request.target()\
+        <<" "<<parseVersion(request.version())<<"\" from " <<client_ip.address()\
+        <<" @ "<<ctime(&gmt_now);
+        pthread_mutex_unlock(&lock);
+
         //connect to server
         std::string port;
         std::string host;
@@ -142,17 +126,38 @@ public:
         http::verb method = request.method();
         // std::cout << "Received HTTP request: " << request << std::endl;
         if (method ==http::verb::get){
-            GET(&request,ID,  socket, socket_server);
+            try{
+                GET(&request,ID,  socket, socket_server);
+            }catch(std::exception & e){
+                std::cerr<< "GET error:" <<e.what()<< std::endl;
+                pthread_mutex_lock(&lock);
+                LogStream<<ID<<": Connection Lost"<<std::endl;
+                pthread_mutex_unlock(&lock);
+            }
 		}
         else if(method == http::verb::post){
-            POST(&request,ID,  socket,socket_server);
+            try{
+                POST(&request,ID,  socket,socket_server);
+            }catch(std::exception & e){
+                std::cerr<< "POST error:" <<e.what()<< std::endl;
+                pthread_mutex_lock(&lock);
+                LogStream<<ID<<": Connection Lost"<<std::endl;
+                pthread_mutex_unlock(&lock);
+            }
 
         }else if(method == http::verb::connect){
-            CONNECT(&request,ID, socket,socket_server);
+            try{
+                CONNECT(&request,ID, socket,socket_server);
+            }catch(std::exception & e){
+                pthread_mutex_lock(&lock);
+                LogStream<<ID<<": Tunnel closed"<<std::endl;
+                pthread_mutex_unlock(&lock);
+                std::cerr<< "CONNECT error:" <<e.what()<< std::endl;
+            }
 
         }else{
             // if request method is not a valid type, should response 400
-            http::write(*socket, make400Response(&request),ec);
+            http::write(*socket, make400Response(&request, ID),ec);
             std::cerr<<"Bad Request Type!!!"<<std::endl;
         }
         socket->close();
@@ -187,26 +192,17 @@ public:
      * @param socket_server connection to server
     */
     void POST(http::request<http::dynamic_body> * request,int ID,  tcp::socket * socket, tcp::socket * socket_server){
-        http::write(*socket_server, *request,ec);
-        if(ec.value() != 0){
-            std::cerr<<"POST: send request to server error: "<< ec.to_string()<< ", "<<ec.message()<<std::endl;
-        }
-
+        // boost::system::error_code ec;
+        http::write(*socket_server, *request);
         //recieve the HTTP response from the server
         boost::beast::flat_buffer buffer;
         http::response<http::dynamic_body> response;
         
-        boost::beast::http::read(*socket_server, buffer, response,ec);
-        if(ec.value() != 0){
-            std::cerr<< "POST: recieve the HTTP response from the server error: " << ec.to_string()<< ", "<<ec.message()<<std::endl;
-        }
+        boost::beast::http::read(*socket_server, buffer, response);
         // std::cout << "reponse header is " << response.base()<<std::endl;
 
         // Send the response to the client
-        http::write(*socket, response,ec);
-        if(ec.value() != 0){
-            std::cerr<< "POST: send the HTTP response to client error: " <<ec.to_string()<< ", "<<ec.message()<<std::endl;
-        }
+        http::write(*socket, response);
     }
 
     /**
@@ -220,45 +216,24 @@ public:
         //send success to client, build the tunnel
         int status;
         std::string message = "HTTP/1.1 200 OK\r\n\r\n";
-        status = net::write(*socket, net::buffer(message), ec);
-        if(ec.value() != 0){
-            std::cerr<< "CONNECT: send the 200 OK to client error: " <<ec.to_string()<< ", "<< ec.message()<<std::endl;
-        }
+        status = net::write(*socket, net::buffer(message));
         while(true){
             //if connection is closed, break the loop see error code
             //byte of data available to read from server
-            int server_byte = socket_server->available(ec);
-            if(ec.value() != 0){
-                std::cerr<< "CONNECT: data available to read from server error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
-            }
+            int server_byte = socket_server->available();
             //byte of data available to read from client
-            int clinet_byte = socket->available(ec);
-            if(ec.value() != 0){
-                std::cerr<< "CONNECT: data available to read from client error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
-            }
+            int clinet_byte = socket->available();
 
             //send message between client and server
             if(server_byte > 0){
                 std::vector<char> bu1(server_byte);
-                net::read(*socket_server, net::buffer(bu1), ec);
-                if(ec.value() != 0){
-                    std::cerr<< "CONNECT: read data from server error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
-                }
-                net::write(*socket, net::buffer(bu1),ec);
-                if(ec.value() != 0){
-                    std::cerr<< "CONNECT: send data to client error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
-                }
+                net::read(*socket_server, net::buffer(bu1));
+                net::write(*socket, net::buffer(bu1));
             }
             if(clinet_byte > 0){
                 std::vector<char> bu2(clinet_byte);
-                net::read(*socket, net::buffer(bu2), ec);
-                if(ec.value() != 0){
-                    std::cerr<< "CONNECT: read data from client error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
-                }
-                net::write(*socket_server, net::buffer(bu2),ec);
-                if(ec.value() != 0){
-                    std::cerr<< "CONNECT: send data to server error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
-                }
+                net::read(*socket, net::buffer(bu2));
+                net::write(*socket_server, net::buffer(bu2));
             }
             //if connection is closed, break the loop
             if(!socket_server->is_open()||!socket->is_open()){
@@ -279,7 +254,7 @@ public:
     */
     void GET(http::request<http::dynamic_body> * request,int ID, tcp::socket * socket, tcp::socket * socket_server){
         // POST(request, socket, socket_server);
-
+        boost::system::error_code ec;
         std::string key;
         key = std::string((*request)[http::field::host]) + std::string(request->target());
         
@@ -314,25 +289,18 @@ public:
             pthread_mutex_lock(&lock);
             LogStream<<ID<<": not in cache"<<std::endl;
             LogStream<<ID<<": Requesting \""<<request->method()<<" "<<request->target()\
-            <<" "<<request->version()<<"\" from " << request->at("host")<<std::endl;
+            <<" "<<parseVersion(request->version())<<"\" from " << request->at("host")<<std::endl;
             pthread_mutex_unlock(&lock);
             //connect to server
-            http::write(*socket_server, *request, ec);
-            if(ec){
-                std::cerr<< ec.message()<<std::endl;
-            }
-
+            http::write(*socket_server, *request);
             //recieve the HTTP response from the server
             boost::beast::flat_buffer buffer;
             http::response<http::dynamic_body> response;
             
-            boost::beast::http::read(*socket_server, buffer, response,ec);
-            if(ec){
-                std::cerr<< ec.message()<<std::endl;
-            }
+            boost::beast::http::read(*socket_server, buffer, response);
             pthread_mutex_lock(&lock);
             LogStream<<ID<<": Received \"" \
-            << response.version() << " " << response.result_int() <<" "<< response.reason() \
+            << parseVersion(response.version())<< " " << response.result_int() <<" "<< response.reason() \
             <<"\" from "<< request->at("host")<<std::endl;
             pthread_mutex_unlock(&lock);
             
@@ -349,13 +317,15 @@ public:
                     LogStream<<ID<< ": cached, expires at "<<ctime(&expire);
                     pthread_mutex_unlock(&lock);
                 }
+                else{
+                    pthread_mutex_lock(&lock);
+                    LogStream<<ID<< ": cached, does not expire "<<std::endl;
+                    pthread_mutex_unlock(&lock);
+                }
                 cache.put(key, response);
             }
             // Send the response to the client
-            http::write(*socket, response,ec);
-            if(ec){
-                std::cerr<< ec.message()<<std::endl;
-            }
+            http::write(*socket, response);
             // std::cout<<"response is: "<<response.base()<<std::endl;
         }
         
@@ -403,7 +373,6 @@ public:
 
             if(fields.find("max-age") != fields.end()){
                 *expire = date_value + fields["max-age"];
-                std::cout<<date_str<<" "<<ctime(&date_value)<<" max-age is "<<fields["max-age"];
                 return 1;
             }else{
                 //never expire
@@ -466,6 +435,7 @@ public:
      * @return the response got from the server, 200 if updated, 304 if not
     */
     http::response<http::dynamic_body> doValidation(tcp::socket * socket_server, http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response){
+        boost::system::error_code ec;
         http::request<http::dynamic_body> Crequest = makeConditionalRequest(request, response);
         http::write(*socket_server, Crequest, ec);
         if(ec){
@@ -549,12 +519,35 @@ public:
     }
    
 
+    http::response<http::dynamic_body> make400Response(http::request<http::dynamic_body> * request, int ID ){
+        http::response<http::dynamic_body> response;
+        response.result(boost::beast::http::status::bad_request);
+        response.version(request->version());
+        // response.keep_alive(request->keep_alive());
+        response.set(boost::beast::http::field::server, "My Server");
+        response.set(boost::beast::http::field::content_type, "text/plain");
+        // response.body() = "Bad Request";
+        response.prepare_payload();
+        pthread_mutex_lock(&lock);
+        LogStream<<ID<<": Responding \"" \
+        << parseVersion(response.version())<< " " << response.result_int() <<"\""<< response.reason()<<std::endl;
+        pthread_mutex_unlock(&lock);
+
+        return response;
+    }
+
 };
 
 int main(){
     std::string host = "12345";
     Proxy p(host, 1000);
     p.run();
+
+    // unsigned a = 10;
+    // std::cout<<parseVersion(a)<<std::endl;
+    // unsigned b = 11;
+    // std::cout<<parseVersion(b)<<std::endl;
+
 
     // std::string a = "no-store, no-cache, max-age=1000, must-revalidate, proxy-revalidate";
     // std::map<std::string, long> b = parseFields(a);

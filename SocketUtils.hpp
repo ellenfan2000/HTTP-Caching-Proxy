@@ -78,17 +78,14 @@ std::map<std::string, long> parseFields(std::string & str){
     return result;
 }
 
-http::response<http::dynamic_body> make400Response(http::request<http::dynamic_body> * request){
-    http::response<http::dynamic_body> response;
-    response.result(boost::beast::http::status::bad_request);
-    response.version(request->version());
-    // response.keep_alive(request->keep_alive());
-    response.set(boost::beast::http::field::server, "My Server");
-    response.set(boost::beast::http::field::content_type, "text/plain");
-    // response.body() = "Bad Request";
-    response.prepare_payload();
-    return response;
+std::string parseVersion(unsigned version){
+    unsigned major = version / 10;
+    unsigned minor = version % 10;
+    std::string ans = "HTTP/";
+    ans = ans+ std::to_string(major) + "."  +std::to_string(minor); 
+    return ans;
 }
+
 
 //  // if (socket_server->available() > 0){
 //             //     std::cout << "num is" << num <<std::endl;
@@ -169,4 +166,59 @@ http::response<http::dynamic_body> make400Response(http::request<http::dynamic_b
     //             }
     //         }
     //     } 
+    // }
+
+    // void CONNECT(http::request<http::dynamic_body> * request,int ID, tcp::socket * socket, tcp::socket * socket_server){
+    //     boost::system::error_code ec;
+    //     //send success to client, build the tunnel
+    //     int status;
+    //     std::string message = "HTTP/1.1 200 OK\r\n\r\n";
+    //     status = net::write(*socket, net::buffer(message), ec);
+    //     if(ec.value() != 0){
+    //         std::cerr<< "CONNECT: send the 200 OK to client error: " <<ec.to_string()<< ", "<< ec.message()<<std::endl;
+    //     }
+    //     while(true){
+    //         //if connection is closed, break the loop see error code
+    //         //byte of data available to read from server
+    //         int server_byte = socket_server->available(ec);
+    //         if(ec.value() != 0){
+    //             std::cerr<< "CONNECT: data available to read from server error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
+    //         }
+    //         //byte of data available to read from client
+    //         int clinet_byte = socket->available(ec);
+    //         if(ec.value() != 0){
+    //             std::cerr<< "CONNECT: data available to read from client error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
+    //         }
+
+    //         //send message between client and server
+    //         if(server_byte > 0){
+    //             std::vector<char> bu1(server_byte);
+    //             net::read(*socket_server, net::buffer(bu1), ec);
+    //             if(ec.value() != 0){
+    //                 std::cerr<< "CONNECT: read data from server error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
+    //             }
+    //             net::write(*socket, net::buffer(bu1),ec);
+    //             if(ec.value() != 0){
+    //                 std::cerr<< "CONNECT: send data to client error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
+    //             }
+    //         }
+    //         if(clinet_byte > 0){
+    //             std::vector<char> bu2(clinet_byte);
+    //             net::read(*socket, net::buffer(bu2), ec);
+    //             if(ec.value() != 0){
+    //                 std::cerr<< "CONNECT: read data from client error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
+    //             }
+    //             net::write(*socket_server, net::buffer(bu2),ec);
+    //             if(ec.value() != 0){
+    //                 std::cerr<< "CONNECT: send data to server error" <<ec.to_string()<<", "<<ec.message()<< std::endl;
+    //             }
+    //         }
+    //         //if connection is closed, break the loop
+    //         if(!socket_server->is_open()||!socket->is_open()){
+    //             pthread_mutex_lock(&lock);
+    //             LogStream<<ID<<": Tunnel closed"<<std::endl;
+    //             pthread_mutex_unlock(&lock);
+    //             break;
+    //         }
+    //     }
     // }

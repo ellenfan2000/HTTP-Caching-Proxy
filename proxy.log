@@ -1,14 +1,138 @@
-0: "CONNECT incoming.telemetry.mozilla.org:443 11" from 174.99.158.118 @ Mon Feb 27 02:26:01 2023
-1: "CONNECT contile-images.services.mozilla.com:443 11" from 174.99.158.118 @ Mon Feb 27 02:26:01 2023
-2: "CONNECT img-getpocket.cdn.mozilla.net:443 11" from 174.99.158.118 @ Mon Feb 27 02:26:01 2023
-3: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Mon Feb 27 02:26:03 2023
+0: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:24 2023
+0: not in cache
+0: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from feedburner.google.com
+0: Received "HTTP/1.1 304 Not Modified" from feedburner.google.com
+1: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:25 2023
+1: not in cache
+1: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from feedburner.google.com
+1: Received "HTTP/1.1 304 Not Modified" from feedburner.google.com
+2: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:25 2023
+2: not in cache
+2: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from feedburner.google.com
+2: Received "HTTP/1.1 304 Not Modified" from feedburner.google.com
+3: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:25 2023
 3: not in cache
-3: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from feedburner.google.com
-3: Received "11 200 OK" from feedburner.google.com
-3: cached, expires at Mon Feb 27 02:26:03 2023
-4: "CONNECT incoming.telemetry.mozilla.org:443 11" from 174.99.158.118 @ Mon Feb 27 02:26:04 2023
-5: "CONNECT mozilla.cloudflare-dns.com:443 11" from 174.99.158.118 @ Mon Feb 27 02:26:39 2023
-7: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif 11" from 174.99.158.118 @ Mon Feb 27 02:27:39 2023
-6: "CONNECT spocs.getpocket.com:443 11" from 174.99.158.118 @ Mon Feb 27 02:27:39 2023
-7: in cache, but expired at Mon Feb 27 02:26:03 2023
-7: in cache, requires validation
+3: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from feedburner.google.com
+3: Received "HTTP/1.1 304 Not Modified" from feedburner.google.com
+4: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:25 2023
+4: not in cache
+4: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from feedburner.google.com
+4: Received "HTTP/1.1 304 Not Modified" from feedburner.google.com
+5: "CONNECT www.youtube.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:27 2023
+6: "CONNECT i.ytimg.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:27 2023
+7: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:27 2023
+8: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:27 2023
+9: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:27 2023
+10: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:28 2023
+11: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:28 2023
+12: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:28 2023
+13: "CONNECT accounts.google.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:28 2023
+14: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:28 2023
+15: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:28 2023
+16: "CONNECT en.wikipedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+17: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+18: "CONNECT intake-analytics.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+20: "CONNECT upload.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+23: "CONNECT upload.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+24: "CONNECT upload.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+19: "CONNECT upload.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+21: "CONNECT upload.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+22: "CONNECT upload.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+26: "CONNECT meta.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+25: "CONNECT login.wikimedia.org:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+28: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+27: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+29: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:29 2023
+30: "CONNECT rr3---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:30 2023
+31: "CONNECT rr3---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:30 2023
+32: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:31 2023
+33: "CONNECT rr1---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:31 2023
+36: "CONNECT rr2---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:31 2023
+34: "CONNECT rr1---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:31 2023
+35: "CONNECT rr2---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:31 2023
+37: "CONNECT stackoverflow.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:31 2023
+40: "CONNECT cdn.sstatic.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+41: "CONNECT cdn.sstatic.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+38: "CONNECT cdn.sstatic.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+39: "CONNECT ajax.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+42: "CONNECT cdn.sstatic.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+43: "CONNECT cdn.sstatic.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+46: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+47: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+48: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+44: "CONNECT www.gravatar.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+49: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+50: "CONNECT i.stack.imgur.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+51: "CONNECT graph.facebook.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:33 2023
+52: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:33 2023
+52: not in cache
+52: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from feedburner.google.com
+52: Received "HTTP/1.1 304 Not Modified" from feedburner.google.com
+53: "CONNECT scontent-iad3-1.xx.fbcdn.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:33 2023
+54: "CONNECT 3359c8d8328c967fd166a1ea5f80b9b9.safeframe.googlesyndication.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:33 2023
+55: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:34 2023
+56: "CONNECT clc.stackoverflow.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:34 2023
+57: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:34 2023
+59: "CONNECT www.microsoft.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:35 2023
+60: "CONNECT web.vortex.data.microsoft.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:35 2023
+61: "CONNECT www.youtube-nocookie.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:35 2023
+62: "CONNECT statics-marketingsites-eus-ms-com.akamaized.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+63: "CONNECT mwf-service.akamaized.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+64: "CONNECT mwf-service.akamaized.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+65: "CONNECT wcpstatic.microsoft.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+68: "CONNECT az725175.vo.msecnd.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+66: "CONNECT mem.gfx.ms:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+69: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+72: "CONNECT maps.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+71: "CONNECT maps.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+70: "CONNECT maps.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+73: "CONNECT csp.withgoogle.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+45: Responding "HTTP/1.1 400 Bad Request
+45: Invalid Request from 10.197.14.34 @ Mon Feb 27 19:45:32 2023
+67: "CONNECT img-prod-cms-rt-microsoft-com.akamaized.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:37 2023
+74: "CONNECT c.s-microsoft.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:38 2023
+76: "CONNECT js.monitor.azure.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:38 2023
+75: "CONNECT c.s-microsoft.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:38 2023
+77: "GET http://uniqueoldyoungchart.neverssl.com/online/ HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:38 2023
+77: not in cache
+77: Requesting "GET http://uniqueoldyoungchart.neverssl.com/online/ HTTP/1.1" from uniqueoldyoungchart.neverssl.com
+77: Received "HTTP/1.1 200 OK" from uniqueoldyoungchart.neverssl.com
+77: cached, does not expire 
+78: "GET http://uniqueoldyoungchart.neverssl.com/favicon.ico HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:38 2023
+78: not in cache
+78: Requesting "GET http://uniqueoldyoungchart.neverssl.com/favicon.ico HTTP/1.1" from uniqueoldyoungchart.neverssl.com
+79: "CONNECT mem.gfx.ms:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:38 2023
+78: Received "HTTP/1.1 200 OK" from uniqueoldyoungchart.neverssl.com
+78: cached, does not expire 
+80: "CONNECT ssl.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:39 2023
+58: Responding "HTTP/1.1 400 Bad Request
+58: Invalid Request from 10.197.14.34 @ Mon Feb 27 19:45:34 2023
+81: "GET http://uniqueoldyoungchart.neverssl.com/online/ HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:39 2023
+82: "CONNECT login.live.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:39 2023
+83: "CONNECT login.microsoftonline.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:39 2023
+81: in cache, valid
+84: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:40 2023
+85: "CONNECT youtube.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:41 2023
+86: "CONNECT logincdn.msftauth.net:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:41 2023
+90: "CONNECT apis.google.com:443 HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:41 2023
+88: "GET http://brightlushquiettreasure.neverssl.com/online/ HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:41 2023
+88: not in cache
+88: Requesting "GET http://brightlushquiettreasure.neverssl.com/online/ HTTP/1.1" from brightlushquiettreasure.neverssl.com
+88: Received "HTTP/1.1 200 OK" from brightlushquiettreasure.neverssl.com
+88: cached, does not expire 
+91: "GET http://brightlushquiettreasure.neverssl.com/online/ HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:42 2023
+91: in cache, valid
+92: "GET http://brightlushquiettreasure.neverssl.com/favicon.ico HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:43 2023
+92: not in cache
+92: Requesting "GET http://brightlushquiettreasure.neverssl.com/favicon.ico HTTP/1.1" from brightlushquiettreasure.neverssl.com
+92: Received "HTTP/1.1 200 OK" from brightlushquiettreasure.neverssl.com
+92: cached, does not expire 
+93: "GET http://uniqueoldyoungchart.neverssl.com/online/ HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:44 2023
+93: in cache, valid
+94: "GET http://uniqueoldyoungchart.neverssl.com/online/ HTTP/1.1" from 10.197.14.34 @ Mon Feb 27 19:45:46 2023
+94: in cache, valid
+89: Responding "HTTP/1.1 400 Bad Request
+89: Invalid Request from 10.197.14.34 @ Mon Feb 27 19:45:41 2023
+87: Responding "HTTP/1.1 400 Bad Request
+87: Invalid Request from 10.197.14.34 @ Mon Feb 27 19:45:41 2023
+67: Tunnel closed

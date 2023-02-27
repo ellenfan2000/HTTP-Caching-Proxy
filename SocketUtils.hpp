@@ -24,25 +24,19 @@ namespace pt = boost::posix_time;
 namespace dt = boost::date_time;
 
 time_t parseDatetime(std::string date_str){
-    std::locale loc(std::cout.getloc(), new boost::posix_time::time_input_facet("%a, %d %b %Y %H:%M:%S %Z"));
-    std::istringstream ss(date_str);
-    ss.imbue(loc);
-    pt::ptime date_time;
-    ss >> date_time;
 
-   // Print the datetime object
-    // std::cout << "Date: " << to_simple_string(date_time) << std::endl;
-
-    std::string format_str = "%a, %d %b %Y %H:%M:%S %Z";
+    std::string format_str = "%a, %d %b %Y %H:%M:%S GMT";
 
     tm tm;
+    tm.tm_isdst = 0;
     if (strptime(date_str.c_str(), format_str.c_str(), &tm) == nullptr) {
         std::cerr << "Failed to parse HTTP-date string" << std::endl;
     }
     time_t time = mktime(&tm);
 
     // Print the parsed time
-    // std::cout << "Parsed time: " << std::asctime(&tm);
+    // std::cout<<"String is: "<<date_str<<std::endl;
+    // std::cout << "Parsed time: " << std::ctime(&time);
     return time;
 }
 

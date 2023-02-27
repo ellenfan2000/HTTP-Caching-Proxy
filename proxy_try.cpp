@@ -41,16 +41,15 @@ public:
             //accept client connection
             tcp::socket * socket = new tcp::socket(io_context);
             acceptor.accept(*socket, ec);
+            id++;
             if(ec.value() != 0){
                 //if cannot connect, go to next
                 std::cerr<<"cannot connect with client: "<< ec.message()<<std::endl;
                 socket->close();
                 continue;
             }
-            std::thread t(&Proxy::requestProcess, this, socket, id);
-            id++;
+            std::thread t(&Proxy::requestProcess, this, socket, id-1);
             t.detach();
-            // id++;
         }
     }
     
@@ -109,6 +108,8 @@ public:
         net::ip::tcp::endpoint client_ip = socket->remote_endpoint();
         time_t now;
         time(&now);
+
+        time_t gmt_now = mktime(gmtime(&now));
         //has host info
         if(request.find(http::field::host) == request.end()){
             http::write(*socket, make400Response(&request),ec);
@@ -117,8 +118,8 @@ public:
             }
             // std::cerr<<"Bad request, does not have host info"<<std::endl;
             pthread_mutex_lock(&lock);
-            LogStream<<ID<<": \""<<request.base()<<"\" from " <<client_ip.address()\
-            <<" @ "<<ctime(&now);
+            LogStream<<ID<<": Invalid Request from " <<client_ip.address()\
+            <<" @ "<<ctime(&gmt_now);
             pthread_mutex_unlock(&lock);
 
             socket->close();
@@ -128,7 +129,7 @@ public:
             pthread_mutex_lock(&lock);
             LogStream<<ID<<": \""<<request.method()<<" "<<request.target()\
             <<" "<<request.version()<<"\" from " <<client_ip.address()\
-            <<" @ "<<ctime(&now);
+            <<" @ "<<ctime(&gmt_now);
             pthread_mutex_unlock(&lock);
         }
         
@@ -345,7 +346,7 @@ public:
                 time_t expire;
                 if(getExpireTime(&response, ID,&expire)==1){
                     pthread_mutex_lock(&lock);
-                    LogStream<<ID<< ": cached, expires at"<<ctime(&expire);
+                    LogStream<<ID<< ": cached, expires at "<<ctime(&expire);
                     pthread_mutex_unlock(&lock);
                 }
                 cache.put(key, response);
@@ -402,6 +403,7 @@ public:
 
             if(fields.find("max-age") != fields.end()){
                 *expire = date_value + fields["max-age"];
+                std::cout<<date_str<<" "<<ctime(&date_value)<<" max-age is "<<fields["max-age"];
                 return 1;
             }else{
                 //never expire
@@ -574,11 +576,14 @@ int main(){
 
     // std::string d1 = "Tue, 01 Feb 2022 12:30:45 GMT";
     // std::string d2 = "Tue, 01 Feb 2022 12:30:46 GMT";
+    // std::string d3 = "Sun, 26 Feb 2023 23:51:19 GMT";
     // std::time_t p1 = parseDatetime(d1);
     // std::time_t p2 = parseDatetime(d2);
+    // std::time_t p3 = parseDatetime(d3);
     // time_t now;
     // time(&now);
     // std::cout << "Parsed time: now is " << asctime(gmtime(&now));
+    // std::cout << "Parsed time: " << ctime(&p1);
     // std::cout << "Parsed time: " << ctime(&p1);
     // bool a = (p1 < now );
     // bool b = (p2 < p1);

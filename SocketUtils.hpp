@@ -36,6 +36,7 @@ time_t parseDatetime(std::string date_str){
     std::string format_str = "%a, %d %b %Y %H:%M:%S %Z";
 
     tm tm;
+    tm.tm_isdst=0;
     if (strptime(date_str.c_str(), format_str.c_str(), &tm) == nullptr) {
         std::cerr << "Failed to parse HTTP-date string" << std::endl;
     }

@@ -24,11 +24,11 @@ namespace pt = boost::posix_time;
 namespace dt = boost::date_time;
 
 time_t parseDatetime(std::string date_str){
-    std::locale loc(std::cout.getloc(), new boost::posix_time::time_input_facet("%a, %d %b %Y %H:%M:%S %Z"));
-    std::istringstream ss(date_str);
-    ss.imbue(loc);
-    pt::ptime date_time;
-    ss >> date_time;
+    // std::locale loc(std::cout.getloc(), new boost::posix_time::time_input_facet("%a, %d %b %Y %H:%M:%S %Z"));
+    // std::istringstream ss(date_str);
+    // ss.imbue(loc);
+    // pt::ptime date_time;
+    // ss >> date_time;
 
     std::string format_str = "%a, %d %b %Y %H:%M:%S GMT";
 

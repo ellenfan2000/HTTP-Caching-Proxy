@@ -1,1 +1,12 @@
+version: '2'
 
+services:
+  HTTPProxy:
+      build: .
+      image: proxy
+      volumes:
+            - "./HTTPProxy:/HTTPProxy"
+            - "./logs:/var/log/erss"
+      ports:
+            - "12345:12345"
+      command: bash -c "./proxy"

@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  HTTPProxy:
+  proxy:
       build: .
       image: proxy
       volumes:
@@ -9,4 +9,4 @@ services:
             - "./logs:/var/log/erss"
       ports:
             - "12345:12345"
-      command: bash -c "./proxy"
+      command: bash -c "make && ./proxy"

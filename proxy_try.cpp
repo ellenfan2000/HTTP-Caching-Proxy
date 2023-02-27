@@ -416,20 +416,20 @@ public:
      * @return the response got from the server, 200 if updated, 304 if not
     */
     http::response<http::dynamic_body> doValidation(tcp::socket * socket_server, http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response){
-        boost::system::error_code ec;
+        // boost::system::error_code ec;
         http::request<http::dynamic_body> Crequest = makeConditionalRequest(request, response);
-        http::write(*socket_server, Crequest, ec);
-        if(ec){
-            std::cerr<< "Validation: Send Conditional request error: "<<ec.to_string()<<", "<<ec.message()<< std::endl;
-        }
+        http::write(*socket_server, Crequest);
+        // if(ec){
+        //     std::cerr<< "Validation: Send Conditional request error: "<<ec.to_string()<<", "<<ec.message()<< std::endl;
+        // }
         //recieve the HTTP response from the server
         boost::beast::flat_buffer buffer;
         http::response<http::dynamic_body> new_response;
         
-        boost::beast::http::read(*socket_server, buffer, new_response,ec);
-        if(ec){
-            std::cerr<<"Validation: Recieve conditional request result from server error: "<<ec.to_string()<<", "<<ec.message()<< std::endl;
-        }
+        boost::beast::http::read(*socket_server, buffer, new_response);
+        // if(ec){
+        //     std::cerr<<"Validation: Recieve conditional request result from server error: "<<ec.to_string()<<", "<<ec.message()<< std::endl;
+        // }
         return new_response;
     }
 

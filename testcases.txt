@@ -269,4 +269,34 @@ how to test:first open your browser,which use the proxy and then start the proxy
 78: Responding "HTTP/1.1 400"Bad Request
 78: Invalid Request from 10.194.23.155 @ Mon Feb 27 21:33:15 2023
 79: Responding "HTTP/1.1 400"Bad Request
+TestCase 5: Self-generated test case:
+We use a python Flask script to build a fake website and design the response as needed
+The code of the script is:
+from flask import Flask, jsonify, make_response
+import datetime
 
+app = Flask(__name__)
+
+@app.route('/')
+def example():
+    # here to change headers
+    headers = {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store',
+    }
+    response = make_response(jsonify(headers), 200) # here to change status code
+    response.headers = headers # set headers
+
+    return response
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0',port="5000")
+You should install Flask in your VM and run this file
+Then you should start our proxy, and in other vm session, send request to localhost:5000
+The content in proxy.log will be:
+0: "GET http://localhost:5000/ HTTP/1.1" from 127.0.0.1 @ Mon Feb 27 21:53:57 2023
+0: not in cache
+0: Requesting "GET http://localhost:5000/ HTTP/1.1" from localhost:5000
+0: Received "HTTP/1.1 200 OK" from localhost:5000
+0: not cacheable because "no-store"
+Test case 6: 

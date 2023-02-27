@@ -29,19 +29,24 @@ time_t parseDatetime(std::string date_str){
     ss.imbue(loc);
     pt::ptime date_time;
     ss >> date_time;
+    std::cout<<"hello date"<<date_str<<std::endl;
+   // Print the datetime object
+    // std::cout << "Date: " << to_simple_string(date_time) << std::endl;
 
-    std::string format_str = "%a, %d %b %Y %H:%M:%S GMT";
+    std::string format_str = "%a, %d %b %Y %H:%M:%S %Z";
 
     tm tm;
-    tm.tm_isdst = 0;
+    tm.tm_isdst=0; 
     if (strptime(date_str.c_str(), format_str.c_str(), &tm) == nullptr) {
         std::cerr << "Failed to parse HTTP-date string" << std::endl;
     }
     time_t time = mktime(&tm);
-
+    //std::cout<<ctime(&time)<<std::endl;
     // Print the parsed time
-    // std::cout<<"String is: "<<date_str<<std::endl;
-    // std::cout << "Parsed time: " << std::ctime(&time);
+    // std::cout << "Parsed time: " << std::asctime(&tm);
+    std::cout<<"pre local time"<<tm.tm_hour<<std::endl;
+    std::cout<<"local time is"<<std::localtime(&time)->tm_hour<<std::endl;
+    std::cout<<"hello date Time t"<<asctime(std::localtime(&time))<<std::endl;
     return time;
 }
 

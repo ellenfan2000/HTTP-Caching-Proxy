@@ -33,7 +33,7 @@ private:
     pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 public:
-    Proxy(std::string p, int c):host(NULL), port(p.c_str()), cache(Cache(c)), LogStream(std::ofstream("proxy.log")){}
+    Proxy(std::string p, int c):host(NULL), port(p.c_str()), cache(Cache(c)), LogStream(std::ofstream("../logs/proxy.log")){}
 
     void run(){
         tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), strtol(port, NULL, 0)));

@@ -1,9 +1,0 @@
-version: '2'
-
-services:
-  proxy:
-    build: ./HTTPProxy
-    volumes:
-      - ./HTTPProxy:/var/log/erss
-    ports:
-      - "12345:12345

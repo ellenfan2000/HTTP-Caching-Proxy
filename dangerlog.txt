@@ -1,0 +1,6 @@
+1. Our group has worked on two different versions, one with pure c++ socket, one with boost, and put a lot of time in debugging on two versions, if we plan a better version control,
+we can save a lot of time
+2. In Previous version, the design and naming of the functions don't follow single responbility principle, a lot of repeated code
+3. For pure socket version, we don't use while loop to recv() bytes at first, which can cause error
+4. we don't care about the exception in the first version, which can make the server fail
+5. At first, the proxy.log directory is not correct

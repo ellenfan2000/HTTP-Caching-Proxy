@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <thread>
+#include "parser.hpp"
 
 class Cache{
 private:

@@ -1,4 +1,3 @@
-#include "parser.hpp"
 #include "Cache.hpp"  
 #include <exception>
 class Proxy{
@@ -327,7 +326,7 @@ public:
             << parseVersion(response.version())<< " " << response.result_int() <<" "<< response.reason() \
             <<"\" from "<< request->at("host")<<std::endl;
             pthread_mutex_unlock(&lock);
-            
+            time_t expire;
             //store in cache
             if(cacheCanStore(request, &response, ID)){
                 cache.put(key, response);
@@ -336,8 +335,7 @@ public:
                     LogStream<<ID<< ": cached, but requires re-validation"<<std::endl;
                     pthread_mutex_unlock(&lock);
                 }
-                time_t expire;
-                if(getExpireTime(&response, &expire)==1){
+                else if(getExpireTime(&response, &expire)==1){
                     pthread_mutex_lock(&lock);
                     LogStream<<ID<< ": cached, expires at "<<ctime(&expire);
                     pthread_mutex_unlock(&lock);
@@ -441,6 +439,12 @@ public:
             //if no-cache or must-revalidate, need validation
             if(fields.find("no-cache") != fields.end() || fields.find("must-revalidate") != fields.end()){
                 return true;
+            }
+            //if max-age == 0
+            if(fields.find("max-age") != fields.end()){
+                if(fields["max-age"] == 0){
+                    return true;
+                }
             }
         }
         return false;
@@ -592,7 +596,7 @@ int main(){
     //     return EXIT_FAILURE;
     // }
     std::string host = "12345";
-    Proxy p(host, 10);
+    Proxy p(host, 3);
     p.run();
     return EXIT_SUCCESS;
 }

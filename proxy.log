@@ -1,56 +1,334 @@
-0: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:39:33 2023
-0: not in cache
-0: Requesting "GET http://httpbin.org/cache/60 HTTP/1.1" from httpbin.org
-0: Received "HTTP/1.1 200 OK" from httpbin.org
-0: cached, expires at Tue Feb 28 16:40:33 2023
-0: Responding "HTTP/1.1 200 OK"
-1: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:39:47 2023
-1: in cache, valid
-1: Responding "HTTP/1.1 200 OK"
-2: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:40:00 2023
-2: in cache, valid
-2: Responding "HTTP/1.1 200 OK"
-3: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:40:08 2023
-3: in cache, valid
+0: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+4: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+5: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+3: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+6: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
 3: Responding "HTTP/1.1 200 OK"
-4: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:40:13 2023
-4: in cache, valid
-4: Responding "HTTP/1.1 200 OK"
-5: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:40:17 2023
-5: in cache, valid
+3: Tunnel closed
+0: Responding "HTTP/1.1 200 OK"
+0: Tunnel closed
 5: Responding "HTTP/1.1 200 OK"
-6: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:40:28 2023
-6: in cache, valid
+5: Tunnel closed
+4: Responding "HTTP/1.1 200 OK"
+4: Tunnel closed
+6: not in cache
+6: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+6: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+6: cached, but requires re-validation
+6: cached, expires at Tue Feb 28 18:18:28 2023
 6: Responding "HTTP/1.1 200 OK"
-7: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:40:44 2023
-7: in cache, but expired at Tue Feb 28 16:40:33 2023
-7: Validating "GET http://httpbin.org/cache/60 HTTP/1.1" from httpbin.org
-7: Recieve validation "HTTP/1.1 200 OK" from httpbin.org
+7: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+8: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
 7: Responding "HTTP/1.1 200 OK"
-8: "GET http://httpbin.org/cache HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:43:12 2023
-8: not in cache
-8: Requesting "GET http://httpbin.org/cache HTTP/1.1" from httpbin.org
-8: Received "HTTP/1.1 304 NOT MODIFIED" from httpbin.org
-8: not cacheable because "Response code is 304"
-8: Responding "HTTP/1.1 304 NOT MODIFIED"
-9: "GET http://httpbin.org/cache HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:45:18 2023
-9: not in cache
-9: Requesting "GET http://httpbin.org/cache HTTP/1.1" from httpbin.org
-9: Received "HTTP/1.1 200 OK" from httpbin.org
-9: cached, does not expire 
+7: Tunnel closed
+8: Responding "HTTP/1.1 200 OK"
+8: Tunnel closed
+9: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
 9: Responding "HTTP/1.1 200 OK"
-10: "GET http://httpbin.org/cache HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:45:29 2023
-10: in cache, valid
-10: Responding "HTTP/1.1 200 OK"
-11: "GET http://httpbin.org/response-headers?freeform=%22Cache-Control%22%3A%20%22no-cache%22 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:47:56 2023
-11: not in cache
-11: Requesting "GET http://httpbin.org/response-headers?freeform=%22Cache-Control%22%3A%20%22no-cache%22 HTTP/1.1" from httpbin.org
-11: Received "HTTP/1.1 200 OK" from httpbin.org
-11: cached, does not expire 
+9: Tunnel closed
+11: "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+12: "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+14: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+14: Responding "HTTP/1.1 200 OK"
+14: Tunnel closed
+12: not in cache
+12: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
 11: Responding "HTTP/1.1 200 OK"
-12: "GET http://httpbin.org/response-headers?freeform=%22Cache-Control%22%3A%20%22no-cache%22 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:48:04 2023
-12: in cache, valid
+11: Tunnel closed
+12: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+12: cached, but requires re-validation
+12: cached, expires at Tue Feb 28 11:49:15 2023
 12: Responding "HTTP/1.1 200 OK"
-13: "GET http://httpbin.org/response-headers?freeform=%22Cache-Control%22%3A%20%22no-cache%22 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:48:06 2023
-13: in cache, valid
-13: Responding "HTTP/1.1 200 OK"
+18: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+20: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+19: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+24: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+22: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+23: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+17: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+21: "CONNECT dnssec-experiment-moz.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+31: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+28: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+34: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+26: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+31: Responding "HTTP/1.1 200 OK"
+31: Tunnel closed
+20: Responding "HTTP/1.1 200 OK"
+20: Tunnel closed
+38: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+38: Responding "HTTP/1.1 400 Bad Request"
+24: Responding "HTTP/1.1 200 OK"
+24: Tunnel closed
+26: Responding "HTTP/1.1 200 OK"
+26: Tunnel closed
+21: Responding "HTTP/1.1 200 OK"
+21: Tunnel closed
+28: Responding "HTTP/1.1 200 OK"
+22: Responding "HTTP/1.1 200 OK"
+28: Tunnel closed
+23: Responding "HTTP/1.1 200 OK"
+23: Tunnel closed
+22: Tunnel closed
+34: Responding "HTTP/1.1 200 OK"
+34: Tunnel closed
+19: Responding "HTTP/1.1 200 OK"
+19: Tunnel closed
+18: Responding "HTTP/1.1 200 OK"
+18: Tunnel closed
+33: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+39: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:45 2023
+39: Responding "HTTP/1.1 400 Bad Request"
+17: Responding "HTTP/1.1 200 OK"
+17: Tunnel closed
+33: Responding "HTTP/1.1 200 OK"
+33: Tunnel closed
+27: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+32: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+37: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+36: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+29: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+32: Responding "HTTP/1.1 200 OK"
+32: Tunnel closed
+37: Responding "HTTP/1.1 200 OK"
+37: Tunnel closed
+36: Responding "HTTP/1.1 200 OK"
+36: Tunnel closed
+29: Responding "HTTP/1.1 200 OK"
+29: Tunnel closed
+27: Responding "HTTP/1.1 200 OK"
+27: Tunnel closed
+40: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:45 2023
+40: Responding "HTTP/1.1 200 OK"
+40: Tunnel closed
+41: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:46 2023
+35: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:44 2023
+41: Responding "HTTP/1.1 200 OK"
+41: Tunnel closed
+35: Responding "HTTP/1.1 200 OK"
+35: Tunnel closed
+42: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+43: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+43: Responding "HTTP/1.1 400 Bad Request"
+49: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+49: Responding "HTTP/1.1 400 Bad Request"
+45: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+46: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+42: Responding "HTTP/1.1 200 OK"
+42: Tunnel closed
+47: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+44: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+50: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+51: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+48: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+52: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+53: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+53: Responding "HTTP/1.1 400 Bad Request"
+54: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+54: Responding "HTTP/1.1 400 Bad Request"
+46: Responding "HTTP/1.1 200 OK"
+46: Tunnel closed
+44: Responding "HTTP/1.1 200 OK"
+44: Tunnel closed
+45: Responding "HTTP/1.1 200 OK"
+45: Tunnel closed
+51: Responding "HTTP/1.1 200 OK"
+51: Tunnel closed
+47: Responding "HTTP/1.1 200 OK"
+47: Tunnel closed
+50: Responding "HTTP/1.1 200 OK"
+52: Responding "HTTP/1.1 200 OK"
+50: Tunnel closed
+52: Tunnel closed
+55: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+55: Responding "HTTP/1.1 400 Bad Request"
+56: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:47 2023
+56: Responding "HTTP/1.1 400 Bad Request"
+48: Responding "HTTP/1.1 200 OK"
+48: Tunnel closed
+57: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+58: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+60: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+59: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+59: Responding "HTTP/1.1 400 Bad Request"
+62: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+63: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+64: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+67: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+61: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+57: Responding "HTTP/1.1 200 OK"
+57: Tunnel closed
+58: Responding "HTTP/1.1 200 OK"
+58: Tunnel closed
+60: Responding "HTTP/1.1 200 OK"
+60: Tunnel closed
+67: Responding "HTTP/1.1 200 OK"
+62: Responding "HTTP/1.1 200 OK"
+62: Tunnel closed
+67: Tunnel closed
+63: Responding "HTTP/1.1 200 OK"
+63: Tunnel closed
+61: Responding "HTTP/1.1 200 OK"
+61: Tunnel closed
+64: Responding "HTTP/1.1 200 OK"
+64: Tunnel closed
+68: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+68: Responding "HTTP/1.1 400 Bad Request"
+65: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+66: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:49 2023
+65: Responding "HTTP/1.1 200 OK"
+65: Tunnel closed
+66: Responding "HTTP/1.1 200 OK"
+66: Tunnel closed
+73: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+72: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+70: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+69: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+71: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+74: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+75: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+69: Responding "HTTP/1.1 200 OK"
+69: Tunnel closed
+70: Responding "HTTP/1.1 200 OK"
+70: Tunnel closed
+72: Responding "HTTP/1.1 200 OK"
+72: Tunnel closed
+71: Responding "HTTP/1.1 200 OK"
+71: Tunnel closed
+73: Responding "HTTP/1.1 200 OK"
+73: Tunnel closed
+74: Responding "HTTP/1.1 200 OK"
+74: Tunnel closed
+75: Responding "HTTP/1.1 200 OK"
+75: Tunnel closed
+76: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+77: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+80: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+83: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+76: Responding "HTTP/1.1 200 OK"
+76: Tunnel closed
+77: Responding "HTTP/1.1 200 OK"
+77: Tunnel closed
+80: Responding "HTTP/1.1 200 OK"
+80: Tunnel closed
+81: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+83: Responding "HTTP/1.1 200 OK"
+83: Tunnel closed
+78: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+79: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+84: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+81: Responding "HTTP/1.1 200 OK"
+81: Tunnel closed
+79: Responding "HTTP/1.1 200 OK"
+79: Tunnel closed
+84: Responding "HTTP/1.1 200 OK"
+84: Tunnel closed
+78: Responding "HTTP/1.1 200 OK"
+78: Tunnel closed
+82: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+85: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+82: Responding "HTTP/1.1 200 OK"
+82: Tunnel closed
+85: Responding "HTTP/1.1 200 OK"
+85: Tunnel closed
+86: "GET http://google.com/ HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+86: not in cache
+86: Requesting "GET http://google.com/ HTTP/1.1" from google.com
+86: Received "HTTP/1.1 301 Moved Permanently" from google.com
+86: not cacheable because "Response code is 301"
+86: Responding "HTTP/1.1 301 Moved Permanently"
+87: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:50 2023
+87: Responding "HTTP/1.1 200 OK"
+87: Tunnel closed
+88: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+89: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+89: Responding "HTTP/1.1 200 OK"
+89: Tunnel closed
+88: Responding "HTTP/1.1 200 OK"
+88: Tunnel closed
+90: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+91: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+92: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+93: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+94: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+90: Responding "HTTP/1.1 200 OK"
+90: Tunnel closed
+93: Responding "HTTP/1.1 200 OK"
+91: Responding "HTTP/1.1 200 OK"
+91: Tunnel closed
+92: Responding "HTTP/1.1 200 OK"
+92: Tunnel closed
+94: Responding "HTTP/1.1 200 OK"
+94: Tunnel closed
+93: Tunnel closed
+95: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+95: Responding "HTTP/1.1 200 OK"
+95: Tunnel closed
+96: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+96: Responding "HTTP/1.1 200 OK"
+96: Tunnel closed
+97: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:51 2023
+97: Responding "HTTP/1.1 200 OK"
+97: Tunnel closed
+98: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:52 2023
+100: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:52 2023
+98: Responding "HTTP/1.1 200 OK"
+98: Tunnel closed
+100: Responding "HTTP/1.1 200 OK"
+100: Tunnel closed
+99: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:52 2023
+99: Responding "HTTP/1.1 200 OK"
+99: Tunnel closed
+101: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:52 2023
+101: Responding "HTTP/1.1 200 OK"
+101: Tunnel closed
+102: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:52 2023
+102: Responding "HTTP/1.1 200 OK"
+102: Tunnel closed
+103: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:53 2023
+103: Responding "HTTP/1.1 400 Bad Request"
+104: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:53 2023
+105: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:53 2023
+107: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:53 2023
+107: Responding "HTTP/1.1 400 Bad Request"
+104: Responding "HTTP/1.1 200 OK"
+104: Tunnel closed
+105: Responding "HTTP/1.1 200 OK"
+105: Tunnel closed
+108: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:45:53 2023
+108: Responding "HTTP/1.1 400 Bad Request"
+106: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:53 2023
+106: Responding "HTTP/1.1 200 OK"
+106: Tunnel closed
+109: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:53 2023
+109: Responding "HTTP/1.1 200 OK"
+109: Tunnel closed
+110: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:53 2023
+110: Responding "HTTP/1.1 200 OK"
+110: Tunnel closed
+111: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:45:56 2023
+111: Responding "HTTP/1.1 200 OK"
+111: Tunnel closed
+112: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:46:01 2023
+112: Responding "HTTP/1.1 200 OK"
+112: Tunnel closed
+113: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:46:03 2023
+113: Responding "HTTP/1.1 400 Bad Request"
+114: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:46:03 2023
+114: Responding "HTTP/1.1 400 Bad Request"
+115: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:46:04 2023
+115: Responding "HTTP/1.1 200 OK"
+115: Tunnel closed
+117: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:46:17 2023
+117: Responding "HTTP/1.1 200 OK"
+117: Tunnel closed
+118: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:46:21 2023
+118: Responding "HTTP/1.1 200 OK"
+118: Tunnel closed
+120: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:46:23 2023
+120: Responding "HTTP/1.1 400 Bad Request"
+119: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:46:23 2023
+119: Responding "HTTP/1.1 400 Bad Request"
+121: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:46:23 2023
+121: Responding "HTTP/1.1 400 Bad Request"
+122: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 18:46:23 2023
+122: Responding "HTTP/1.1 400 Bad Request"

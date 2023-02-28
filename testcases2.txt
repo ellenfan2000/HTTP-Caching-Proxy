@@ -48,6 +48,38 @@ test case 4: Cached does not expire http://httpbin.org/cache/3
 1: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:39:47 2023
 1: in cache, valid
 1: Responding "HTTP/1.1 200 OK"
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-test case 5: 
+test case 5: Cached, expired, validation, but not modified http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 18:07:02 2023
+0: not in cache
+0: Requesting "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from feedburner.google.com
+0: Received "HTTP/1.1 200 OK" from feedburner.google.com
+0: cached, expires at Tue Feb 28 18:07:02 2023
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 18:07:06 2023
+1: in cache, but expired at Tue Feb 28 18:07:02 2023
+1: Validating "GET http://feedburner.google.com/fb/i/icn/feed-icon-10x10.gif HTTP/1.1" from feedburner.google.com
+1: Recieve validation "HTTP/1.1 304 Not Modified" from feedburner.google.com
+1: Responding "HTTP/1.1 200 OK"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test case 6: test CONNECT
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0: "CONNECT duke.edu:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:34:18 2023
+0: Responding "HTTP/1.1 200 OK"
+5: "CONNECT duke.edu:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:34:18 2023
+4: "CONNECT duke.edu:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:34:18 2023
+3: "CONNECT duke.edu:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:34:18 2023
+6: "CONNECT duke.edu:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:34:18 2023
+9: "CONNECT duke.edu:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:34:18 2023
+8: "CONNECT duke.edu:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:34:18 2023
+10: "CONNECT duke.edu:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 18:34:18 2023
+3: Responding "HTTP/1.1 200 OK"
+9: Responding "HTTP/1.1 200 OK"
+5: Responding "HTTP/1.1 200 OK"
+4: Responding "HTTP/1.1 200 OK"
+8: Responding "HTTP/1.1 200 OK"
+6: Responding "HTTP/1.1 200 OK"
+10: Responding "HTTP/1.1 200 OK"

@@ -150,6 +150,16 @@ public:
         delete socket;
         delete socket_server;
 	}catch(std::exception e){
+	   http::response<http::dynamic_body> response;
+        response.result(http::status::not_found);
+        response.version(11);
+        response.set(http::field::server, "My Server");
+        response.set(http::field::content_type, "text/plain");
+        response.prepare_payload();
+        pthread_mutex_lock(&lock);
+        LogStream<<ID<<": Responding \"" \
+        << parseVersion(response.version())<< " " << response.result_int() << " "<< response.reason()<<"\""<<std::endl;
+        pthread_mutex_unlock(&lock);
 	  return;
 	}
 

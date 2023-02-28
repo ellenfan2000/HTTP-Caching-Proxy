@@ -34,7 +34,7 @@ time_t parseDatetime(std::string date_str){
 
     tm tm;
     tm.tm_isdst = 0;
-    if (strptime(date_str.c_str(), format_str.c_str(), &tm) == nullptr) {
+    if (strptime(date_str.c_str(), format_str.c_str(), &tm) == NULL) {
         std::cerr << "Failed to parse HTTP-date string" << std::endl;
     }
     time_t time = mktime(&tm);

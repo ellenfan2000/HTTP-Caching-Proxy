@@ -72,12 +72,18 @@ public:
         http::request<http::dynamic_body> request;
         http::read(*socket, buffer, request, ec);
 
+        //empty request, ignore
+        if(ec.value() == 1){
+            socket->close();
+            delete socket;
+            return;
+        }
         //error handle: if cannot read request, or request is not valid
         //send 400 to client and close this thread
         if(ec.value() != 0 || request.find(http::field::host) == request.end()){
             //read invalid request
             pthread_mutex_lock(&lock);
-            LogStream<<ID<<": Invalid Request from " << client_ip.address()\
+            LogStream<<ID<<": Invalid Request: "<<ec.message()<<" from " << client_ip.address()\
             <<" @ "<<ctime(&gmt_now);
             pthread_mutex_unlock(&lock);
             
@@ -104,8 +110,18 @@ public:
         std::string port;
         std::string host;
         isHTTPS(std::string(request.at("HOST")), &host, &port);
-        tcp::socket * socket_server = connectToServer(host.c_str(), port.c_str());
-
+        tcp::socket * socket_server;
+        try{
+            socket_server = connectToServer(host.c_str(), port.c_str());
+        }catch(std::exception & e){
+            std::cerr<< "socket error:" <<e.what()<< std::endl;
+            pthread_mutex_lock(&lock);
+            LogStream<<ID<<": Cannot resolve hostname"<<std::endl;
+            pthread_mutex_unlock(&lock);
+            socket->close();
+            delete socket;
+            return;
+        }
         http::verb method = request.method();
         if (method ==http::verb::get){ //GET
             try{
@@ -120,7 +136,7 @@ public:
                 LogStream<<ID<<": Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
             }
-		}
+        }
         else if(method == http::verb::post){//POST
             try{
                 POST(&request,ID,  socket,socket_server);
@@ -155,6 +171,8 @@ public:
         socket_server->close();
         delete socket;
         delete socket_server;
+
+       
     }
 
     /**
@@ -257,7 +275,7 @@ public:
                 // pthread_mutex_lock(&lock);
                 // LogStream<<ID << ": in cache, requires validation"<<std::endl;
                 // pthread_mutex_unlock(&lock);
-                http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response);
+                http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response, ID);
                 if(vali_response.result_int() ==200){
                     cache.update(key, vali_response);
                     http::write(*socket, vali_response);
@@ -427,21 +445,23 @@ public:
      * @param response response saved in cache
      * @return the response got from the server, 200 if updated, 304 if not
     */
-    http::response<http::dynamic_body> doValidation(tcp::socket * socket_server, http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response){
+    http::response<http::dynamic_body> doValidation(tcp::socket * socket_server, http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response, int ID){
         // boost::system::error_code ec;
         http::request<http::dynamic_body> Crequest = makeConditionalRequest(request, response);
         http::write(*socket_server, Crequest);
-        // if(ec){
-        //     std::cerr<< "Validation: Send Conditional request error: "<<ec.to_string()<<", "<<ec.message()<< std::endl;
-        // }
-        //recieve the HTTP response from the server
+        pthread_mutex_lock(&lock);
+        LogStream<<ID<<": Validating \""<<Crequest.method()<<" "<<Crequest.target()\
+        <<" "<<parseVersion(Crequest.version())<<"\" from "<<Crequest.at("host")<<std::endl;
+        pthread_mutex_unlock(&lock);
         boost::beast::flat_buffer buffer;
         http::response<http::dynamic_body> new_response;
         
         boost::beast::http::read(*socket_server, buffer, new_response);
-        // if(ec){
-        //     std::cerr<<"Validation: Recieve conditional request result from server error: "<<ec.to_string()<<", "<<ec.message()<< std::endl;
-        // }
+        pthread_mutex_lock(&lock);
+        LogStream<<ID<<": Recieve validation \""<< parseVersion(new_response.version())\
+        << " " << new_response.result_int() <<" "<< new_response.reason() \
+        <<"\" from "<< Crequest.at("host")<<std::endl;
+        pthread_mutex_unlock(&lock);
         return new_response;
     }
 
@@ -454,6 +474,9 @@ public:
     bool cacheCanStore(http::request<http::dynamic_body> * request, http::response<http::dynamic_body> * response, int ID){
         //response is not cacheable 200 ok
         if(response->result_int() != 200){
+            pthread_mutex_lock(&lock);
+            LogStream<<ID <<": not cacheable because \"Response code is "<<response->result_int()<<"\""<<std::endl;
+            pthread_mutex_unlock(&lock);
             return false;
         }
         //no cache control field
@@ -513,9 +536,6 @@ public:
         http::response<http::dynamic_body> response;
         response.result(boost::beast::http::status::bad_request);
         response.version(request->version());
-        // response.keep_alive(request->keep_alive());
-        response.set(boost::beast::http::field::server, "My Server");
-        response.set(boost::beast::http::field::content_type, "text/plain");
         response.prepare_payload();
         pthread_mutex_lock(&lock);
         LogStream<<ID<<": Responding \"" \
@@ -528,9 +548,6 @@ public:
         http::response<http::dynamic_body> response;
         response.result(http::status::bad_gateway);
         response.version(11);
-        // response.keep_alive(request->keep_alive());
-        response.set(http::field::server, "My Server");
-        response.set(http::field::content_type, "text/plain");
         response.prepare_payload();
         pthread_mutex_lock(&lock);
         LogStream<<ID<<": Responding \"" \
@@ -538,17 +555,15 @@ public:
         pthread_mutex_unlock(&lock);
         return response;
     }
-
-
 };
 
 int main(){
-    int status = daemon(1,1);
-    if(status == -1){
-        std::cerr<<"Daemon fail"<<std::endl;
-    }
+    // int status = daemon(1,1);
+    // if(status == -1){
+    //     std::cerr<<"Daemon fail"<<std::endl;
+    // }
     std::string host = "12345";
-    Proxy p(host, 5);
+    Proxy p(host, 1000);
     p.run();
     return 0;
 }

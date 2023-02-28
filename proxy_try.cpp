@@ -1,4 +1,4 @@
-#include "SocketUtils.hpp"
+#include "parser.hpp"
 #include "Cache_try.hpp"  
 
 class Proxy{
@@ -112,10 +112,13 @@ public:
                 GET(&request,ID,  socket, socket_server);
             }catch(std::exception & e){
                 std::cerr<< "GET error:" <<e.what()<< std::endl;
+                http::write(*socket, make502Response(&request, ID),ec);
+                if(ec.value() != 0){
+                    std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
+                }
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
-                http::write(*socket, make502Response(&request, ID));
             }
 		}
         else if(method == http::verb::post){//POST
@@ -123,11 +126,14 @@ public:
                 POST(&request,ID,  socket,socket_server);
             }catch(std::exception & e){
                 std::cerr<< "POST error:" <<e.what()<< std::endl;
+                http::write(*socket, make502Response(&request, ID),ec);
+                if(ec.value() != 0){
+                    std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
+                }
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
                 //connection lost or the reponse get from server is invalid
-                http::write(*socket, make502Response(&request, ID));
             }
 
         }else if(method == http::verb::connect){//CONNECT
@@ -313,7 +319,7 @@ public:
     }
 
     /**
-     * check is the response get from a cache need to be validate
+     * check if the response get from a cache need to be validate
      * yes: 1. the response has "no-cache", "must-revalidate" in cache-control
      *      2. the response is not fresh
      * otherise, no
@@ -343,6 +349,12 @@ public:
     
     }
 
+    /**
+     * Get the exprire time of the response
+     * @param response the reponse get from the server or from cache 
+     * @param expire the placeholder for the expire time to return
+     * @return 1 if expires at some time, 0 if not 
+    */
     int getExpireTime(http::response<http::dynamic_body> * response, time_t * expire){
         //has cache control
         if(response->find(http::field::cache_control) != response->end()){
@@ -531,53 +543,12 @@ public:
 };
 
 int main(){
+    int status = daemon(1,1);
+    if(status == -1){
+        std::cerr<<"Daemon fail"<<std::endl;
+    }
     std::string host = "12345";
-    Proxy p(host, 2);
+    Proxy p(host, 5);
     p.run();
-
-    // unsigned a = 10;
-    // std::cout<<parseVersion(a)<<std::endl;
-    // unsigned b = 11;
-    // std::cout<<parseVersion(b)<<std::endl;
-
-
-    // std::string a = "no-store, no-cache, max-age=1000, must-revalidate, proxy-revalidate";
-    // std::map<std::string, long> b = parseFields(a);
-    // for (auto it = b.begin(); it != b.end(); ++it) {
-    //     std::cout << it->first << " => " << it->second << '\n';
-    // }
-    // std::vector<std::string> b = split(a, ',');
-    // for(int i = 0 ; i < b.size();  i++){
-    //     std::cout<<b[i] <<" is"<<std::endl;
-    // }
-
-    // std::string d1 = "Tue, 01 Feb 2022 12:30:45 GMT";
-    // std::string d2 = "Tue, 01 Feb 2022 12:30:45 UTC";
-    // pt::ptime p1 = getDatetime(d1);
-    // pt::ptime p2 = getDatetime(d2);
-    // std::cout << "Date: " << to_simple_string(p1) << std::endl;
-    // std::cout << "Date: " << to_simple_string(p2) << std::endl;
-
-
-    // std::string d1 = "Tue, 01 Feb 2022 12:30:45 GMT";
-    // std::string d2 = "Tue, 01 Feb 2022 12:30:46 GMT";
-    // std::string d3 = "Sun, 26 Feb 2023 23:51:19 GMT";
-    // std::time_t p1 = parseDatetime(d1);
-    // std::time_t p2 = parseDatetime(d2);
-    // std::time_t p3 = parseDatetime(d3);
-    // time_t now;
-    // time(&now);
-    // std::cout << "Parsed time: now is " << asctime(gmtime(&now));
-    // std::cout << "Parsed time: " << ctime(&p1);
-    // std::cout << "Parsed time: " << ctime(&p1);
-    // bool a = (p1 < now );
-    // bool b = (p2 < p1);
-    // std::cout << "Date: " << a << b <<std::endl;
-    // std::time_t p2 = getDatetime(d2);
-    // std::cout << "Date: " << to_simple_string(p1) << std::endl;
-    // std::cout << "Date: " << to_simple_string(p2) << std::endl;
-
-
-
     return 0;
 }

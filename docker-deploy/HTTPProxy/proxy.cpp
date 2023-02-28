@@ -6,7 +6,7 @@ private:
     const char * port;
     boost::asio::io_context io_context;
     int id = 0; //request id
-    std::ofstream LogStream = std::ofstream("proxy.log");
+    std::ofstream LogStream = std::ofstream("/var/log/erss/proxy.log");
     pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
     Cache cache;
 
@@ -590,11 +590,11 @@ public:
 };
 
 int main(){
-    // int status = daemon(1,1);
-    // if(status == -1){
-    //     std::cerr<<"Daemon fail"<<std::endl;
-    //     return EXIT_FAILURE;
-    // }
+    int status = daemon(1,1);
+    if(status == -1){
+        std::cerr<<"Daemon fail"<<std::endl;
+        return EXIT_FAILURE;
+    }
     std::string host = "12345";
     Proxy p(host, 3);
     p.run();

@@ -1,3 +1,6 @@
+How to test our test cases:
+Because of Computer and internet settings or delay, please start our proxy first, then open the pre-setted browser that use the proxy, visit the website until the website fully loaded and check proxy.log.However, because of variable network conditions and computer settings(which has not been pre-required in the project), the outputs may still vary, but our output in proxy.log has shown a logical proxy query process below).
+PLEASE DISABLE BROWSER CACHE BEFORE TESTING USING BROWSER!!!!!!!
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 test case 1: no-store and chunked data http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,1 +1,83 @@
-
+0: "CONNECT metrics.media-amazon.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:21 2023
+0: Responding "HTTP/1.1 200 OK"
+1: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 23:18:21 2023
+1: Responding "HTTP/1.1 400 Bad Request"
+2: Invalid Request: bad method from 10.197.14.34 @ Tue Feb 28 23:18:21 2023
+2: Responding "HTTP/1.1 400 Bad Request"
+3: "CONNECT fls-na.amazon.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:21 2023
+3: Responding "HTTP/1.1 200 OK"
+4: "CONNECT www.amazon.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:22 2023
+4: Responding "HTTP/1.1 200 OK"
+5: "CONNECT www.youtube.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:23 2023
+5: Responding "HTTP/1.1 200 OK"
+6: "CONNECT d23tl967axkois.cloudfront.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:24 2023
+6: Responding "HTTP/1.1 200 OK"
+7: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:25 2023
+7: Responding "HTTP/1.1 200 OK"
+8: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:25 2023
+8: Responding "HTTP/1.1 200 OK"
+9: "CONNECT play.google.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:26 2023
+9: Responding "HTTP/1.1 200 OK"
+10: "CONNECT unagi.amazon.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:28 2023
+10: Responding "HTTP/1.1 200 OK"
+12: "CONNECT i.ytimg.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+11: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+13: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+14: "CONNECT rr3---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+15: "CONNECT rr3---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+11: Responding "HTTP/1.1 200 OK"
+12: Responding "HTTP/1.1 200 OK"
+15: Responding "HTTP/1.1 200 OK"
+14: Responding "HTTP/1.1 200 OK"
+13: Responding "HTTP/1.1 200 OK"
+16: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+16: Responding "HTTP/1.1 200 OK"
+17: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+17: Responding "HTTP/1.1 200 OK"
+19: "CONNECT rr3---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+19: Responding "HTTP/1.1 200 OK"
+20: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:35 2023
+20: Responding "HTTP/1.1 200 OK"
+21: "CONNECT accounts.google.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:35 2023
+22: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:35 2023
+21: Responding "HTTP/1.1 200 OK"
+22: Responding "HTTP/1.1 200 OK"
+23: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:35 2023
+23: Responding "HTTP/1.1 200 OK"
+24: "CONNECT yt3.ggpht.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:36 2023
+24: Responding "HTTP/1.1 200 OK"
+25: "CONNECT rr2---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:36 2023
+25: Responding "HTTP/1.1 200 OK"
+26: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:36 2023
+26: Responding "HTTP/1.1 200 OK"
+27: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:36 2023
+27: Responding "HTTP/1.1 200 OK"
+28: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:36 2023
+29: "CONNECT i4.ytimg.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:36 2023
+28: Responding "HTTP/1.1 200 OK"
+29: Responding "HTTP/1.1 200 OK"
+30: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:36 2023
+30: Responding "HTTP/1.1 200 OK"
+31: "CONNECT www.expedia.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:37 2023
+31: Responding "HTTP/1.1 200 OK"
+25: Tunnel closed
+32: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:37 2023
+32: not in cache
+32: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+32: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+32: cached, but requires re-validation
+32: Responding "HTTP/1.1 200 OK"
+33: "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:37 2023
+33: not in cache
+33: Requesting "GET http://detectportal.firefox.com/success.txt?ipv4 HTTP/1.1" from detectportal.firefox.com
+33: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+33: cached, but requires re-validation
+33: Responding "HTTP/1.1 200 OK"
+18: "CONNECT rr3---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:34 2023
+18: Responding "HTTP/1.1 200 OK"
+34: "CONNECT rr2---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:38 2023
+35: "CONNECT rr2---sn-hjoj-jaul.googlevideo.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:38 2023
+35: Responding "HTTP/1.1 200 OK"
+34: Responding "HTTP/1.1 200 OK"
+36: "CONNECT lh4.googleusercontent.com:443 HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 23:18:40 2023
+36: Responding "HTTP/1.1 200 OK"

@@ -1,355 +1,869 @@
-0: "CONNECT www.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:49 2023
+0: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:16 2023
+1: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:16 2023
 0: Responding "HTTP/1.1 200 OK"
-1: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:51 2023
 1: Responding "HTTP/1.1 200 OK"
-2: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:52 2023
+2: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:17 2023
 2: Responding "HTTP/1.1 200 OK"
-3: "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=12&nId=561608039&isNewArt=true&sign=BF92D982616F2D70326D39FC959CE0E9E7D57812&_=1677562252563 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:52 2023
-4: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:52 2023
-5: "CONNECT www.roamingtheusa.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:52 2023
-4: Responding "HTTP/1.1 200 OK"
-5: Responding "HTTP/1.1 200 OK"
-3: not in cache
-3: Requesting "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=12&nId=561608039&isNewArt=true&sign=BF92D982616F2D70326D39FC959CE0E9E7D57812&_=1677562252563 HTTP/1.1" from www.360doc.com
-9: "CONNECT scripts.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-8: "CONNECT snowplow.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-10: "CONNECT snippet.affilimate.io:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-11: "CONNECT scripts.stay22.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-9: Responding "HTTP/1.1 200 OK"
-8: Responding "HTTP/1.1 200 OK"
-10: Responding "HTTP/1.1 200 OK"
-11: Responding "HTTP/1.1 200 OK"
-12: "CONNECT csi.gstatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-12: Responding "HTTP/1.1 200 OK"
-6: "CONNECT snowplow.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-6: Responding "HTTP/1.1 200 OK"
-14: "CONNECT www.stay22.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-16: "CONNECT exchange.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-15: "CONNECT keywords.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-17: "CONNECT faves.grow.me:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-15: Responding "HTTP/1.1 200 OK"
-14: Responding "HTTP/1.1 200 OK"
-16: Responding "HTTP/1.1 200 OK"
-17: Responding "HTTP/1.1 200 OK"
-18: "CONNECT us-central1-affilimate.cloudfunctions.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-18: Responding "HTTP/1.1 200 OK"
-19: "CONNECT api.grow.me:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:53 2023
-19: Responding "HTTP/1.1 200 OK"
-3: Received "HTTP/1.1 200 OK" from www.360doc.com
-3: not cacheable because "private"
+3: "CONNECT www.roamingtheusa.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:17 2023
 3: Responding "HTTP/1.1 200 OK"
-20: "CONNECT bat.bing.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:54 2023
+4: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:17 2023
+4: Responding "HTTP/1.1 200 OK"
+6: "CONNECT snowplow.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+8: "CONNECT scripts.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+9: "CONNECT snippet.affilimate.io:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+10: "CONNECT scripts.stay22.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+8: Responding "HTTP/1.1 200 OK"
+9: Responding "HTTP/1.1 200 OK"
+6: Responding "HTTP/1.1 200 OK"
+10: Responding "HTTP/1.1 200 OK"
+5: "CONNECT snowplow.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+5: Responding "HTTP/1.1 200 OK"
+11: "CONNECT www.stay22.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+13: "CONNECT exchange.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+14: "CONNECT keywords.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+11: Responding "HTTP/1.1 200 OK"
+15: "CONNECT faves.grow.me:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+14: Responding "HTTP/1.1 200 OK"
+13: Responding "HTTP/1.1 200 OK"
+15: Responding "HTTP/1.1 200 OK"
+16: "CONNECT us-central1-affilimate.cloudfunctions.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+16: Responding "HTTP/1.1 200 OK"
+17: "CONNECT api.grow.me:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:19 2023
+17: Responding "HTTP/1.1 200 OK"
+20: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:19 2023
 20: Responding "HTTP/1.1 200 OK"
-26: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:54 2023
+21: "CONNECT securepubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:19 2023
+21: Responding "HTTP/1.1 200 OK"
+22: "CONNECT scripts.stay22.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:19 2023
+23: "CONNECT securepubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:19 2023
+23: Responding "HTTP/1.1 200 OK"
+22: Responding "HTTP/1.1 200 OK"
+24: "CONNECT www.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:19 2023
+24: Responding "HTTP/1.1 200 OK"
+25: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:21 2023
+7: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:18 2023
+25: not in cache
+25: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+7: Responding "HTTP/1.1 200 OK"
+26: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:22 2023
 26: Responding "HTTP/1.1 200 OK"
-27: "CONNECT scripts.stay22.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:54 2023
+27: "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:22 2023
+28: "CONNECT bat.bing.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:22 2023
 27: Responding "HTTP/1.1 200 OK"
-29: "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/193075_1677489471372.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:56 2023
-29: not in cache
-29: Requesting "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/193075_1677489471372.jpg HTTP/1.1" from thumbnail1.360doc.com
-29: Received "HTTP/1.1 403 Forbidden" from thumbnail1.360doc.com
-29: not cacheable because "Response code is 403"
-29: Responding "HTTP/1.1 403 Forbidden"
-30: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:57 2023
-30: Responding "HTTP/1.1 200 OK"
-31: "CONNECT scripts.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-33: "CONNECT pages.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-32: "CONNECT sda.fyi:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-33: Responding "HTTP/1.1 200 OK"
-31: Responding "HTTP/1.1 200 OK"
-32: Responding "HTTP/1.1 200 OK"
-36: "CONNECT ads.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-41: "CONNECT ssum-sec.casalemedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-42: "CONNECT eb2.3lift.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-38: "CONNECT ads.yieldmo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-39: "CONNECT u.openx.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-44: "CONNECT prebid-match.dotomi.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-43: "CONNECT sync.colossusssp.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-46: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:58 2023
-36: Responding "HTTP/1.1 200 OK"
-39: Responding "HTTP/1.1 200 OK"
-42: Responding "HTTP/1.1 200 OK"
-38: Responding "HTTP/1.1 200 OK"
-46: Responding "HTTP/1.1 200 OK"
-43: Responding "HTTP/1.1 200 OK"
-49: "CONNECT tlx.3lift.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-50: "CONNECT pixel-us-east.rubiconproject.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-48: "CONNECT hbopenbid.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-47: "CONNECT htlb.casalemedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-49: Responding "HTTP/1.1 200 OK"
-44: Responding "HTTP/1.1 200 OK"
-47: Responding "HTTP/1.1 200 OK"
-41: Responding "HTTP/1.1 200 OK"
-48: Responding "HTTP/1.1 200 OK"
-50: Responding "HTTP/1.1 200 OK"
-52: "CONNECT sync.smartadserver.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-51: "CONNECT rcp.c.appier.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-53: "CONNECT match.deepintent.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-58: "CONNECT dis.criteo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-59: "CONNECT faves.grow.me:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-54: "CONNECT match.adsby.bidtheatre.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-55: "CONNECT rbp.mxptint.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-56: "CONNECT sync-tm.everesttech.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-57: "CONNECT s.company-target.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-58: Responding "HTTP/1.1 200 OK"
-53: Responding "HTTP/1.1 200 OK"
-59: Responding "HTTP/1.1 200 OK"
-56: Responding "HTTP/1.1 200 OK"
-55: Responding "HTTP/1.1 200 OK"
-57: Responding "HTTP/1.1 200 OK"
-54: Responding "HTTP/1.1 200 OK"
-52: Responding "HTTP/1.1 200 OK"
-51: Responding "HTTP/1.1 200 OK"
-61: "CONNECT images.trvl-media.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-64: "CONNECT pixel.mtrcs.samba.tv:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-63: "CONNECT www.tamgrt.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-61: Responding "HTTP/1.1 200 OK"
-66: "CONNECT www.trvl-px.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-67: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-68: "CONNECT simage4.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-69: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-63: Responding "HTTP/1.1 200 OK"
-64: Responding "HTTP/1.1 200 OK"
-66: Responding "HTTP/1.1 200 OK"
-68: Responding "HTTP/1.1 200 OK"
-67: Responding "HTTP/1.1 200 OK"
-69: Responding "HTTP/1.1 200 OK"
-70: "POST http://ocsp.godaddy.com/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-71: "CONNECT oms.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-71: Responding "HTTP/1.1 200 OK"
-72: "CONNECT app.grow.me:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-75: "CONNECT gum.criteo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-76: "CONNECT lexicon.33across.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-75: Responding "HTTP/1.1 200 OK"
-76: Responding "HTTP/1.1 200 OK"
-72: Responding "HTTP/1.1 200 OK"
-77: "CONNECT pixel.rubiconproject.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-78: "CONNECT pixel.rubiconproject.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-79: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-79: Responding "HTTP/1.1 200 OK"
-78: Responding "HTTP/1.1 200 OK"
-77: Responding "HTTP/1.1 200 OK"
-80: "CONNECT client-rapi-mediavine.recombee.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-81: "CONNECT client-rapi-mediavine.recombee.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-80: Responding "HTTP/1.1 200 OK"
-81: Responding "HTTP/1.1 200 OK"
-65: "CONNECT www.trvl-px.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
-65: Responding "HTTP/1.1 200 OK"
-83: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:00 2023
-83: Responding "HTTP/1.1 200 OK"
-84: "CONNECT 9224405.fls.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:00 2023
-84: Responding "HTTP/1.1 200 OK"
-28: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:56 2023
 28: Responding "HTTP/1.1 200 OK"
-70: Responding "HTTP/1.1 200 OK"
-85: "CONNECT adservice.google.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:01 2023
-85: Responding "HTTP/1.1 200 OK"
-88: "CONNECT insight.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:01 2023
-90: "CONNECT tr.snapchat.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:01 2023
-90: Responding "HTTP/1.1 200 OK"
-88: Responding "HTTP/1.1 200 OK"
-91: "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:01 2023
-91: Responding "HTTP/1.1 200 OK"
-92: "CONNECT run.mocky.io:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:02 2023
-93: "CONNECT pixel.tapad.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:02 2023
-94: "CONNECT pixel.rubiconproject.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:02 2023
-93: Responding "HTTP/1.1 200 OK"
-94: Responding "HTTP/1.1 200 OK"
-92: Responding "HTTP/1.1 200 OK"
-74: "CONNECT match.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:30:59 2023
+37: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+37: Responding "HTTP/1.1 200 OK"
+40: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+40: Responding "HTTP/1.1 200 OK"
+44: "CONNECT sda.fyi:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+45: "CONNECT scripts.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+46: "CONNECT pages.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+44: Responding "HTTP/1.1 200 OK"
+45: Responding "HTTP/1.1 200 OK"
+46: Responding "HTTP/1.1 200 OK"
+49: "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+49: Responding "HTTP/1.1 200 OK"
+55: "CONNECT ads.yieldmo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+52: "CONNECT u.openx.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+57: "CONNECT prebid-match.dotomi.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+54: "CONNECT eb2.3lift.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+56: "CONNECT sync.colossusssp.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+58: "CONNECT ssum-sec.casalemedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
+55: Responding "HTTP/1.1 200 OK"
+52: Responding "HTTP/1.1 200 OK"
+54: Responding "HTTP/1.1 200 OK"
+57: Responding "HTTP/1.1 200 OK"
+56: Responding "HTTP/1.1 200 OK"
+58: Responding "HTTP/1.1 200 OK"
+61: "CONNECT simage4.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+62: "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/193075_1677489471372.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+61: Responding "HTTP/1.1 200 OK"
+63: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+64: "CONNECT grid.bidswitch.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+72: "CONNECT x.bidswitch.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+68: "CONNECT secure.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+73: "CONNECT ups.analytics.yahoo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+75: "CONNECT ice.360yield.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+77: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+71: "CONNECT x.bidswitch.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+67: "CONNECT ap.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+66: "CONNECT sb.scorecardresearch.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+74: "CONNECT pixel-sync.sitescout.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+76: "CONNECT match.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+63: Responding "HTTP/1.1 200 OK"
+79: "CONNECT dmplite.tagger.opecloud.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+75: Responding "HTTP/1.1 200 OK"
+77: ERROR Cannot connect to server
+71: Responding "HTTP/1.1 200 OK"
+72: Responding "HTTP/1.1 200 OK"
+79: Responding "HTTP/1.1 200 OK"
+68: Responding "HTTP/1.1 200 OK"
+76: Responding "HTTP/1.1 200 OK"
+73: Responding "HTTP/1.1 200 OK"
 74: Responding "HTTP/1.1 200 OK"
-95: "CONNECT www.facebook.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:03 2023
-95: Responding "HTTP/1.1 200 OK"
-96: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:03 2023
-96: not in cache
-96: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
-86: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:01 2023
+67: Responding "HTTP/1.1 200 OK"
+66: Responding "HTTP/1.1 200 OK"
+64: Responding "HTTP/1.1 200 OK"
+80: "CONNECT prod.us-east-1.cxm-bcn.publisher-services.amazon.dev:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+80: Responding "HTTP/1.1 200 OK"
+81: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+81: ERROR Cannot connect to server
+82: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+82: ERROR Cannot connect to server
+25: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+25: not cacheable because "no-store"
+25: Responding "HTTP/1.1 200 OK"
+83: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+62: not in cache
+62: Requesting "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/193075_1677489471372.jpg HTTP/1.1" from thumbnail1.360doc.com
+83: ERROR Cannot connect to server
+84: "CONNECT faves.grow.me:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+85: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+86: "CONNECT aax-dtb-cf.amazon-adsystem.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+84: Responding "HTTP/1.1 200 OK"
+85: ERROR Cannot connect to server
 86: Responding "HTTP/1.1 200 OK"
-97: "CONNECT pubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:05 2023
+87: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+87: ERROR Cannot connect to server
+62: Received "HTTP/1.1 403 Forbidden" from thumbnail1.360doc.com
+62: not cacheable because "Response code is 403"
+62: Responding "HTTP/1.1 403 Forbidden"
+88: "CONNECT hbopenbid.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+90: "CONNECT tlx.3lift.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+91: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+89: "CONNECT htlb.casalemedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+92: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+90: Responding "HTTP/1.1 200 OK"
+89: Responding "HTTP/1.1 200 OK"
+91: Responding "HTTP/1.1 200 OK"
+88: Responding "HTTP/1.1 200 OK"
+92: ERROR Cannot connect to server
+93: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:26 2023
+93: ERROR Cannot connect to server
+94: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:26 2023
+94: ERROR Cannot connect to server
+95: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:26 2023
+95: ERROR Cannot connect to server
+65: "CONNECT ap.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:25 2023
+65: Responding "HTTP/1.1 200 OK"
+96: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:26 2023
+96: Responding "HTTP/1.1 200 OK"
+97: "CONNECT dmplite.profiles.tagger.opecloud.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:26 2023
+98: "CONNECT adservice.google.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:26 2023
 97: Responding "HTTP/1.1 200 OK"
-98: "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:05 2023
 98: Responding "HTTP/1.1 200 OK"
-101: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:06 2023
-102: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:06 2023
-101: Responding "HTTP/1.1 200 OK"
-102: Responding "HTTP/1.1 200 OK"
-103: "CONNECT grid.bidswitch.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-104: "CONNECT sb.scorecardresearch.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-109: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-111: "CONNECT ssum-sec.casalemedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
+100: "GET http://silverbrightlusheclipse.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+104: "CONNECT pixel.mtrcs.samba.tv:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+103: "CONNECT www.tamgrt.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+107: "CONNECT www.trvl-px.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
 104: Responding "HTTP/1.1 200 OK"
+107: Responding "HTTP/1.1 200 OK"
 103: Responding "HTTP/1.1 200 OK"
-114: "CONNECT dmplite.tagger.opecloud.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-115: "CONNECT ap.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-120: "CONNECT ice.360yield.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-122: "CONNECT ups.analytics.yahoo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
+100: not in cache
+100: Requesting "GET http://silverbrightlusheclipse.neverssl.com/online/ HTTP/1.1" from silverbrightlusheclipse.neverssl.com
+108: "CONNECT oms.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+100: Received "HTTP/1.1 200 OK" from silverbrightlusheclipse.neverssl.com
+100: cached, does not expire 
+100: Responding "HTTP/1.1 200 OK"
+108: Responding "HTTP/1.1 200 OK"
+109: "CONNECT ce19c755b1cf7bbbc2fc7a630d9b36bb.safeframe.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
 109: Responding "HTTP/1.1 200 OK"
+106: "CONNECT www.trvl-px.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+106: Responding "HTTP/1.1 200 OK"
+110: "CONNECT app.grow.me:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+111: "CONNECT lexicon.33across.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+113: "CONNECT gum.criteo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+113: Responding "HTTP/1.1 200 OK"
 111: Responding "HTTP/1.1 200 OK"
-123: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-116: "CONNECT secure.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
+110: Responding "HTTP/1.1 200 OK"
+112: "CONNECT gum.criteo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:27 2023
+117: "CONNECT 9224405.fls.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+112: Responding "HTTP/1.1 200 OK"
+114: "CONNECT www.googletagservices.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+117: Responding "HTTP/1.1 200 OK"
 114: Responding "HTTP/1.1 200 OK"
-118: "CONNECT x.bidswitch.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-119: "CONNECT x.bidswitch.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-121: "CONNECT pixel-sync.sitescout.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-115: Responding "HTTP/1.1 200 OK"
-122: Responding "HTTP/1.1 200 OK"
-120: Responding "HTTP/1.1 200 OK"
-116: Responding "HTTP/1.1 200 OK"
-123: ERROR Cannot connect to server
+119: "CONNECT q.adrta.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+118: "CONNECT choices.truste.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+121: "GET http://shiningshinysilvermorning.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
 118: Responding "HTTP/1.1 200 OK"
 119: Responding "HTTP/1.1 200 OK"
+122: "CONNECT csi.gstatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+121: not in cache
+121: Requesting "GET http://shiningshinysilvermorning.neverssl.com/online/ HTTP/1.1" from shiningshinysilvermorning.neverssl.com
+123: "CONNECT a2.adform.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+121: Received "HTTP/1.1 200 OK" from shiningshinysilvermorning.neverssl.com
+121: cached, does not expire 
 121: Responding "HTTP/1.1 200 OK"
-124: "CONNECT prod.us-east-1.cxm-bcn.publisher-services.amazon.dev:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-125: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-124: Responding "HTTP/1.1 200 OK"
-125: ERROR Cannot connect to server
-132: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
+123: Responding "HTTP/1.1 200 OK"
+126: "CONNECT d9.flashtalking.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+126: Responding "HTTP/1.1 200 OK"
+128: "CONNECT pandg.tapad.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+128: Responding "HTTP/1.1 200 OK"
+122: Responding "HTTP/1.1 200 OK"
+129: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+115: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+115: Responding "HTTP/1.1 200 OK"
+129: Responding "HTTP/1.1 200 OK"
+131: "CONNECT ad.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+131: Responding "HTTP/1.1 200 OK"
+132: "CONNECT client-rapi-mediavine.recombee.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+133: "CONNECT client-rapi-mediavine.recombee.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+43: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:24 2023
 132: Responding "HTTP/1.1 200 OK"
-133: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-133: ERROR Cannot connect to server
-106: "CONNECT securepubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-106: Responding "HTTP/1.1 200 OK"
-138: "CONNECT 65c04f350a616d941f674ac6ebd6354e.safeframe.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-138: Responding "HTTP/1.1 200 OK"
-135: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-137: "CONNECT securepubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-136: "CONNECT securepubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-137: Responding "HTTP/1.1 200 OK"
+43: Responding "HTTP/1.1 200 OK"
+133: Responding "HTTP/1.1 200 OK"
+134: "CONNECT sync.mathtag.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+136: "GET http://shiningbrightlushmelody.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+134: Responding "HTTP/1.1 200 OK"
+136: not in cache
+136: Requesting "GET http://shiningbrightlushmelody.neverssl.com/online/ HTTP/1.1" from shiningbrightlushmelody.neverssl.com
+136: Received "HTTP/1.1 200 OK" from shiningbrightlushmelody.neverssl.com
+136: cached, does not expire 
 136: Responding "HTTP/1.1 200 OK"
-135: ERROR Cannot connect to server
-96: Received "HTTP/1.1 200 OK" from www.httpwatch.com
-96: not cacheable because "no-store"
-96: Responding "HTTP/1.1 200 OK"
-142: "CONNECT aax-dtb-cf.amazon-adsystem.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-140: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
+127: "CONNECT s0.2mdn.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:28 2023
+127: Responding "HTTP/1.1 200 OK"
+139: "CONNECT errors.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+141: "CONNECT secure.insightexpressai.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+138: "CONNECT ade.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+140: "CONNECT ads.yieldmo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+139: Responding "HTTP/1.1 200 OK"
+141: Responding "HTTP/1.1 200 OK"
+142: "CONNECT px.moatads.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+138: Responding "HTTP/1.1 200 OK"
+140: Responding "HTTP/1.1 200 OK"
+143: "CONNECT geo.moatads.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+144: "CONNECT mb.moatads.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+145: "CONNECT insight.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
 142: Responding "HTTP/1.1 200 OK"
-140: ERROR Cannot connect to server
-143: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:08 2023
-144: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:08 2023
-143: ERROR Cannot connect to server
+146: "CONNECT st.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+145: Responding "HTTP/1.1 200 OK"
 144: Responding "HTTP/1.1 200 OK"
-145: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:08 2023
-145: ERROR Cannot connect to server
-147: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:08 2023
-147: ERROR Cannot connect to server
-117: "CONNECT ap.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:07 2023
-146: "CONNECT tpc.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:08 2023
-117: Responding "HTTP/1.1 200 OK"
+143: Responding "HTTP/1.1 200 OK"
+148: "CONNECT tr.snapchat.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
 146: Responding "HTTP/1.1 200 OK"
-148: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:08 2023
-149: "CONNECT a73b95c1f7473f6945907d53a99144ed.safeframe.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:08 2023
-148: ERROR Cannot connect to server
+148: Responding "HTTP/1.1 200 OK"
+149: "CONNECT pix.adrta.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:30 2023
 149: Responding "HTTP/1.1 200 OK"
-150: "CONNECT vpod1q.qa.lijit.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:08 2023
-150: ERROR Cannot connect to server
-151: "CONNECT dmplite.profiles.tagger.opecloud.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:09 2023
+135: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:29 2023
+135: Responding "HTTP/1.1 200 OK"
+151: "CONNECT googleads4.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:30 2023
+150: "CONNECT ny1-bid.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:30 2023
 151: Responding "HTTP/1.1 200 OK"
-153: "CONNECT c.gumgum.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:09 2023
-153: Responding "HTTP/1.1 200 OK"
-152: "CONNECT www.googletagservices.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:09 2023
+150: Responding "HTTP/1.1 200 OK"
+152: "CONNECT pixel.tapad.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:30 2023
+153: "CONNECT nym1-ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:30 2023
 152: Responding "HTTP/1.1 200 OK"
-155: "CONNECT choices.truste.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:10 2023
+153: Responding "HTTP/1.1 200 OK"
+154: "GET http://silverbrightlusheclipse.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:30 2023
+154: in cache, valid
+154: Responding "HTTP/1.1 200 OK"
+156: "CONNECT ipv6.adrta.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:30 2023
+155: "CONNECT adrta.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:30 2023
 155: Responding "HTTP/1.1 200 OK"
-156: "CONNECT s.amazon-adsystem.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:10 2023
 156: Responding "HTTP/1.1 200 OK"
-157: "CONNECT idsync.rlcdn.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:11 2023
-158: "CONNECT stags.bluekai.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:11 2023
+157: "CONNECT thetradedeskv275874568748.s.moatpixel.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:31 2023
 157: Responding "HTTP/1.1 200 OK"
+158: "CONNECT odr.mookie1.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:31 2023
+159: "CONNECT acdn.adnxs-simple.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:31 2023
 158: Responding "HTTP/1.1 200 OK"
-159: "CONNECT ad.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:11 2023
 159: Responding "HTTP/1.1 200 OK"
-160: "CONNECT pandg.tapad.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:11 2023
-161: "CONNECT choices.trustarc.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:11 2023
-163: "CONNECT gum.criteo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:11 2023
+160: "CONNECT cm.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:31 2023
 160: Responding "HTTP/1.1 200 OK"
-163: Responding "HTTP/1.1 200 OK"
-161: Responding "HTTP/1.1 200 OK"
-165: "CONNECT vae-bid.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-168: "CONNECT jpmcbankna.demdex.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-164: "CONNECT s0.2mdn.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-170: "CONNECT googleads4.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-171: "CONNECT va-g2.gumgum.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-172: "CONNECT pixel.quantserve.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
+162: "GET http://quietoldyoungmorning.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:32 2023
+162: not in cache
+162: Requesting "GET http://quietoldyoungmorning.neverssl.com/online/ HTTP/1.1" from quietoldyoungmorning.neverssl.com
+162: Received "HTTP/1.1 200 OK" from quietoldyoungmorning.neverssl.com
+162: cached, does not expire 
+162: Responding "HTTP/1.1 200 OK"
+164: "CONNECT pubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:32 2023
+165: "CONNECT www.facebook.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:32 2023
 164: Responding "HTTP/1.1 200 OK"
 165: Responding "HTTP/1.1 200 OK"
-171: Responding "HTTP/1.1 200 OK"
-170: Responding "HTTP/1.1 200 OK"
-172: Responding "HTTP/1.1 200 OK"
+166: "CONNECT acdn.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:33 2023
+166: Responding "HTTP/1.1 200 OK"
+168: "CONNECT i.clean.gg:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:33 2023
 168: Responding "HTTP/1.1 200 OK"
-176: "CONNECT pippio.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-175: "CONNECT px.moatads.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-177: "CONNECT s.update.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-180: "CONNECT fw.adsafeprotected.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-178: "CONNECT ny1-bid.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-176: Responding "HTTP/1.1 200 OK"
+169: "CONNECT dc.arrivalist.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:34 2023
+169: Responding "HTTP/1.1 200 OK"
+172: "CONNECT tag.yieldoptimizer.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:34 2023
+170: "CONNECT unified.adsafeprotected.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:34 2023
+172: Responding "HTTP/1.1 200 OK"
+170: Responding "HTTP/1.1 200 OK"
+173: "CONNECT choices.trustarc.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:34 2023
+175: "CONNECT choices.trustarc.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:34 2023
+174: "CONNECT choices.trustarc.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:34 2023
 175: Responding "HTTP/1.1 200 OK"
-181: "CONNECT dc.arrivalist.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-183: "CONNECT loadus.exelator.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-178: Responding "HTTP/1.1 200 OK"
-180: Responding "HTTP/1.1 200 OK"
+174: Responding "HTTP/1.1 200 OK"
+173: Responding "HTTP/1.1 200 OK"
+176: "POST http://ocsp.pki.goog/s/gts1d4/l3CbM_koC8w HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:34 2023
+176: Responding "HTTP/1.1 200 OK"
+177: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:35 2023
 177: Responding "HTTP/1.1 200 OK"
-181: Responding "HTTP/1.1 200 OK"
-182: "CONNECT d9.flashtalking.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-184: "CONNECT tag.yieldoptimizer.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-183: Responding "HTTP/1.1 200 OK"
-184: Responding "HTTP/1.1 200 OK"
+179: "CONNECT st.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:36 2023
+178: "CONNECT image8.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:36 2023
+178: Responding "HTTP/1.1 200 OK"
+179: Responding "HTTP/1.1 200 OK"
+182: "CONNECT b610b1baf82936ea739339b3b939c51e.safeframe.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:56:41 2023
 182: Responding "HTTP/1.1 200 OK"
-162: "CONNECT gum.criteo.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:11 2023
-162: Responding "HTTP/1.1 200 OK"
-187: "CONNECT client-rapi-mediavine.recombee.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
-186: "CONNECT client-rapi-mediavine.recombee.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:12 2023
+183: "GET http://quietoldyoungmorning.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:05 2023
+183: in cache, valid
+183: Responding "HTTP/1.1 200 OK"
+184: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:06 2023
+184: Responding "HTTP/1.1 200 OK"
+185: "GET http://silverbrightlusheclipse.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:06 2023
+185: in cache, valid
+185: Responding "HTTP/1.1 200 OK"
+186: "GET http://shiningshinysilvermorning.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:08 2023
+186: in cache, valid
 186: Responding "HTTP/1.1 200 OK"
+187: "GET http://shiningbrightlushmelody.neverssl.com/online/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:09 2023
+187: in cache, valid
 187: Responding "HTTP/1.1 200 OK"
-188: "CONNECT sync.mathtag.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:13 2023
-190: "CONNECT cm.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:13 2023
+188: "CONNECT v.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:27 2023
 188: Responding "HTTP/1.1 200 OK"
+190: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:28 2023
+189: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:28 2023
 190: Responding "HTTP/1.1 200 OK"
-191: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:13 2023
+191: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:28 2023
+189: Responding "HTTP/1.1 200 OK"
 191: Responding "HTTP/1.1 200 OK"
-192: "CONNECT id.rlcdn.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:13 2023
+192: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:28 2023
 192: Responding "HTTP/1.1 200 OK"
-194: "CONNECT us-u.openx.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:13 2023
+194: "CONNECT a3037.casalemedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:29 2023
 194: Responding "HTTP/1.1 200 OK"
-196: "CONNECT s.update.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:14 2023
+193: "CONNECT va6-bid.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:29 2023
+195: "CONNECT plays.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:29 2023
+196: "CONNECT choices-or.trustarc.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:29 2023
+193: Responding "HTTP/1.1 200 OK"
 196: Responding "HTTP/1.1 200 OK"
-198: "CONNECT usync.gumgum.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:15 2023
+195: Responding "HTTP/1.1 200 OK"
+197: "GET http://www.360doc.com/index.html HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:37 2023
+197: not in cache
+197: Requesting "GET http://www.360doc.com/index.html HTTP/1.1" from www.360doc.com
+197: Received "HTTP/1.1 200 OK" from www.360doc.com
+197: cached, expires at Tue Feb 28 06:07:37 2023
+197: Responding "HTTP/1.1 200 OK"
+198: "GET http://css.360doc.com/pageNum.css?t=2018062701 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+199: "GET http://userimage8.360doc.com/22/1203/20/81213978_202212032026090567_main.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+200: "GET http://pubimage.360doc.com/head/mask/002.gif HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+202: "GET http://userimage8.360doc.com/22/0413/23/79275481_202204132310380319_main.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+203: "GET http://userimage8.360doc.com/22/0812/17/41080685_202208121726060293_main.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+201: "GET http://userimage8.360doc.com/20/1220/18/72269685_202012201857380925_main.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+204: "GET http://channelpic.360doc.com/2023/20230227/202322715463768187238.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+205: "GET http://channelpic.360doc.com/2023/20230227/2023227155113400169172.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+207: "GET http://userimage8.360doc.com/22/0712/10/80121523_202207121045270001_main.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+209: "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/126162_1677489463091.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+211: "GET http://www.360doc.com/js/scancodelogin.js?t=2022080301&_=1677563860199 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+208: "GET http://channelpic.360doc.com/2022/20221203/202212315445760079972.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+210: "GET http://hm.baidu.com/hm.js?d86954201130d615136257dde062a503 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+213: "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/135617_1677489479012.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+212: "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/193075_1677489471372.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+215: "GET http://channelpic.360doc.com/2023/20230227/202322715405588575182.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+214: "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/186759_1677489485262.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+217: "GET http://channelpic.360doc.com/2023/20230227/2023227154055869114256.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+216: "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/137847_1677489492518.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+218: "GET http://userimage8.360doc.com/23/0216/19/81673938_202302161907300967_main.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+219: "GET http://channelpic.360doc.com/2023/20230227/2023227154055885128505.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+211: not in cache
+211: Requesting "GET http://www.360doc.com/js/scancodelogin.js?t=2022080301&_=1677563860199 HTTP/1.1" from www.360doc.com
+220: "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/168642_1677489499731.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+221: "GET http://channelpic.360doc.com/2023/20230227/2023227154915369119333.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+222: "GET http://userimage8.360doc.com/23/0220/17/81704619_202302201718050480_main.gif HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+223: "GET http://channelpic.360doc.com/2023/20230224/202322415465525791873.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+224: "GET http://channelpic.360doc.com/2023/20230223/2023223152640994123923.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+226: "GET http://channelpic.360doc.com/2023/20230221/202322115533485175928.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+225: "GET http://channelpic.360doc.com/2023/20230222/2023222155410431106042.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+227: "GET http://channelpic.360doc.com/2023/20230227/202322711516196151666.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+228: "GET http://channelpic.360doc.com/2022/20221223/20221223183029317140888.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+229: "GET http://channelpic.360doc.com/2023/20230227/202322711511933792456.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+230: "GET http://channelpic.360doc.com/2022/20221218/2022121822321925892311.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+231: "GET http://channelpic.360doc.com/2022/20221209/2022129165530176158009.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:40 2023
+198: not in cache
+198: Requesting "GET http://css.360doc.com/pageNum.css?t=2018062701 HTTP/1.1" from css.360doc.com
+198: Received "HTTP/1.1 200 OK" from css.360doc.com
+198: cached, expires at Wed Mar 29 15:26:37 2023
 198: Responding "HTTP/1.1 200 OK"
-201: "CONNECT s.update.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:15 2023
-199: "CONNECT dt.adsafeprotected.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:15 2023
-200: "CONNECT s.update.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:15 2023
-201: Responding "HTTP/1.1 200 OK"
-200: Responding "HTTP/1.1 200 OK"
-199: Responding "HTTP/1.1 200 OK"
-202: "CONNECT ade.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:28 2023
-202: Responding "HTTP/1.1 200 OK"
-203: "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=13&nId=561608019&isNewArt=true&sign=4C48A38823011086357228611B9F463EF7102E9C&_=1677562292744 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:32 2023
+210: not in cache
+210: Requesting "GET http://hm.baidu.com/hm.js?d86954201130d615136257dde062a503 HTTP/1.1" from hm.baidu.com
+200: not in cache
+200: Requesting "GET http://pubimage.360doc.com/head/mask/002.gif HTTP/1.1" from pubimage.360doc.com
+222: not in cache
+222: Requesting "GET http://userimage8.360doc.com/23/0220/17/81704619_202302201718050480_main.gif HTTP/1.1" from userimage8.360doc.com
+199: not in cache
+199: Requesting "GET http://userimage8.360doc.com/22/1203/20/81213978_202212032026090567_main.jpg HTTP/1.1" from userimage8.360doc.com
+202: not in cache
+202: Requesting "GET http://userimage8.360doc.com/22/0413/23/79275481_202204132310380319_main.jpg HTTP/1.1" from userimage8.360doc.com
+218: not in cache
+218: Requesting "GET http://userimage8.360doc.com/23/0216/19/81673938_202302161907300967_main.jpg HTTP/1.1" from userimage8.360doc.com
+207: not in cache
+207: Requesting "GET http://userimage8.360doc.com/22/0712/10/80121523_202207121045270001_main.jpg HTTP/1.1" from userimage8.360doc.com
+216: not in cache
+216: Requesting "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/137847_1677489492518.jpg HTTP/1.1" from thumbnail1.360doc.com
+201: not in cache
+201: Requesting "GET http://userimage8.360doc.com/20/1220/18/72269685_202012201857380925_main.jpg HTTP/1.1" from userimage8.360doc.com
+209: not in cache
+209: Requesting "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/126162_1677489463091.jpg HTTP/1.1" from thumbnail1.360doc.com
+212: not in cache
+212: Requesting "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/193075_1677489471372.jpg HTTP/1.1" from thumbnail1.360doc.com
 203: not in cache
-203: Requesting "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=13&nId=561608019&isNewArt=true&sign=4C48A38823011086357228611B9F463EF7102E9C&_=1677562292744 HTTP/1.1" from www.360doc.com
-203: Received "HTTP/1.1 200 OK" from www.360doc.com
-203: not cacheable because "private"
+203: Requesting "GET http://userimage8.360doc.com/22/0812/17/41080685_202208121726060293_main.jpg HTTP/1.1" from userimage8.360doc.com
+200: Received "HTTP/1.1 200 OK" from pubimage.360doc.com
+200: cached, expires at Thu Mar 16 19:26:02 2023
+200: Responding "HTTP/1.1 200 OK"
+214: not in cache
+214: Requesting "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/186759_1677489485262.jpg HTTP/1.1" from thumbnail1.360doc.com
+213: not in cache
+213: Requesting "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/135617_1677489479012.jpg HTTP/1.1" from thumbnail1.360doc.com
+232: "GET http://channelpic.360doc.com/2022/20221118/20221118173637956114091.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+222: Received "HTTP/1.1 304 Not Modified" from userimage8.360doc.com
+222: not cacheable because "Response code is 304"
+222: Responding "HTTP/1.1 304 Not Modified"
+199: Received "HTTP/1.1 200 OK" from userimage8.360doc.com
+199: cached, does not expire 
+199: Responding "HTTP/1.1 200 OK"
+202: Received "HTTP/1.1 200 OK" from userimage8.360doc.com
+202: cached, does not expire 
+202: Responding "HTTP/1.1 200 OK"
+218: Received "HTTP/1.1 200 OK" from userimage8.360doc.com
+218: cached, does not expire 
+218: Responding "HTTP/1.1 200 OK"
+201: Received "HTTP/1.1 200 OK" from userimage8.360doc.com
+(no-id): NOTE evicted "quietoldyoungmorning.neverssl.com: http://quietoldyoungmorning.neverssl.com/online/" from cache
+201: cached, does not expire 
+201: Responding "HTTP/1.1 200 OK"
+203: Received "HTTP/1.1 200 OK" from userimage8.360doc.com
+203: cached, does not expire 
 203: Responding "HTTP/1.1 200 OK"
-204: "GET http://httpbin.org/forms/post HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:40 2023
+207: Received "HTTP/1.1 200 OK" from userimage8.360doc.com
+(no-id): NOTE evicted "silverbrightlusheclipse.neverssl.com: http://silverbrightlusheclipse.neverssl.com/online/" from cache
+207: cached, does not expire 
+207: Responding "HTTP/1.1 200 OK"
+210: Received "HTTP/1.1 304 Not Modified" from hm.baidu.com
+210: not cacheable because "Response code is 304"
+210: Responding "HTTP/1.1 304 Not Modified"
+233: "GET http://channelpic.360doc.com/2022/20221203/2022123154457568106389.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+234: "GET http://v.trustutn.org/images/cert/bottom_large_img.png HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+235: "GET http://eclick.360doc.com/pcpage.jpg?code=69-1&1677563860195 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+236: "GET http://channelpic.360doc.com/2022/20221118/202211181736972284799.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+237: "GET http://channelpic.360doc.com/2022/20221118/202211181736978443598.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+238: "GET http://channelpic.360doc.com/2022/20221223/20221223183029270126273.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+227: not in cache
+227: Requesting "GET http://channelpic.360doc.com/2023/20230227/202322711516196151666.jpg HTTP/1.1" from channelpic.360doc.com
+229: not in cache
+229: Requesting "GET http://channelpic.360doc.com/2023/20230227/202322711511933792456.jpg HTTP/1.1" from channelpic.360doc.com
 204: not in cache
-204: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
-204: Received "HTTP/1.1 200 OK" from httpbin.org
+204: Requesting "GET http://channelpic.360doc.com/2023/20230227/202322715463768187238.jpg HTTP/1.1" from channelpic.360doc.com
+215: not in cache
+215: Requesting "GET http://channelpic.360doc.com/2023/20230227/202322715405588575182.jpg HTTP/1.1" from channelpic.360doc.com
+226: not in cache
+226: Requesting "GET http://channelpic.360doc.com/2023/20230221/202322115533485175928.jpg HTTP/1.1" from channelpic.360doc.com
+228: not in cache
+228: Requesting "GET http://channelpic.360doc.com/2022/20221223/20221223183029317140888.jpg HTTP/1.1" from channelpic.360doc.com
+224: not in cache
+224: Requesting "GET http://channelpic.360doc.com/2023/20230223/2023223152640994123923.jpg HTTP/1.1" from channelpic.360doc.com
+225: not in cache
+225: Requesting "GET http://channelpic.360doc.com/2023/20230222/2023222155410431106042.jpg HTTP/1.1" from channelpic.360doc.com
+231: not in cache
+231: Requesting "GET http://channelpic.360doc.com/2022/20221209/2022129165530176158009.jpg HTTP/1.1" from channelpic.360doc.com
+230: not in cache
+230: Requesting "GET http://channelpic.360doc.com/2022/20221218/2022121822321925892311.jpg HTTP/1.1" from channelpic.360doc.com
+205: not in cache
+205: Requesting "GET http://channelpic.360doc.com/2023/20230227/2023227155113400169172.jpg HTTP/1.1" from channelpic.360doc.com
+219: not in cache
+219: Requesting "GET http://channelpic.360doc.com/2023/20230227/2023227154055885128505.jpg HTTP/1.1" from channelpic.360doc.com
+223: not in cache
+223: Requesting "GET http://channelpic.360doc.com/2023/20230224/202322415465525791873.jpg HTTP/1.1" from channelpic.360doc.com
+239: "GET http://channelpic.360doc.com/2022/20221223/20221223183029301112616.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+208: not in cache
+208: Requesting "GET http://channelpic.360doc.com/2022/20221203/202212315445760079972.jpg HTTP/1.1" from channelpic.360doc.com
+221: not in cache
+221: Requesting "GET http://channelpic.360doc.com/2023/20230227/2023227154915369119333.jpg HTTP/1.1" from channelpic.360doc.com
+217: not in cache
+217: Requesting "GET http://channelpic.360doc.com/2023/20230227/2023227154055869114256.jpg HTTP/1.1" from channelpic.360doc.com
+232: not in cache
+232: Requesting "GET http://channelpic.360doc.com/2022/20221118/20221118173637956114091.jpg HTTP/1.1" from channelpic.360doc.com
+240: "GET http://channelpic.360doc.com/2022/20221118/2022111817369769106783.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+214: Received "HTTP/1.1 200 OK" from thumbnail1.360doc.com
+214: cached, does not expire 
+214: Responding "HTTP/1.1 200 OK"
+227: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+227: not cacheable because "Response code is 304"
+227: Responding "HTTP/1.1 304 Not Modified"
+226: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+226: not cacheable because "Response code is 304"
+226: Responding "HTTP/1.1 304 Not Modified"
+231: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+231: not cacheable because "Response code is 304"
+231: Responding "HTTP/1.1 304 Not Modified"
+228: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+228: not cacheable because "Response code is 304"
+228: Responding "HTTP/1.1 304 Not Modified"
+224: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+224: not cacheable because "Response code is 304"
+224: Responding "HTTP/1.1 304 Not Modified"
+229: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+229: not cacheable because "Response code is 304"
+229: Responding "HTTP/1.1 304 Not Modified"
+215: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+215: not cacheable because "Response code is 304"
+215: Responding "HTTP/1.1 304 Not Modified"
+225: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+225: not cacheable because "Response code is 304"
+225: Responding "HTTP/1.1 304 Not Modified"
+230: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+230: not cacheable because "Response code is 304"
+230: Responding "HTTP/1.1 304 Not Modified"
+205: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+205: not cacheable because "Response code is 304"
+205: Responding "HTTP/1.1 304 Not Modified"
+223: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+223: not cacheable because "Response code is 304"
+223: Responding "HTTP/1.1 304 Not Modified"
+219: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+219: not cacheable because "Response code is 304"
+219: Responding "HTTP/1.1 304 Not Modified"
+209: Received "HTTP/1.1 200 OK" from thumbnail1.360doc.com
+(no-id): NOTE evicted "shiningshinysilvermorning.neverssl.com: http://shiningshinysilvermorning.neverssl.com/online/" from cache
+209: cached, does not expire 
+209: Responding "HTTP/1.1 200 OK"
+221: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+221: not cacheable because "Response code is 304"
+221: Responding "HTTP/1.1 304 Not Modified"
+208: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+208: not cacheable because "Response code is 304"
+208: Responding "HTTP/1.1 304 Not Modified"
+216: Received "HTTP/1.1 200 OK" from thumbnail1.360doc.com
+241: "GET http://channelpic.360doc.com/2022/20221209/2022129165530146219125.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+216: cached, does not expire 
+216: Responding "HTTP/1.1 200 OK"
+232: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+232: not cacheable because "Response code is 304"
+232: Responding "HTTP/1.1 304 Not Modified"
+212: Received "HTTP/1.1 200 OK" from thumbnail1.360doc.com
+(no-id): NOTE evicted "shiningbrightlushmelody.neverssl.com: http://shiningbrightlushmelody.neverssl.com/online/" from cache
+212: cached, does not expire 
+212: Responding "HTTP/1.1 200 OK"
+217: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+217: not cacheable because "Response code is 304"
+217: Responding "HTTP/1.1 304 Not Modified"
+213: Received "HTTP/1.1 200 OK" from thumbnail1.360doc.com
+213: cached, does not expire 
+213: Responding "HTTP/1.1 200 OK"
+242: "GET http://channelpic.360doc.com/2022/20221203/2022123154457584200637.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+243: "GET http://channelpic.360doc.com/2022/20221223/20221223183029286151106.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+247: "GET http://channelpic.360doc.com/2022/20221218/20221218223219274117640.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+248: "GET http://channelpic.360doc.com/2022/20221218/20221218223219289131678.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+236: not in cache
+236: Requesting "GET http://channelpic.360doc.com/2022/20221118/202211181736972284799.jpg HTTP/1.1" from channelpic.360doc.com
+238: not in cache
+238: Requesting "GET http://channelpic.360doc.com/2022/20221223/20221223183029270126273.jpg HTTP/1.1" from channelpic.360doc.com
+240: not in cache
+240: Requesting "GET http://channelpic.360doc.com/2022/20221118/2022111817369769106783.jpg HTTP/1.1" from channelpic.360doc.com
+237: not in cache
+237: Requesting "GET http://channelpic.360doc.com/2022/20221118/202211181736978443598.jpg HTTP/1.1" from channelpic.360doc.com
+239: not in cache
+239: Requesting "GET http://channelpic.360doc.com/2022/20221223/20221223183029301112616.jpg HTTP/1.1" from channelpic.360doc.com
+233: not in cache
+233: Requesting "GET http://channelpic.360doc.com/2022/20221203/2022123154457568106389.jpg HTTP/1.1" from channelpic.360doc.com
+246: "GET http://channelpic.360doc.com/2022/20221209/2022129165530129163808.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+244: "GET http://channelpic.360doc.com/2022/20221203/202212315445760183181.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+245: "GET http://channelpic.360doc.com/2022/20221209/2022129165530160134368.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+249: "GET http://channelpic.360doc.com/2022/20221218/20221218223219305204065.jpg HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:41 2023
+234: not in cache
+234: Requesting "GET http://v.trustutn.org/images/cert/bottom_large_img.png HTTP/1.1" from v.trustutn.org
+204: Received "HTTP/1.1 200 OK" from channelpic.360doc.com
+(no-id): NOTE evicted "www.360doc.com: http://www.360doc.com/index.html" from cache
 204: cached, does not expire 
 204: Responding "HTTP/1.1 200 OK"
-205: "GET http://httpbin.org/favicon.ico HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:41 2023
-205: not in cache
-205: Requesting "GET http://httpbin.org/favicon.ico HTTP/1.1" from httpbin.org
-205: Received "HTTP/1.1 404 NOT FOUND" from httpbin.org
-205: not cacheable because "Response code is 404"
-205: Responding "HTTP/1.1 404 NOT FOUND"
-206: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:41 2023
-206: Responding "HTTP/1.1 200 OK"
-207: "POST http://httpbin.org/post HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:31:44 2023
-207: Responding "HTTP/1.1 200 OK"
-81: Tunnel closed
-80: Tunnel closed
-53: Tunnel closed
-208: "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=14&nId=561607999&isNewArt=true&sign=BD1E6E55D25F0B68A01365252387EF53E787E7EC&_=1677562333000 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:32:13 2023
-208: not in cache
-208: Requesting "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=14&nId=561607999&isNewArt=true&sign=BD1E6E55D25F0B68A01365252387EF53E787E7EC&_=1677562333000 HTTP/1.1" from www.360doc.com
-208: Received "HTTP/1.1 200 OK" from www.360doc.com
-208: not cacheable because "private"
-208: Responding "HTTP/1.1 200 OK"
+241: not in cache
+241: Requesting "GET http://channelpic.360doc.com/2022/20221209/2022129165530146219125.jpg HTTP/1.1" from channelpic.360doc.com
+247: not in cache
+247: Requesting "GET http://channelpic.360doc.com/2022/20221218/20221218223219274117640.jpg HTTP/1.1" from channelpic.360doc.com
+242: not in cache
+242: Requesting "GET http://channelpic.360doc.com/2022/20221203/2022123154457584200637.jpg HTTP/1.1" from channelpic.360doc.com
+236: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+236: not cacheable because "Response code is 304"
+236: Responding "HTTP/1.1 304 Not Modified"
+240: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+240: not cacheable because "Response code is 304"
+240: Responding "HTTP/1.1 304 Not Modified"
+237: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+237: not cacheable because "Response code is 304"
+237: Responding "HTTP/1.1 304 Not Modified"
+238: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+238: not cacheable because "Response code is 304"
+238: Responding "HTTP/1.1 304 Not Modified"
+243: not in cache
+243: Requesting "GET http://channelpic.360doc.com/2022/20221223/20221223183029286151106.jpg HTTP/1.1" from channelpic.360doc.com
+248: not in cache
+248: Requesting "GET http://channelpic.360doc.com/2022/20221218/20221218223219289131678.jpg HTTP/1.1" from channelpic.360doc.com
+233: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+233: not cacheable because "Response code is 304"
+233: Responding "HTTP/1.1 304 Not Modified"
+239: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+239: not cacheable because "Response code is 304"
+239: Responding "HTTP/1.1 304 Not Modified"
+234: Received "HTTP/1.1 302 Moved Temporarily" from v.trustutn.org
+234: not cacheable because "Response code is 302"
+234: Responding "HTTP/1.1 302 Moved Temporarily"
+220: not in cache
+220: Requesting "GET http://thumbnail1.360doc.com/videoimg/2023/02/27/168642_1677489499731.jpg HTTP/1.1" from thumbnail1.360doc.com
+244: not in cache
+244: Requesting "GET http://channelpic.360doc.com/2022/20221203/202212315445760183181.jpg HTTP/1.1" from channelpic.360doc.com
+245: not in cache
+245: Requesting "GET http://channelpic.360doc.com/2022/20221209/2022129165530160134368.jpg HTTP/1.1" from channelpic.360doc.com
+249: not in cache
+249: Requesting "GET http://channelpic.360doc.com/2022/20221218/20221218223219305204065.jpg HTTP/1.1" from channelpic.360doc.com
+246: not in cache
+246: Requesting "GET http://channelpic.360doc.com/2022/20221209/2022129165530129163808.jpg HTTP/1.1" from channelpic.360doc.com
+241: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+241: not cacheable because "Response code is 304"
+241: Responding "HTTP/1.1 304 Not Modified"
+250: "CONNECT v.trustutn.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+247: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+247: not cacheable because "Response code is 304"
+247: Responding "HTTP/1.1 304 Not Modified"
+242: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+242: not cacheable because "Response code is 304"
+242: Responding "HTTP/1.1 304 Not Modified"
+243: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+243: not cacheable because "Response code is 304"
+243: Responding "HTTP/1.1 304 Not Modified"
+248: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+248: not cacheable because "Response code is 304"
+248: Responding "HTTP/1.1 304 Not Modified"
+245: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+245: not cacheable because "Response code is 304"
+245: Responding "HTTP/1.1 304 Not Modified"
+244: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+244: not cacheable because "Response code is 304"
+244: Responding "HTTP/1.1 304 Not Modified"
+246: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+246: not cacheable because "Response code is 304"
+246: Responding "HTTP/1.1 304 Not Modified"
+249: Received "HTTP/1.1 304 Not Modified" from channelpic.360doc.com
+249: not cacheable because "Response code is 304"
+249: Responding "HTTP/1.1 304 Not Modified"
+250: Responding "HTTP/1.1 200 OK"
+220: Received "HTTP/1.1 200 OK" from thumbnail1.360doc.com
+220: cached, does not expire 
+220: Responding "HTTP/1.1 200 OK"
+211: Received "HTTP/1.1 200 OK" from www.360doc.com
+(no-id): NOTE evicted "css.360doc.com: http://css.360doc.com/pageNum.css?t=2018062701" from cache
+211: cached, expires at Wed Mar 15 06:57:42 2023
+211: Responding "HTTP/1.1 200 OK"
+235: not in cache
+235: Requesting "GET http://eclick.360doc.com/pcpage.jpg?code=69-1&1677563860195 HTTP/1.1" from eclick.360doc.com
+253: "GET http://www.360doc.com/ajax/ReadingRoom/getJCWJJData.ashx?cid=0&pagenum=21&sign=F673367B1C390D106F4ABE988309F461A908932D&_=1677563862675 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+251: "GET http://product.360doc.com/ajax/Common.ashx?callback=jQuery18008694947616202022_1677563860167&op=GetAppValue_YidunCaptchaId&sign=93E6CB7419971F7F96129579C8F0F853B744621E&_=1677563862596 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+252: "GET http://www.360doc.com/clippertool/getnoteclipperASHX.ashx?type=10&jsoncallback=jsonp1677563862600 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+254: "GET http://www.360doc.com/ajax/chat.ashx?getpunishment=&_=1677563862695 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+259: "CONNECT hm.baidu.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+253: not in cache
+253: Requesting "GET http://www.360doc.com/ajax/ReadingRoom/getJCWJJData.ashx?cid=0&pagenum=21&sign=F673367B1C390D106F4ABE988309F461A908932D&_=1677563862675 HTTP/1.1" from www.360doc.com
+252: not in cache
+252: Requesting "GET http://www.360doc.com/clippertool/getnoteclipperASHX.ashx?type=10&jsoncallback=jsonp1677563862600 HTTP/1.1" from www.360doc.com
+235: Received "HTTP/1.1 200 OK" from eclick.360doc.com
+235: cached, but requires re-validation
+235: cached, does not expire 
+235: Responding "HTTP/1.1 200 OK"
+259: Responding "HTTP/1.1 200 OK"
+254: not in cache
+254: Requesting "GET http://www.360doc.com/ajax/chat.ashx?getpunishment=&_=1677563862695 HTTP/1.1" from www.360doc.com
+252: Received "HTTP/1.1 200 OK" from www.360doc.com
+252: not cacheable because "private"
+252: Responding "HTTP/1.1 200 OK"
+251: not in cache
+251: Requesting "GET http://product.360doc.com/ajax/Common.ashx?callback=jQuery18008694947616202022_1677563860167&op=GetAppValue_YidunCaptchaId&sign=93E6CB7419971F7F96129579C8F0F853B744621E&_=1677563862596 HTTP/1.1" from product.360doc.com
+254: Received "HTTP/1.1 200 OK" from www.360doc.com
+254: not cacheable because "private"
+254: Responding "HTTP/1.1 200 OK"
+251: Received "HTTP/1.1 200 OK" from product.360doc.com
+251: not cacheable because "private"
+251: Responding "HTTP/1.1 200 OK"
+255: "GET http://cstaticdun.126.net/plugins.min.js?v=27959397 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+260: "POST http://ocsp.crlocsp.cn/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:43 2023
+253: Received "HTTP/1.1 200 OK" from www.360doc.com
+(no-id): NOTE evicted "pubimage.360doc.com: http://pubimage.360doc.com/head/mask/002.gif" from cache
+253: cached, does not expire 
+253: Responding "HTTP/1.1 200 OK"
+255: not in cache
+255: Requesting "GET http://cstaticdun.126.net/plugins.min.js?v=27959397 HTTP/1.1" from cstaticdun.126.net
+255: Received "HTTP/1.1 200 OK" from cstaticdun.126.net
+255: cached, expires at Tue Feb 28 04:36:45 2023
+255: Responding "HTTP/1.1 200 OK"
+256: "GET http://c.dun.163.com/api/v2/getconf?referer=http%3A%2F%2Fwww.360doc.com%2Findex.html&zoneId=&id=efe5a4be4ed646f3ac4ce90e3746a12e&ipv6=false&runEnv=10&loadVersion=2.2.3&callback=__JSONP_n0e9jn8_0 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+258: "GET http://pubimage.360doc.com/index7/bg_artitype_shadow.png HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+258: not in cache
+258: Requesting "GET http://pubimage.360doc.com/index7/bg_artitype_shadow.png HTTP/1.1" from pubimage.360doc.com
+258: Received "HTTP/1.1 200 OK" from pubimage.360doc.com
+(no-id): NOTE evicted "userimage8.360doc.com: http://userimage8.360doc.com/22/1203/20/81213978_202212032026090567_main.jpg" from cache
+258: cached, expires at Mon Mar 13 14:22:38 2023
+258: Responding "HTTP/1.1 200 OK"
+256: not in cache
+256: Requesting "GET http://c.dun.163.com/api/v2/getconf?referer=http%3A%2F%2Fwww.360doc.com%2Findex.html&zoneId=&id=efe5a4be4ed646f3ac4ce90e3746a12e&ipv6=false&runEnv=10&loadVersion=2.2.3&callback=__JSONP_n0e9jn8_0 HTTP/1.1" from c.dun.163.com
+256: Received "HTTP/1.1 200 OK" from c.dun.163.com
+256: not cacheable because "no-store"
+256: Responding "HTTP/1.1 200 OK"
+257: "GET http://acstatic-dun.126.net/tool.min.js?v=27959397 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:42 2023
+262: "GET http://cstaticdun.126.net/2.21.2/light.v2.21.2.min.js?v=2795939 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:45 2023
+261: "GET http://cstaticdun.126.net/2.21.2/core.v2.21.2.min.js?v=2795939 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:45 2023
+262: not in cache
+262: Requesting "GET http://cstaticdun.126.net/2.21.2/light.v2.21.2.min.js?v=2795939 HTTP/1.1" from cstaticdun.126.net
+261: not in cache
+261: Requesting "GET http://cstaticdun.126.net/2.21.2/core.v2.21.2.min.js?v=2795939 HTTP/1.1" from cstaticdun.126.net
+262: Received "HTTP/1.1 200 OK" from cstaticdun.126.net
+262: cached, expires at Mon Feb 27 20:43:19 2023
+262: Responding "HTTP/1.1 200 OK"
+263: "CONNECT staticcdn.shuidi.cn:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:45 2023
+257: not in cache
+257: Requesting "GET http://acstatic-dun.126.net/tool.min.js?v=27959397 HTTP/1.1" from acstatic-dun.126.net
+261: Received "HTTP/1.1 200 OK" from cstaticdun.126.net
+(no-id): NOTE evicted "userimage8.360doc.com: http://userimage8.360doc.com/22/0413/23/79275481_202204132310380319_main.jpg" from cache
+261: cached, expires at Mon Feb 27 20:43:19 2023
+261: Responding "HTTP/1.1 200 OK"
+257: Received "HTTP/1.1 200 OK" from acstatic-dun.126.net
+257: cached, expires at Mon Feb 27 18:48:34 2023
+257: Responding "HTTP/1.1 200 OK"
+264: "GET http://ac.dun.163.com/v2/config/js?pn=YD00649663098416&cvk=5dbc964821b89f6203de7cdc2e9c7743&cb=__wmjsonp_1ec23ad0&t=1677563865970 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:46 2023
+264: not in cache
+264: Requesting "GET http://ac.dun.163.com/v2/config/js?pn=YD00649663098416&cvk=5dbc964821b89f6203de7cdc2e9c7743&cb=__wmjsonp_1ec23ad0&t=1677563865970 HTTP/1.1" from ac.dun.163.com
+264: Received "HTTP/1.1 200 OK" from ac.dun.163.com
+(no-id): NOTE evicted "userimage8.360doc.com: http://userimage8.360doc.com/23/0216/19/81673938_202302161907300967_main.jpg" from cache
+264: cached, does not expire 
+264: Responding "HTTP/1.1 200 OK"
+263: Responding "HTTP/1.1 200 OK"
+265: "GET http://acstatic-dun.126.net/2.7.5_e2891084/watchman.min.js HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:46 2023
+265: not in cache
+265: Requesting "GET http://acstatic-dun.126.net/2.7.5_e2891084/watchman.min.js HTTP/1.1" from acstatic-dun.126.net
+265: Received "HTTP/1.1 304 Not Modified" from acstatic-dun.126.net
+265: not cacheable because "Response code is 304"
+265: Responding "HTTP/1.1 304 Not Modified"
+266: "POST http://ocsp.crlocsp.cn/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:57:47 2023
+260: Responding "HTTP/1.1 200 OK"
+267: "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:58:45 2023
+268: "CONNECT spocs.getpocket.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:58:45 2023
+267: Responding "HTTP/1.1 200 OK"
+268: Responding "HTTP/1.1 200 OK"
+28: Tunnel closed
+269: "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=1&nId=249223950&isNewArt=true&sign=24984A675DC14214DAC09D4D9C3D316746460A46&_=1677563959146 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:59:19 2023
+269: not in cache
+269: Requesting "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=1&nId=249223950&isNewArt=true&sign=24984A675DC14214DAC09D4D9C3D316746460A46&_=1677563959146 HTTP/1.1" from www.360doc.com
+269: Received "HTTP/1.1 200 OK" from www.360doc.com
+269: not cacheable because "private"
+269: Responding "HTTP/1.1 200 OK"
+266: ERROR Cannot connect to server
+270: "POST http://ocsp.crlocsp.cn/ HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 05:59:58 2023
+270: Responding "HTTP/1.1 200 OK"
+271: "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=2&nId=561610065&isNewArt=true&sign=2710881D09BB19CEE437A91DB654EEB967AD072F&_=1677564011538 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:00:11 2023
+271: not in cache
+271: Requesting "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=2&nId=561610065&isNewArt=true&sign=2710881D09BB19CEE437A91DB654EEB967AD072F&_=1677564011538 HTTP/1.1" from www.360doc.com
+271: Received "HTTP/1.1 200 OK" from www.360doc.com
+271: not cacheable because "private"
+271: Responding "HTTP/1.1 200 OK"
+272: "GET http://www.360doc.com/ajax/ReadingRoom/getIndex7Data.ashx?nType=29&isNewArt=true&sign=079CF9F70E68E89E70836D1DDDADBE88ED39A1ED&_=1677564058906 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:00:59 2023
+272: not in cache
+272: Requesting "GET http://www.360doc.com/ajax/ReadingRoom/getIndex7Data.ashx?nType=29&isNewArt=true&sign=079CF9F70E68E89E70836D1DDDADBE88ED39A1ED&_=1677564058906 HTTP/1.1" from www.360doc.com
+272: Received "HTTP/1.1 200 OK" from www.360doc.com
+272: not cacheable because "private"
+272: Responding "HTTP/1.1 200 OK"
+273: "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=3&nId=561610045&isNewArt=true&sign=B3EAD0B8F718A2AC8C0B59F55C06FC771618F070&_=1677564062928 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:03 2023
+273: not in cache
+273: Requesting "GET http://www.360doc.com/ajax/index7/getZZZCData.ashx?artNum=20&nPage=3&nId=561610045&isNewArt=true&sign=B3EAD0B8F718A2AC8C0B59F55C06FC771618F070&_=1677564062928 HTTP/1.1" from www.360doc.com
+273: Received "HTTP/1.1 200 OK" from www.360doc.com
+273: not cacheable because "private"
+273: Responding "HTTP/1.1 200 OK"
+274: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:12 2023
+274: Responding "HTTP/1.1 200 OK"
+275: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:14 2023
+275: Responding "HTTP/1.1 200 OK"
+276: "CONNECT nym1-ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:18 2023
+276: Responding "HTTP/1.1 200 OK"
+282: "CONNECT c.travel-assets.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+282: Responding "HTTP/1.1 200 OK"
+289: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+289: Responding "HTTP/1.1 200 OK"
+288: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+296: "CONNECT www.tamgrt.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+298: "CONNECT pixel.mtrcs.samba.tv:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+300: "CONNECT www.trvl-px.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+299: "CONNECT bat.bing.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+288: Responding "HTTP/1.1 200 OK"
+300: Responding "HTTP/1.1 200 OK"
+296: Responding "HTTP/1.1 200 OK"
+299: Responding "HTTP/1.1 200 OK"
+298: Responding "HTTP/1.1 200 OK"
+301: "CONNECT vacadapter.vap.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+301: Responding "HTTP/1.1 200 OK"
+302: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:39 2023
+303: "CONNECT 9224405.fls.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:39 2023
+303: Responding "HTTP/1.1 200 OK"
+302: Responding "HTTP/1.1 200 OK"
+304: "CONNECT oms.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:39 2023
+304: Responding "HTTP/1.1 200 OK"
+305: "CONNECT www.trvl-px.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:40 2023
+305: Responding "HTTP/1.1 200 OK"
+287: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:38 2023
+287: Responding "HTTP/1.1 200 OK"
+306: "CONNECT vap.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:40 2023
+307: "CONNECT www.uciservice.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:40 2023
+306: Responding "HTTP/1.1 200 OK"
+307: Responding "HTTP/1.1 200 OK"
+308: "CONNECT adservice.google.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:40 2023
+308: Responding "HTTP/1.1 200 OK"
+310: "CONNECT vap.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:41 2023
+311: "CONNECT vap.expedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:41 2023
+310: Responding "HTTP/1.1 200 OK"
+311: Responding "HTTP/1.1 200 OK"
+313: "CONNECT tr.snapchat.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:41 2023
+315: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+316: "CONNECT insight.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+314: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:41 2023
+315: Responding "HTTP/1.1 200 OK"
+313: Responding "HTTP/1.1 200 OK"
+314: Responding "HTTP/1.1 200 OK"
+316: Responding "HTTP/1.1 200 OK"
+319: "CONNECT aax-dtb-cf.amazon-adsystem.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+320: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+320: Responding "HTTP/1.1 200 OK"
+319: Responding "HTTP/1.1 200 OK"
+322: "CONNECT exchange.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+323: "CONNECT htlb.casalemedia.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+321: "CONNECT hbopenbid.pubmatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+324: "CONNECT tlx.3lift.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+323: Responding "HTTP/1.1 200 OK"
+322: Responding "HTTP/1.1 200 OK"
+324: Responding "HTTP/1.1 200 OK"
+321: Responding "HTTP/1.1 200 OK"
+325: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:42 2023
+325: Responding "HTTP/1.1 200 OK"
+326: "CONNECT pagead2.googlesyndication.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:43 2023
+326: Responding "HTTP/1.1 200 OK"
+327: "CONNECT csi.gstatic.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:43 2023
+327: Responding "HTTP/1.1 200 OK"
+329: "CONNECT snowplow.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:43 2023
+329: Responding "HTTP/1.1 200 OK"
+330: "CONNECT securepubads.g.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:44 2023
+330: Responding "HTTP/1.1 200 OK"
+328: "CONNECT snowplow.mediavine.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:43 2023
+328: Responding "HTTP/1.1 200 OK"
+332: "CONNECT aax-us-east.amazon-adsystem.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:46 2023
+332: Responding "HTTP/1.1 200 OK"
+333: "CONNECT www.roamingtheusa.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:47 2023
+333: Responding "HTTP/1.1 200 OK"
+334: "CONNECT nym1-ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:48 2023
+334: Responding "HTTP/1.1 200 OK"
+335: "CONNECT nym1-ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:51 2023
+335: Responding "HTTP/1.1 200 OK"
+336: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:51 2023
+336: Responding "HTTP/1.1 200 OK"
+337: "CONNECT www.googletagservices.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:52 2023
+338: "CONNECT choices.truste.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:52 2023
+338: Responding "HTTP/1.1 200 OK"
+337: Responding "HTTP/1.1 200 OK"
+339: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:52 2023
+339: Responding "HTTP/1.1 200 OK"
+340: "CONNECT ad.doubleclick.net:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:53 2023
+340: Responding "HTTP/1.1 200 OK"
+341: "CONNECT ny1-bid.adsrvr.org:443 HTTP/1.1" from 174.99.158.118 @ Tue Feb 28 06:01:55 2023
+341: Responding "HTTP/1.1 200 OK"

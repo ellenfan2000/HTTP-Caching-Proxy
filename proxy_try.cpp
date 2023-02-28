@@ -24,8 +24,9 @@ public:
             id++;
             if(ec.value() != 0){
                 //if cannot connect, go to next connection
-                std::cerr<<"cannot connect with client: "<< ec.message()<<std::endl;
+                // std::cerr<<"cannot connect with client: "<< ec.message()<<std::endl;
                 socket->close();
+                delete socket;
                 continue;
             }
             std::thread t(&Proxy::requestProcess, this, socket, id-1);
@@ -87,10 +88,10 @@ public:
             <<" @ "<<ctime(&gmt_now);
             pthread_mutex_unlock(&lock);
             
-            std::cerr<< "Read Request error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
+            // std::cerr<< "Read Request error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
             http::write(*socket, make400Response(&request, ID),ec);
             if(ec.value() != 0){
-                std::cerr<< "Send 400 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
+                // std::cerr<< "Send 400 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
@@ -114,7 +115,7 @@ public:
         try{
             socket_server = connectToServer(host.c_str(), port.c_str());
         }catch(std::exception & e){
-            std::cerr<< "socket error:" <<e.what()<< std::endl;
+            // std::cerr<< "socket error:" <<e.what()<< std::endl;
             pthread_mutex_lock(&lock);
             LogStream<<ID<<": ERROR Cannot connect to server"<<std::endl;
             pthread_mutex_unlock(&lock);
@@ -127,11 +128,11 @@ public:
             try{
                 GET(&request,ID,  socket, socket_server);
             }catch(std::exception & e){
-                std::cerr<< "GET error:" <<e.what()<< std::endl;
+                // std::cerr<< "GET error:" <<e.what()<< std::endl;
                 http::write(*socket, make502Response(&request, ID),ec);
-                if(ec.value() != 0){
-                    std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
-                }
+                // if(ec.value() != 0){
+                //     // std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
+                // }
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": ERROR Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
@@ -143,9 +144,9 @@ public:
             }catch(std::exception & e){
                 std::cerr<< "POST error:" <<e.what()<< std::endl;
                 http::write(*socket, make502Response(&request, ID),ec);
-                if(ec.value() != 0){
-                    std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
-                }
+                // if(ec.value() != 0){
+                //     std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
+                // }
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": ERROR Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
@@ -159,13 +160,13 @@ public:
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": Tunnel closed"<<std::endl;
                 pthread_mutex_unlock(&lock);
-                std::cerr<< "CONNECT error:" <<e.what()<< std::endl;
+                // std::cerr<< "CONNECT error:" <<e.what()<< std::endl;
             }
 
         }else{
             // if request method is not a valid type, should response 400
             http::write(*socket, make400Response(&request, ID),ec);
-            std::cerr<<"Bad Request Type!!!"<<std::endl;
+            // std::cerr<<"Bad Request Type!!!"<<std::endl;
         }
         socket->close();
         socket_server->close();
@@ -397,32 +398,37 @@ public:
     */
     int getExpireTime(http::response<http::dynamic_body> * response, time_t * expire){
         //has cache control
-        if(response->find(http::field::cache_control) != response->end()){
-            std::string str((*response)[http::field::cache_control]);
-            std::map<std::string, long> fields = parseFields(str);
+        try{
+            if(response->find(http::field::cache_control) != response->end()){
+                std::string str((*response)[http::field::cache_control]);
+                std::map<std::string, long> fields = parseFields(str);
 
-	        std::string date_str((*response)[http::field::date]);
-            time_t date_value = parseDatetime(date_str);
+                std::string date_str((*response)[http::field::date]);
+                time_t date_value = parseDatetime(date_str);
 
-            if(fields.find("max-age") != fields.end()){
-                *expire = date_value + fields["max-age"];
-                return 1;
+                if(fields.find("max-age") != fields.end()){
+                    *expire = date_value + fields["max-age"];
+                    return 1;
+                }else{
+                    //never expire
+                    expire = NULL;
+                    return 0;
+                }
             }else{
-                //never expire
-                expire = NULL;
-                return 0;
+                if(response->find(http::field::expires)== response->end()){
+                    //never expire
+                    expire = NULL;
+                    return 0; 
+                }else{
+                    std::string expire_str((*response)[http::field::expires]);
+                    //what is the str is just 0 or -1;
+                    *expire = parseDatetime(expire_str);
+                    return 1;
+                }
             }
-        }else{
-            if(response->find(http::field::expires)== response->end()){
-                //never expire
-                expire = NULL;
-                return 0; 
-            }else{
-                std::string expire_str((*response)[http::field::expires]);
-                //what is the str is just 0 or -1;
-                *expire = parseDatetime(expire_str);
-                return 1;
-             }
+        }catch(std::invalid_argument & e){
+            return 0;
+            expire = NULL;
         }
         return 0;
     }
@@ -580,12 +586,13 @@ public:
 };
 
 int main(){
-    // int status = daemon(1,1);
-    // if(status == -1){
-    //     std::cerr<<"Daemon fail"<<std::endl;
-    // }
+    int status = daemon(1,1);
+    if(status == -1){
+        std::cerr<<"Daemon fail"<<std::endl;
+        return EXIT_FAILURE;
+    }
     std::string host = "12345";
-    Proxy p(host, 1000);
+    Proxy p(host, 10);
     p.run();
-    return 0;
+    return EXIT_SUCCESS;
 }

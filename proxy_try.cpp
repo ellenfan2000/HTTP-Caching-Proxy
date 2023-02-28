@@ -104,7 +104,11 @@ public:
         std::string port;
         std::string host;
         isHTTPS(std::string(request.at("HOST")), &host, &port);
-        tcp::socket * socket_server = connectToServer(host.c_str(), port.c_str());
+        try{
+	 tcp::socket * socket_server = connectToServer(host.c_str(), port.c_str());
+	}catch(std::exception e){
+	  return;
+	}
 
         http::verb method = request.method();
         if (method ==http::verb::get){ //GET

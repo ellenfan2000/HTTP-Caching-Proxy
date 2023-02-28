@@ -211,6 +211,10 @@ public:
         http::response<http::dynamic_body> response;
         boost::beast::http::read(*socket_server, buffer, response);
         //send response to client
+        pthread_mutex_lock(&lock);
+         LogStream<<ID<<": Responding \"" \
+        << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
+        pthread_mutex_unlock(&lock);
         http::write(*socket, response);
     }
 
@@ -225,6 +229,10 @@ public:
         //send success to client, build the tunnel
         int status;
         std::string message = "HTTP/1.1 200 OK\r\n\r\n";
+         pthread_mutex_lock(&lock);
+         LogStream<<ID<<": Responding "
+        <<" HTTP/1.1 200 OK \r\n\r\n"<<std::endl;
+        pthread_mutex_unlock(&lock);
         status = net::write(*socket, net::buffer(message));
         while(true){
             //byte of data available to read from server
@@ -278,8 +286,15 @@ public:
                 http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response, ID);
                 if(vali_response.result_int() ==200){
                     cache.update(key, vali_response);
+                    LogStream<<ID<<": Responding \"" \
+                 << parseVersion(vali_response.version())<< " " << vali_response.result_int() << " "<<vali_response.reason()<<"\""<<std::endl;
+                pthread_mutex_unlock(&lock);
                     http::write(*socket, vali_response);
                 }else{
+                	pthread_mutex_lock(&lock);
+                 LogStream<<ID<<": Responding \"" \
+                 << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
+                pthread_mutex_unlock(&lock);
                     http::write(*socket, *response);
                 }
             }else{
@@ -287,6 +302,10 @@ public:
                 LogStream<<ID<< ": in cache, valid"<<std::endl;
                 pthread_mutex_unlock(&lock);
                 // Send response to the client
+                  pthread_mutex_lock(&lock);
+                 LogStream<<ID<<": Responding \"" \
+                 << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
+                pthread_mutex_unlock(&lock);
                 http::write(*socket, *response);
             }
             // std::cout<<"Cached response is: "<<response->base()<<std::endl;
@@ -330,6 +349,10 @@ public:
                 }
             }
             // Send the response to the client
+            pthread_mutex_lock(&lock);
+                 LogStream<<ID<<": Responding \"" \
+                 << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
+                pthread_mutex_unlock(&lock);
             http::write(*socket, response);
             // std::cout<<"response is: "<<response.base()<<std::endl;
         }

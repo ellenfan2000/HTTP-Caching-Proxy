@@ -1,6 +1,6 @@
 #include "SocketUtils.hpp"
 #include "Cache_try.hpp"  
-
+#include <exception>
 class Proxy{
 private:
     const char * host;
@@ -106,11 +106,7 @@ public:
         isHTTPS(std::string(request.at("HOST")), &host, &port);
         try{
 	 tcp::socket * socket_server = connectToServer(host.c_str(), port.c_str());
-	}catch(std::exception e){
-	  return;
-	}
-
-        http::verb method = request.method();
+	 http::verb method = request.method();
         if (method ==http::verb::get){ //GET
             try{
                 GET(&request,ID,  socket, socket_server);
@@ -153,6 +149,11 @@ public:
         socket_server->close();
         delete socket;
         delete socket_server;
+	}catch(std::exception e){
+	  return;
+	}
+
+        
     }
 
     /**

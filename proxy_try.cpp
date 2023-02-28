@@ -1,6 +1,6 @@
 #include "parser.hpp"
 #include "Cache_try.hpp"  
-
+#include <exception>
 class Proxy{
 private:
     const char * host;

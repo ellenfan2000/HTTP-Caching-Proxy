@@ -9,4 +9,4 @@ services:
             - "./logs:/var/log/erss"
       ports:
             - "12345:12345"
-      command: bash -c "make && ./proxy"
+      command: bash -c "make && ./proxy&& while true; do continue; done"

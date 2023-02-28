@@ -116,7 +116,7 @@ public:
         }catch(std::exception & e){
             std::cerr<< "socket error:" <<e.what()<< std::endl;
             pthread_mutex_lock(&lock);
-            LogStream<<ID<<": Cannot resolve hostname"<<std::endl;
+            LogStream<<ID<<": ERROR Cannot connect to server"<<std::endl;
             pthread_mutex_unlock(&lock);
             socket->close();
             delete socket;
@@ -133,7 +133,7 @@ public:
                     std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
                 }
                 pthread_mutex_lock(&lock);
-                LogStream<<ID<<": Connection Lost"<<std::endl;
+                LogStream<<ID<<": ERROR Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
             }
         }
@@ -147,7 +147,7 @@ public:
                     std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
                 }
                 pthread_mutex_lock(&lock);
-                LogStream<<ID<<": Connection Lost"<<std::endl;
+                LogStream<<ID<<": ERROR Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
                 //connection lost or the reponse get from server is invalid
             }
@@ -211,11 +211,11 @@ public:
         http::response<http::dynamic_body> response;
         boost::beast::http::read(*socket_server, buffer, response);
         //send response to client
+        http::write(*socket, response);
         pthread_mutex_lock(&lock);
          LogStream<<ID<<": Responding \"" \
         << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
         pthread_mutex_unlock(&lock);
-        http::write(*socket, response);
     }
 
     /**
@@ -230,8 +230,7 @@ public:
         int status;
         std::string message = "HTTP/1.1 200 OK\r\n\r\n";
          pthread_mutex_lock(&lock);
-         LogStream<<ID<<": Responding "
-        <<" HTTP/1.1 200 OK \r\n\r\n"<<std::endl;
+         LogStream<<ID<<": Responding \"HTTP/1.1 200 OK\""<<std::endl;
         pthread_mutex_unlock(&lock);
         status = net::write(*socket, net::buffer(message));
         while(true){
@@ -286,25 +285,25 @@ public:
                 http::response<http::dynamic_body> vali_response = doValidation(socket_server,request, response, ID);
                 if(vali_response.result_int() ==200){
                     cache.update(key, vali_response);
-                    LogStream<<ID<<": Responding \"" \
-                 << parseVersion(vali_response.version())<< " " << vali_response.result_int() << " "<<vali_response.reason()<<"\""<<std::endl;
-                pthread_mutex_unlock(&lock);
                     http::write(*socket, vali_response);
+                    pthread_mutex_lock(&lock);
+                    LogStream<<ID<<": Responding \"" \
+                    << parseVersion(vali_response.version())<< " " << vali_response.result_int() << " "<<vali_response.reason()<<"\""<<std::endl;
+                    pthread_mutex_unlock(&lock);
                 }else{
-                	pthread_mutex_lock(&lock);
-                 LogStream<<ID<<": Responding \"" \
-                 << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
-                pthread_mutex_unlock(&lock);
                     http::write(*socket, *response);
+                    pthread_mutex_lock(&lock);
+                    LogStream<<ID<<": Responding \"" \
+                    << parseVersion(response->version())<< " " << response->result_int() << " "<<response->reason()<<"\""<<std::endl;
+                    pthread_mutex_unlock(&lock);
+
                 }
             }else{
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<< ": in cache, valid"<<std::endl;
-                pthread_mutex_unlock(&lock);
                 // Send response to the client
-                  pthread_mutex_lock(&lock);
-                 LogStream<<ID<<": Responding \"" \
-                 << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
+                LogStream<<ID<<": Responding \"" \
+                << parseVersion(response->version())<< " " << response->result_int() << " "<<response->reason()<<"\""<<std::endl;
                 pthread_mutex_unlock(&lock);
                 http::write(*socket, *response);
             }
@@ -349,11 +348,11 @@ public:
                 }
             }
             // Send the response to the client
-            pthread_mutex_lock(&lock);
-                 LogStream<<ID<<": Responding \"" \
-                 << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
-                pthread_mutex_unlock(&lock);
             http::write(*socket, response);
+            pthread_mutex_lock(&lock);
+            LogStream<<ID<<": Responding \"" \
+            << parseVersion(response.version())<< " " << response.result_int() << " "<<response.reason()<<"\""<<std::endl;
+            pthread_mutex_unlock(&lock);
             // std::cout<<"response is: "<<response.base()<<std::endl;
         }
         

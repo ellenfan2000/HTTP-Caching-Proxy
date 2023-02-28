@@ -128,10 +128,8 @@ public:
                 GET(&request,ID,  socket, socket_server);
             }catch(std::exception & e){
                 // std::cerr<< "GET error:" <<e.what()<< std::endl;
+                //if GET method throw exception, send 502 to client
                 http::write(*socket, make502Response(&request, ID),ec);
-                // if(ec.value() != 0){
-                //     // std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
-                // }
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": ERROR Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
@@ -141,11 +139,9 @@ public:
             try{
                 POST(&request,ID,  socket,socket_server);
             }catch(std::exception & e){
-                std::cerr<< "POST error:" <<e.what()<< std::endl;
+                //if GET method throw exception, send 502 to client
+                // std::cerr<< "POST error:" <<e.what()<< std::endl;
                 http::write(*socket, make502Response(&request, ID),ec);
-                // if(ec.value() != 0){
-                //     std::cerr<< "Send 502 error: " << ec.value() <<", "<<ec.to_string()<< ", "<<ec.message()<<std::endl;
-                // }
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": ERROR Connection Lost"<<std::endl;
                 pthread_mutex_unlock(&lock);
@@ -156,6 +152,7 @@ public:
             try{
                 CONNECT(&request,ID, socket,socket_server);
             }catch(std::exception & e){
+                //if connect method throw exception, tunnel closed 
                 pthread_mutex_lock(&lock);
                 LogStream<<ID<<": Tunnel closed"<<std::endl;
                 pthread_mutex_unlock(&lock);
@@ -596,7 +593,7 @@ int main(){
         return EXIT_FAILURE;
     }
     std::string host = "12345";
-    Proxy p(host, 3);
+    Proxy p(host, 1000);
     p.run();
     return EXIT_SUCCESS;
 }

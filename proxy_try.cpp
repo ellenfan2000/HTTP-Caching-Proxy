@@ -586,11 +586,11 @@ public:
 };
 
 int main(){
-    int status = daemon(1,1);
-    if(status == -1){
-        std::cerr<<"Daemon fail"<<std::endl;
-        return EXIT_FAILURE;
-    }
+    // int status = daemon(1,1);
+    // if(status == -1){
+    //     std::cerr<<"Daemon fail"<<std::endl;
+    //     return EXIT_FAILURE;
+    // }
     std::string host = "12345";
     Proxy p(host, 10);
     p.run();

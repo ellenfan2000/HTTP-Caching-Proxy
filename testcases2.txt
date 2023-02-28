@@ -1,0 +1,53 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test case 1: no-store and chunked data http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+result:
+4: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:14:49 2023
+4: not in cache
+4: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+4: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+4: not cacheable because "no-store"
+4: Responding "HTTP/1.1 200 OK"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test case 2: Test GET and POST http://httpbin.org/forms/post 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0: "GET http://httpbin.org/forms/post HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 16:18:37 2023
+0: not in cache
+0: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+0: Received "HTTP/1.1 200 OK" from httpbin.org
+0: cached, does not expire 
+0: Responding "HTTP/1.1 200 OK"
+1: "POST http://httpbin.org/post HTTP/1.1" from 10.197.14.34 @ Tue Feb 28 16:18:40 2023
+1: Responding "HTTP/1.1 200 OK"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test case 3: Expire and revalidate http://httpbin.org/cache/3
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0: "GET http://httpbin.org/cache/3 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:26:13 2023
+0: not in cache
+0: Requesting "GET http://httpbin.org/cache/3 HTTP/1.1" from httpbin.org
+0: Received "HTTP/1.1 200 OK" from httpbin.org
+0: cached, expires at Tue Feb 28 16:26:16 2023
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://httpbin.org/cache/3 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:26:23 2023
+1: in cache, but expired at Tue Feb 28 16:26:16 2023
+1: Validating "GET http://httpbin.org/cache/3 HTTP/1.1" from httpbin.org
+1: Recieve validation "HTTP/1.1 200 OK" from httpbin.org
+1: Responding "HTTP/1.1 200 OK"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test case 4: Cached does not expire http://httpbin.org/cache/3
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:39:33 2023
+0: not in cache
+0: Requesting "GET http://httpbin.org/cache/60 HTTP/1.1" from httpbin.org
+0: Received "HTTP/1.1 200 OK" from httpbin.org
+0: cached, expires at Tue Feb 28 16:40:33 2023
+0: Responding "HTTP/1.1 200 OK"
+1: "GET http://httpbin.org/cache/60 HTTP/1.1" from 127.0.0.1 @ Tue Feb 28 16:39:47 2023
+1: in cache, valid
+1: Responding "HTTP/1.1 200 OK"
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test case 5: 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
